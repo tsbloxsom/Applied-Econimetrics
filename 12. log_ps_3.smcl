@@ -1,0 +1,1316 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\log_ps_3.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Mar 2019, 15:50:15
+
+{com}. do "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\do_file_problem_set_3.do"
+{txt}
+{com}. //Problem set 3 truett bloxsom
+. 
+.  use "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\nhis2000.dta"
+{txt}
+{com}. 
+. //Q1
+. d
+
+{txt}Contains data from {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\nhis2000.dta
+{txt}  obs:{res}        28,890                          
+{txt} vars:{res}            28                          1 Feb 2012 09:54
+{txt} size:{res}     1,935,630                          
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:sampweight     }{txt}{bind: double  }{bind:{txt}%9.0f     }{space 1}{bind:         }{bind:  }{res}{res}Sample Person Weight{p_end}
+{p 0 48}{bind:psu            }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Primary Sampling Unit{p_end}
+{p 0 48}{bind:hhnum          }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}Sequential Serial Number, Household Record{p_end}
+{p 0 48}{bind:pernum         }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Person number within family (from reformatting){p_end}
+{p 0 48}{bind:age            }{txt}{bind: byte    }{bind:{txt}%36.0g    }{space 1}{bind:age_lbl  }{bind:  }{res}{res}Age{p_end}
+{p 0 48}{bind:sex            }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:sex_lbl  }{bind:  }{res}{res}Sex{p_end}
+{p 0 48}{bind:marstat        }{txt}{bind: byte    }{bind:{txt}%37.0g    }{space 1}{txt}marstat_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Legal marital status{p_end}
+{p 0 48}{bind:white          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Non-hispanic white{p_end}
+{p 0 48}{bind:black          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Non-hispanic black{p_end}
+{p 0 48}{bind:hisp           }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Hispanic{p_end}
+{p 0 48}{bind:other          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Other race/ethnicity{p_end}
+{p 0 48}{bind:edyrs          }{txt}{bind: byte    }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Years of education{p_end}
+{p 0 48}{bind:empstat        }{txt}{bind: byte    }{bind:{txt}%48.0g    }{space 1}{txt}empstat_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Employment status in past 1 to 2 weeks{p_end}
+{p 0 48}{bind:faminc_gt75    }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Family income > 75k{p_end}
+{p 0 48}{bind:faminc_20t75   }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Family income 20-75k{p_end}
+{p 0 48}{bind:health         }{txt}{bind: byte    }{bind:{txt}%23.0g    }{space 1}{txt}health_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Health status{p_end}
+{p 0 48}{bind:mort5          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Died within 5 years of survey{p_end}
+{p 0 48}{bind:bmi            }{txt}{bind: float   }{bind:{txt}%7.2f     }{space 1}{bind:bmi_lbl  }{bind:  }{res}{res}Body mass index{p_end}
+{p 0 48}{bind:uninsured      }{txt}{bind: byte    }{bind:{txt}%23.0g    }{space 1}{txt}uninsured_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Health Insurance coverage status{p_end}
+{p 0 48}{bind:cancerev       }{txt}{bind: byte    }{bind:{txt}%23.0g    }{space 1}{txt}cancerev_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Ever told had cancer{p_end}
+{p 0 48}{bind:cheartdiev     }{txt}{bind: byte    }{bind:{txt}%24.0g    }{space 1}{txt}cheartdiev_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Ever told had coronary heart disease{p_end}
+{p 0 48}{bind:heartattev     }{txt}{bind: byte    }{bind:{txt}%24.0g    }{space 1}{txt}heartattev_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Ever told had heart attack{p_end}
+{p 0 48}{bind:hypertenev     }{txt}{bind: byte    }{bind:{txt}%23.0g    }{space 1}{txt}hypertenev_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Ever told had hypertension{p_end}
+{p 0 48}{bind:diabeticev     }{txt}{bind: byte    }{bind:{txt}%23.0g    }{space 1}{txt}diabeticev_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Ever told had diabetes{p_end}
+{p 0 48}{bind:alc5upyr       }{txt}{bind: int     }{bind:{txt}%23.0g    }{space 1}{txt}alc5upyr_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Days had 5+ drinks, past year{p_end}
+{p 0 48}{bind:smokev         }{txt}{bind: byte    }{bind:{txt}%34.0g    }{space 1}{txt}smokev_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Ever smoked 100 cigarettes in life{p_end}
+{p 0 48}{bind:vig10fwk       }{txt}{bind: byte    }{bind:{txt}%30.0g    }{space 1}{txt}vig10fwk_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Frequency of vigorous activity 10+ minutes: Times per week{p_end}
+{p 0 48}{bind:bacon          }{txt}{bind: int     }{bind:{txt}%23.0g    }{space 1}{txt}bacsgmyr_lbl{p_end}
+{p 0 48}{space 44}{bind:  }{res}{res}Frequency eating bacon or sausage, per year{p_end}
+{txt}{hline}
+Sorted by: 
+
+{com}. label dir
+{res}age_lbl
+sex_lbl
+marstat_lbl
+empstat_lbl
+health_lbl
+bmi_lbl
+uninsured_lbl
+cancerev_lbl
+cheartdiev_lbl
+diabeticev_lbl
+heartattev_lbl
+hypertenev_lbl
+alc5upyr_lbl
+smokev_lbl
+bacsgmyr_lbl
+vig10fwk_lbl
+{txt}
+{com}. label list health_lbl
+{txt}health_lbl:
+{res}           1 Excellent
+           2 Very Good
+           3 Good
+           4 Fair
+           5 Poor
+           7 Unknown-refused
+           8 Unknown-not ascertained
+           9 Unknown-don't know
+{txt}
+{com}. gen poor_health = 0
+{txt}
+{com}. replace poor_health = 1 if health == 4 | health == 5
+{txt}(4,140 real changes made)
+
+{com}. sum 
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 2}sampweight {c |}{res}     28,890    6065.123    3460.756        741      43649
+{txt}{space 9}psu {c |}{res}     28,890    330.2007    192.8846          1        678
+{txt}{space 7}hhnum {c |}{res}     28,890    21492.95    12561.47          1      43300
+{txt}{space 6}pernum {c |}{res}     28,890    1.361855    .6385984          1         18
+{txt}{space 9}age {c |}{res}     28,890    49.39733    16.48097         25         85
+{txt}{hline 13}{c +}{hline 57}
+{space 9}sex {c |}{res}     28,890    1.571305    .4948981          1          2
+{txt}{space 5}marstat {c |}{res}     28,754    22.81929    14.82186         11         50
+{txt}{space 7}white {c |}{res}     28,890    .7801315    .4141645          0          1
+{txt}{space 7}black {c |}{res}     28,890    .1402561    .3472586          0          1
+{txt}{space 8}hisp {c |}{res}     28,890    .1570093    .3638159          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 7}other {c |}{res}     28,890    .0384562    .1922982          0          1
+{txt}{space 7}edyrs {c |}{res}     28,585    13.46252    2.999954          1         19
+{txt}{space 5}empstat {c |}{res}     28,855    22.00828    13.78566         11         40
+{txt}{space 1}faminc_gt75 {c |}{res}     27,210    .1505329    .3575996          0          1
+{txt}faminc_20t75 {c |}{res}     27,210    .5808159    .4934346          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 6}health {c |}{res}     28,864    2.305571    1.100829          1          5
+{txt}{space 7}mort5 {c |}{res}     27,265    .0812764    .2732641          0          1
+{txt}{space 9}bmi {c |}{res}     27,650    26.90822    5.636427       7.84       83.7
+{txt}{space 3}uninsured {c |}{res}     28,770    1.850608    .3564804          1          2
+{txt}{space 4}cancerev {c |}{res}     28,864    1.073275    .2605913          1          2
+{txt}{hline 13}{c +}{hline 57}
+{space 2}cheartdiev {c |}{res}     28,838     1.04078    .1977825          1          2
+{txt}{space 2}heartattev {c |}{res}     28,849    1.037194    .1892394          1          2
+{txt}{space 2}hypertenev {c |}{res}     28,853    1.268915    .4434033          1          2
+{txt}{space 2}diabeticev {c |}{res}     28,865    1.080617    .2722502          1          2
+{txt}{space 4}alc5upyr {c |}{res}     16,491    11.76987    45.31743          0        365
+{txt}{hline 13}{c +}{hline 57}
+{space 6}smokev {c |}{res}     28,633     14.6167    4.985374         10         20
+{txt}{space 4}vig10fwk {c |}{res}     28,454    1.324946    2.557816          0         28
+{txt}{space 7}bacon {c |}{res}     27,056    50.47209    138.2056          0       9995
+{txt}{space 1}poor_health {c |}{res}     28,890    .1433022    .3503868          0          1
+{txt}
+{com}. 
+. //Q2
+. twoway (lpoly mort5 age if poor_health, degree(1)) (lpoly mort5 age if !poor_health, degree(1))
+{res}{txt}
+{com}. 
+. //Q3
+. tab faminc_20t75 faminc_gt75, mi
+
+    {txt}Family {c |}
+    income {c |}       Family income > 75k
+    20-75k {c |}         0          1          . {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         0 {c |}{res}     7,310      4,096          0 {txt}{c |}{res}    11,406 
+{txt}         1 {c |}{res}    15,804          0          0 {txt}{c |}{res}    15,804 
+{txt}         . {c |}{res}         0          0      1,680 {txt}{c |}{res}     1,680 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}    23,114      4,096      1,680 {txt}{c |}{res}    28,890 
+{txt}
+{com}. 
+. gen income = ""
+{txt}(28,890 missing values generated)
+
+{com}.         replace income = "less than 20k" if faminc_20t75 == 0 & faminc_gt75 == 0
+{txt}variable {bf}income{sf} was {bf}{res}str1{sf}{txt} now {bf}{res}str13{sf}
+{txt}(7,310 real changes made)
+
+{com}.         replace income = "20k - 75k" if faminc_20t75 == 1
+{txt}(15,804 real changes made)
+
+{com}.         replace income = "greater than 75k" if faminc_gt75 == 1
+{txt}variable {bf}income{sf} was {bf}{res}str13{sf}{txt} now {bf}{res}str16{sf}
+{txt}(4,096 real changes made)
+
+{com}.         replace income = "missing" if faminc_20t75 == . & faminc_gt75 == .
+{txt}(1,680 real changes made)
+
+{com}. 
+. graph bar mort5, by(income)
+{res}{txt}
+{com}. graph bar mort5 poor_health, by(income)
+{res}{txt}
+{com}. graph bar mort5, by(income poor_health)
+{res}{txt}
+{com}. 
+. gen educ = ""
+{txt}(28,890 missing values generated)
+
+{com}.         replace educ = "less than highschool" if edyrs < 12
+{txt}variable {bf}educ{sf} was {bf}{res}str1{sf}{txt} now {bf}{res}str20{sf}
+{txt}(4,339 real changes made)
+
+{com}.         replace educ = "completed highschool" if edyrs == 12
+{txt}(958 real changes made)
+
+{com}.         replace educ = "some college" if edyrs > 12 & edyrs < 16
+{txt}(16,603 real changes made)
+
+{com}.         replace educ = "completed college" if edyrs == 16
+{txt}(4,256 real changes made)
+
+{com}.         replace educ = "post-graduate study" if edyrs > 16
+{txt}(2,734 real changes made)
+
+{com}.         
+. graph bar mort5 poor_health, by(educ)
+{res}{txt}
+{com}. 
+. //Q4
+. gen incomeLT20k = 0
+{txt}
+{com}.         replace incomeLT20k = 1 if faminc_20t75 == 0 & faminc_gt75 == 0
+{txt}(7,310 real changes made)
+
+{com}. gen income20kt75k = 0
+{txt}
+{com}.         replace income20kt75k = 1 if faminc_20t75 == 1
+{txt}(15,804 real changes made)
+
+{com}. gen incomeGT75k = 0
+{txt}
+{com}.         replace incomeGT75k = 1 if faminc_gt75 == 1
+{txt}(4,096 real changes made)
+
+{com}. gen income_missing = 0
+{txt}
+{com}.         replace income_missing = 1 if faminc_20t75 == . & faminc_gt75 == .
+{txt}(1,680 real changes made)
+
+{com}.         
+. gen black_hisp = 0
+{txt}
+{com}.         replace black_hisp = 1 if black == 1 & hisp == 1
+{txt}(64 real changes made)
+
+{com}. gen white_hisp = 0
+{txt}
+{com}.         replace white_hisp = 1 if white == 1 & hisp == 1
+{txt}(3,283 real changes made)
+
+{com}. 
+. replace white = 0 if white_hisp == 1
+{txt}(3,283 real changes made)
+
+{com}. replace hisp = 0 if white_hisp == 1
+{txt}(3,283 real changes made)
+
+{com}. replace black = 0 if black_hisp == 1
+{txt}(64 real changes made)
+
+{com}. replace hisp = 0 if black_hisp == 1
+{txt}(64 real changes made)
+
+{com}.         
+. reg mort5 age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{txt}Linear regression                               Number of obs     = {res}    25,767
+                                                {txt}F(9, 25757)       =  {res}   238.44
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.1492
+                                                {txt}Root MSE          =    {res} .24848
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0055869{col 26}{space 2} .0001324{col 37}{space 1}   42.20{col 46}{space 3}0.000{col 54}{space 4} .0053274{col 67}{space 3} .0058464
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0046297{col 26}{space 2} .0006632{col 37}{space 1}   -6.98{col 46}{space 3}0.000{col 54}{space 4}-.0059296{col 67}{space 3}-.0033299
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.0605398{col 26}{space 2} .0051345{col 37}{space 1}  -11.79{col 46}{space 3}0.000{col 54}{space 4}-.0706038{col 67}{space 3}-.0504758
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0469783{col 26}{space 2} .0045006{col 37}{space 1}  -10.44{col 46}{space 3}0.000{col 54}{space 4}-.0557998{col 67}{space 3}-.0381568
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0004687{col 26}{space 2} .0048525{col 37}{space 1}    0.10{col 46}{space 3}0.923{col 54}{space 4}-.0090425{col 67}{space 3} .0099799
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.0187949{col 26}{space 2} .0067663{col 37}{space 1}   -2.78{col 46}{space 3}0.005{col 54}{space 4}-.0320572{col 67}{space 3}-.0055325
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.0094659{col 26}{space 2} .0066036{col 37}{space 1}   -1.43{col 46}{space 3}0.152{col 54}{space 4}-.0224094{col 67}{space 3} .0034776
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0077235{col 26}{space 2} .0305033{col 37}{space 1}    0.25{col 46}{space 3}0.800{col 54}{space 4}-.0520647{col 67}{space 3} .0675117
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.0251814{col 26}{space 2} .0047489{col 37}{space 1}   -5.30{col 46}{space 3}0.000{col 54}{space 4}-.0344894{col 67}{space 3}-.0158734
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0924205{col 26}{space 2} .0113177{col 37}{space 1}   -8.17{col 46}{space 3}0.000{col 54}{space 4}-.1146038{col 67}{space 3}-.0702372
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. probit mort5 age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-7103.7386}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-5416.4913}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-5289.2024}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-5288.3649}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-5288.3648}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    25,767
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   2522.03
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-5288.3648{txt}{col 49}Pseudo R2{col 67}= {res}    0.2556
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0412945{col 26}{space 2} .0010084{col 37}{space 1}   40.95{col 46}{space 3}0.000{col 54}{space 4} .0393181{col 67}{space 3} .0432709
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0272524{col 26}{space 2} .0047509{col 37}{space 1}   -5.74{col 46}{space 3}0.000{col 54}{space 4} -.036564{col 67}{space 3}-.0179407
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.3876046{col 26}{space 2} .0542979{col 37}{space 1}   -7.14{col 46}{space 3}0.000{col 54}{space 4}-.4940264{col 67}{space 3}-.2811827
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.2340387{col 26}{space 2} .0311795{col 37}{space 1}   -7.51{col 46}{space 3}0.000{col 54}{space 4}-.2951494{col 67}{space 3} -.172928
+{txt}{space 7}black {c |}{col 14}{res}{space 2}  .067104{col 26}{space 2} .0406805{col 37}{space 1}    1.65{col 46}{space 3}0.099{col 54}{space 4}-.0126283{col 67}{space 3} .1468363
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} -.117336{col 26}{space 2} .0890812{col 37}{space 1}   -1.32{col 46}{space 3}0.188{col 54}{space 4}-.2919319{col 67}{space 3}   .05726
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.1184889{col 26}{space 2} .0882146{col 37}{space 1}   -1.34{col 46}{space 3}0.179{col 54}{space 4}-.2913864{col 67}{space 3} .0544086
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .1502682{col 26}{space 2} .2713625{col 37}{space 1}    0.55{col 46}{space 3}0.580{col 54}{space 4}-.3815926{col 67}{space 3}  .682129
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} -.195878{col 26}{space 2}   .05452{col 37}{space 1}   -3.59{col 46}{space 3}0.000{col 54}{space 4}-.3027353{col 67}{space 3}-.0890207
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.249255{col 26}{space 2} .0999108{col 37}{space 1}  -32.52{col 46}{space 3}0.000{col 54}{space 4}-3.445076{col 67}{space 3}-3.053433
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    25,767
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(mort5), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0046165{col 26}{space 2}  .000109{col 37}{space 1}   42.36{col 46}{space 3}0.000{col 54}{space 4} .0044029{col 67}{space 3} .0048301
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0030466{col 26}{space 2} .0005303{col 37}{space 1}   -5.75{col 46}{space 3}0.000{col 54}{space 4}-.0040859{col 67}{space 3}-.0020074
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.0433318{col 26}{space 2} .0061014{col 37}{space 1}   -7.10{col 46}{space 3}0.000{col 54}{space 4}-.0552904{col 67}{space 3}-.0313732
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0261641{col 26}{space 2} .0034885{col 37}{space 1}   -7.50{col 46}{space 3}0.000{col 54}{space 4}-.0330014{col 67}{space 3}-.0193268
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0075018{col 26}{space 2} .0045499{col 37}{space 1}    1.65{col 46}{space 3}0.099{col 54}{space 4}-.0014157{col 67}{space 3} .0164194
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.0131174{col 26}{space 2} .0099518{col 37}{space 1}   -1.32{col 46}{space 3}0.187{col 54}{space 4}-.0326227{col 67}{space 3} .0063878
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.0132463{col 26}{space 2} .0098588{col 37}{space 1}   -1.34{col 46}{space 3}0.179{col 54}{space 4}-.0325693{col 67}{space 3} .0060766
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0167991{col 26}{space 2} .0303332{col 37}{space 1}    0.55{col 46}{space 3}0.580{col 54}{space 4}-.0426529{col 67}{space 3}  .076251
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} -.021898{col 26}{space 2} .0060853{col 37}{space 1}   -3.60{col 46}{space 3}0.000{col 54}{space 4}-.0338248{col 67}{space 3}-.0099711
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. logit mort5 age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-7103.7386}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-5971.1392}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-5293.2996}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-5277.5242}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-5277.5036}  
+Iteration 5:{space 3}log pseudolikelihood = {res:-5277.5036}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}    25,767
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   2615.86
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-5277.5036{txt}{col 49}Pseudo R2{col 67}= {res}    0.2571
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0833758{col 26}{space 2} .0020575{col 37}{space 1}   40.52{col 46}{space 3}0.000{col 54}{space 4} .0793433{col 67}{space 3} .0874084
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0498225{col 26}{space 2} .0089281{col 37}{space 1}   -5.58{col 46}{space 3}0.000{col 54}{space 4}-.0673213{col 67}{space 3}-.0323238
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.6730722{col 26}{space 2} .1141849{col 37}{space 1}   -5.89{col 46}{space 3}0.000{col 54}{space 4}-.8968705{col 67}{space 3}-.4492738
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.3847466{col 26}{space 2} .0592885{col 37}{space 1}   -6.49{col 46}{space 3}0.000{col 54}{space 4}-.5009499{col 67}{space 3}-.2685433
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .1248337{col 26}{space 2} .0791049{col 37}{space 1}    1.58{col 46}{space 3}0.115{col 54}{space 4} -.030209{col 67}{space 3} .2798765
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.2518484{col 26}{space 2} .1782625{col 37}{space 1}   -1.41{col 46}{space 3}0.158{col 54}{space 4}-.6012364{col 67}{space 3} .0975396
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.2586183{col 26}{space 2} .1790951{col 37}{space 1}   -1.44{col 46}{space 3}0.149{col 54}{space 4}-.6096383{col 67}{space 3} .0924016
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .4391885{col 26}{space 2} .5444285{col 37}{space 1}    0.81{col 46}{space 3}0.420{col 54}{space 4}-.6278718{col 67}{space 3} 1.506249
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.3721393{col 26}{space 2} .1070007{col 37}{space 1}   -3.48{col 46}{space 3}0.001{col 54}{space 4}-.5818567{col 67}{space 3}-.1624218
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-6.427711{col 26}{space 2} .2026486{col 37}{space 1}  -31.72{col 46}{space 3}0.000{col 54}{space 4}-6.824895{col 67}{space 3}-6.030527
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    25,767
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(mort5), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0048964{col 26}{space 2}  .000117{col 37}{space 1}   41.85{col 46}{space 3}0.000{col 54}{space 4} .0046671{col 67}{space 3} .0051257
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0029259{col 26}{space 2}  .000523{col 37}{space 1}   -5.59{col 46}{space 3}0.000{col 54}{space 4} -.003951{col 67}{space 3}-.0019009
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.0395273{col 26}{space 2} .0067413{col 37}{space 1}   -5.86{col 46}{space 3}0.000{col 54}{space 4}-.0527399{col 67}{space 3}-.0263147
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0225949{col 26}{space 2} .0034868{col 37}{space 1}   -6.48{col 46}{space 3}0.000{col 54}{space 4}-.0294289{col 67}{space 3}-.0157609
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0073311{col 26}{space 2} .0046487{col 37}{space 1}    1.58{col 46}{space 3}0.115{col 54}{space 4}-.0017803{col 67}{space 3} .0164424
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.0147902{col 26}{space 2} .0104622{col 37}{space 1}   -1.41{col 46}{space 3}0.157{col 54}{space 4}-.0352958{col 67}{space 3} .0057154
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.0151878{col 26}{space 2} .0105142{col 37}{space 1}   -1.44{col 46}{space 3}0.149{col 54}{space 4}-.0357953{col 67}{space 3} .0054197
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0257921{col 26}{space 2} .0319688{col 37}{space 1}    0.81{col 46}{space 3}0.420{col 54}{space 4}-.0368655{col 67}{space 3} .0884497
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.0218545{col 26}{space 2} .0062774{col 37}{space 1}   -3.48{col 46}{space 3}0.000{col 54}{space 4} -.034158{col 67}{space 3} -.009551
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg poor_health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{txt}Linear regression                               Number of obs     = {res}    26,999
+                                                {txt}F(9, 26989)       =  {res}   294.24
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.1188
+                                                {txt}Root MSE          =    {res} .32705
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} poor_health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0037837{col 26}{space 2} .0001401{col 37}{space 1}   27.01{col 46}{space 3}0.000{col 54}{space 4} .0035092{col 67}{space 3} .0040583
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0163178{col 26}{space 2} .0008627{col 37}{space 1}  -18.92{col 46}{space 3}0.000{col 54}{space 4}-.0180087{col 67}{space 3}-.0146269
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.1402541{col 26}{space 2} .0066766{col 37}{space 1}  -21.01{col 46}{space 3}0.000{col 54}{space 4}-.1533406{col 67}{space 3}-.1271676
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.1167938{col 26}{space 2} .0059687{col 37}{space 1}  -19.57{col 46}{space 3}0.000{col 54}{space 4}-.1284928{col 67}{space 3}-.1050948
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0599422{col 26}{space 2} .0067041{col 37}{space 1}    8.94{col 46}{space 3}0.000{col 54}{space 4} .0468019{col 67}{space 3} .0730825
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}  .020262{col 26}{space 2} .0112793{col 37}{space 1}    1.80{col 46}{space 3}0.072{col 54}{space 4} -.001846{col 67}{space 3}   .04237
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .0315805{col 26}{space 2} .0101444{col 37}{space 1}    3.11{col 46}{space 3}0.002{col 54}{space 4} .0116971{col 67}{space 3}  .051464
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0178654{col 26}{space 2} .0412772{col 37}{space 1}    0.43{col 46}{space 3}0.665{col 54}{space 4}-.0630401{col 67}{space 3} .0987709
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} -.003163{col 26}{space 2} .0071022{col 37}{space 1}   -0.45{col 46}{space 3}0.656{col 54}{space 4}-.0170837{col 67}{space 3} .0107576
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2550145{col 26}{space 2} .0150367{col 37}{space 1}   16.96{col 46}{space 3}0.000{col 54}{space 4} .2255418{col 67}{space 3} .2844871
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. probit poor_health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-10997.209}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-9501.3438}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-9466.1169}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-9465.9936}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-9465.9936}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    26,999
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   2880.58
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-9465.9936{txt}{col 49}Pseudo R2{col 67}= {res}    0.1392
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} poor_health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0171825{col 26}{space 2} .0006332{col 37}{space 1}   27.14{col 46}{space 3}0.000{col 54}{space 4} .0159415{col 67}{space 3} .0184234
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0692257{col 26}{space 2} .0037918{col 37}{space 1}  -18.26{col 46}{space 3}0.000{col 54}{space 4}-.0766574{col 67}{space 3}-.0617939
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.7399619{col 26}{space 2} .0421485{col 37}{space 1}  -17.56{col 46}{space 3}0.000{col 54}{space 4}-.8225715{col 67}{space 3}-.6573523
+{txt}income20~75k {c |}{col 14}{res}{space 2} -.443803{col 26}{space 2} .0230428{col 37}{space 1}  -19.26{col 46}{space 3}0.000{col 54}{space 4}-.4889661{col 67}{space 3}-.3986399
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .2769243{col 26}{space 2} .0285816{col 37}{space 1}    9.69{col 46}{space 3}0.000{col 54}{space 4} .2209055{col 67}{space 3} .3329432
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .1081182{col 26}{space 2} .0515469{col 37}{space 1}    2.10{col 46}{space 3}0.036{col 54}{space 4} .0070881{col 67}{space 3} .2091483
+{txt}{space 7}other {c |}{col 14}{res}{space 2}  .152966{col 26}{space 2} .0552625{col 37}{space 1}    2.77{col 46}{space 3}0.006{col 54}{space 4} .0446536{col 67}{space 3} .2612784
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2}  .071613{col 26}{space 2} .1912044{col 37}{space 1}    0.37{col 46}{space 3}0.708{col 54}{space 4}-.3031407{col 67}{space 3} .4463666
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0047822{col 26}{space 2} .0356721{col 37}{space 1}    0.13{col 46}{space 3}0.893{col 54}{space 4}-.0651338{col 67}{space 3} .0746981
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.8132518{col 26}{space 2} .0696327{col 37}{space 1}  -11.68{col 46}{space 3}0.000{col 54}{space 4}-.9497293{col 67}{space 3}-.6767743
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    26,999
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(poor_health), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0032962{col 26}{space 2} .0001205{col 37}{space 1}   27.35{col 46}{space 3}0.000{col 54}{space 4}   .00306{col 67}{space 3} .0035325
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0132801{col 26}{space 2}  .000723{col 37}{space 1}  -18.37{col 46}{space 3}0.000{col 54}{space 4}-.0146972{col 67}{space 3} -.011863
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.1419528{col 26}{space 2} .0080359{col 37}{space 1}  -17.66{col 46}{space 3}0.000{col 54}{space 4}-.1577028{col 67}{space 3}-.1262028
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0851383{col 26}{space 2} .0043729{col 37}{space 1}  -19.47{col 46}{space 3}0.000{col 54}{space 4} -.093709{col 67}{space 3}-.0765676
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0531246{col 26}{space 2} .0054649{col 37}{space 1}    9.72{col 46}{space 3}0.000{col 54}{space 4} .0424135{col 67}{space 3} .0638357
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .0207412{col 26}{space 2} .0098874{col 37}{space 1}    2.10{col 46}{space 3}0.036{col 54}{space 4} .0013623{col 67}{space 3} .0401201
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .0293447{col 26}{space 2} .0106009{col 37}{space 1}    2.77{col 46}{space 3}0.006{col 54}{space 4} .0085673{col 67}{space 3} .0501221
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0137381{col 26}{space 2} .0366783{col 37}{space 1}    0.37{col 46}{space 3}0.708{col 54}{space 4}-.0581501{col 67}{space 3} .0856263
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0009174{col 26}{space 2} .0068434{col 37}{space 1}    0.13{col 46}{space 3}0.893{col 54}{space 4}-.0124954{col 67}{space 3} .0143302
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. logit poor_health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-10997.209}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-9694.2676}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-9500.5405}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-9498.5761}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-9498.5752}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}    26,999
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   2758.24
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-9498.5752{txt}{col 49}Pseudo R2{col 67}= {res}    0.1363
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} poor_health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0301766{col 26}{space 2} .0011557{col 37}{space 1}   26.11{col 46}{space 3}0.000{col 54}{space 4} .0279115{col 67}{space 3} .0324417
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.1180757{col 26}{space 2} .0068255{col 37}{space 1}  -17.30{col 46}{space 3}0.000{col 54}{space 4}-.1314534{col 67}{space 3}-.1046981
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-1.446553{col 26}{space 2} .0883373{col 37}{space 1}  -16.38{col 46}{space 3}0.000{col 54}{space 4}-1.619691{col 67}{space 3}-1.273415
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.7806162{col 26}{space 2} .0419512{col 37}{space 1}  -18.61{col 46}{space 3}0.000{col 54}{space 4} -.862839{col 67}{space 3}-.6983934
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .5115878{col 26}{space 2} .0518509{col 37}{space 1}    9.87{col 46}{space 3}0.000{col 54}{space 4} .4099619{col 67}{space 3} .6132137
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}  .212229{col 26}{space 2} .0941432{col 37}{space 1}    2.25{col 46}{space 3}0.024{col 54}{space 4} .0277116{col 67}{space 3} .3967464
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .2682306{col 26}{space 2} .1043975{col 37}{space 1}    2.57{col 46}{space 3}0.010{col 54}{space 4} .0636153{col 67}{space 3}  .472846
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .2039648{col 26}{space 2} .3449462{col 37}{space 1}    0.59{col 46}{space 3}0.554{col 54}{space 4}-.4721173{col 67}{space 3} .8800469
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0131823{col 26}{space 2}   .06687{col 37}{space 1}    0.20{col 46}{space 3}0.844{col 54}{space 4}-.1178806{col 67}{space 3} .1442451
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-1.425268{col 26}{space 2} .1277335{col 37}{space 1}  -11.16{col 46}{space 3}0.000{col 54}{space 4}-1.675621{col 67}{space 3}-1.174915
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    26,999
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(poor_health), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0031864{col 26}{space 2} .0001219{col 37}{space 1}   26.15{col 46}{space 3}0.000{col 54}{space 4} .0029476{col 67}{space 3} .0034252
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0124678{col 26}{space 2} .0007165{col 37}{space 1}  -17.40{col 46}{space 3}0.000{col 54}{space 4}-.0138721{col 67}{space 3}-.0110634
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.1527432{col 26}{space 2} .0093109{col 37}{space 1}  -16.40{col 46}{space 3}0.000{col 54}{space 4}-.1709923{col 67}{space 3}-.1344941
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0824262{col 26}{space 2} .0043838{col 37}{space 1}  -18.80{col 46}{space 3}0.000{col 54}{space 4}-.0910183{col 67}{space 3} -.073834
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0540191{col 26}{space 2} .0054497{col 37}{space 1}    9.91{col 46}{space 3}0.000{col 54}{space 4} .0433379{col 67}{space 3} .0647004
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .0224095{col 26}{space 2} .0099385{col 37}{space 1}    2.25{col 46}{space 3}0.024{col 54}{space 4} .0029304{col 67}{space 3} .0418886
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .0283228{col 26}{space 2} .0110241{col 37}{space 1}    2.57{col 46}{space 3}0.010{col 54}{space 4} .0067159{col 67}{space 3} .0499296
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0215369{col 26}{space 2} .0364195{col 37}{space 1}    0.59{col 46}{space 3}0.554{col 54}{space 4}-.0498441{col 67}{space 3} .0929178
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0013919{col 26}{space 2}  .007061{col 37}{space 1}    0.20{col 46}{space 3}0.844{col 54}{space 4}-.0124475{col 67}{space 3} .0152313
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. //Q5
+. probit mort5 age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-7103.7386}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-5416.4913}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-5289.2024}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-5288.3649}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-5288.3648}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    25,767
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   2522.03
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-5288.3648{txt}{col 49}Pseudo R2{col 67}= {res}    0.2556
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0412945{col 26}{space 2} .0010084{col 37}{space 1}   40.95{col 46}{space 3}0.000{col 54}{space 4} .0393181{col 67}{space 3} .0432709
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0272524{col 26}{space 2} .0047509{col 37}{space 1}   -5.74{col 46}{space 3}0.000{col 54}{space 4} -.036564{col 67}{space 3}-.0179407
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.3876046{col 26}{space 2} .0542979{col 37}{space 1}   -7.14{col 46}{space 3}0.000{col 54}{space 4}-.4940264{col 67}{space 3}-.2811827
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.2340387{col 26}{space 2} .0311795{col 37}{space 1}   -7.51{col 46}{space 3}0.000{col 54}{space 4}-.2951494{col 67}{space 3} -.172928
+{txt}{space 7}black {c |}{col 14}{res}{space 2}  .067104{col 26}{space 2} .0406805{col 37}{space 1}    1.65{col 46}{space 3}0.099{col 54}{space 4}-.0126283{col 67}{space 3} .1468363
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} -.117336{col 26}{space 2} .0890812{col 37}{space 1}   -1.32{col 46}{space 3}0.188{col 54}{space 4}-.2919319{col 67}{space 3}   .05726
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.1184889{col 26}{space 2} .0882146{col 37}{space 1}   -1.34{col 46}{space 3}0.179{col 54}{space 4}-.2913864{col 67}{space 3} .0544086
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .1502682{col 26}{space 2} .2713625{col 37}{space 1}    0.55{col 46}{space 3}0.580{col 54}{space 4}-.3815926{col 67}{space 3}  .682129
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} -.195878{col 26}{space 2}   .05452{col 37}{space 1}   -3.59{col 46}{space 3}0.000{col 54}{space 4}-.3027353{col 67}{space 3}-.0890207
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.249255{col 26}{space 2} .0999108{col 37}{space 1}  -32.52{col 46}{space 3}0.000{col 54}{space 4}-3.445076{col 67}{space 3}-3.053433
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. lincom black + incomeGT75k
+
+{p 0 7}{space 1}{text:( 1)}{space 1} {res}[mort5]incomeGT75k + [mort5]black = 0{p_end}
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}(1) {c |}{col 14}{res}{space 2}-.3205006{col 26}{space 2} .0720922{col 37}{space 1}   -4.45{col 46}{space 3}0.000{col 54}{space 4}-.4617987{col 67}{space 3}-.1792024
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. //Q6
+. 
+. //Q7 recode health variables
+. probit poor_health uninsured age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-10962.606}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-9470.8426}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-9436.3894}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-9436.2677}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-9436.2677}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    26,914
+{txt}{col 49}Wald chi2({res}10{txt}){col 67}= {res}   2876.17
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-9436.2677{txt}{col 49}Pseudo R2{col 67}= {res}    0.1392
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} poor_health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}uninsured {c |}{col 14}{res}{space 2} .0783284{col 26}{space 2} .0319428{col 37}{space 1}    2.45{col 46}{space 3}0.014{col 54}{space 4} .0157216{col 67}{space 3} .1409352
+{txt}{space 9}age {c |}{col 14}{res}{space 2}  .016627{col 26}{space 2} .0006644{col 37}{space 1}   25.03{col 46}{space 3}0.000{col 54}{space 4} .0153248{col 67}{space 3} .0179291
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0702178{col 26}{space 2} .0038123{col 37}{space 1}  -18.42{col 46}{space 3}0.000{col 54}{space 4}-.0776897{col 67}{space 3}-.0627458
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.7534406{col 26}{space 2} .0427692{col 37}{space 1}  -17.62{col 46}{space 3}0.000{col 54}{space 4}-.8372667{col 67}{space 3}-.6696144
+{txt}income20~75k {c |}{col 14}{res}{space 2} -.451913{col 26}{space 2} .0235638{col 37}{space 1}  -19.18{col 46}{space 3}0.000{col 54}{space 4}-.4980971{col 67}{space 3}-.4057288
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .2777067{col 26}{space 2} .0286628{col 37}{space 1}    9.69{col 46}{space 3}0.000{col 54}{space 4} .2215286{col 67}{space 3} .3338847
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .1091692{col 26}{space 2} .0519139{col 37}{space 1}    2.10{col 46}{space 3}0.035{col 54}{space 4} .0074199{col 67}{space 3} .2109185
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .1507833{col 26}{space 2} .0554305{col 37}{space 1}    2.72{col 46}{space 3}0.007{col 54}{space 4} .0421415{col 67}{space 3}  .259425
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0716871{col 26}{space 2} .1908134{col 37}{space 1}    0.38{col 46}{space 3}0.707{col 54}{space 4}-.3023002{col 67}{space 3} .4456745
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0124156{col 26}{space 2} .0359872{col 37}{space 1}    0.35{col 46}{space 3}0.730{col 54}{space 4}-.0581179{col 67}{space 3} .0829491
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.9107496{col 26}{space 2} .0816919{col 37}{space 1}  -11.15{col 46}{space 3}0.000{col 54}{space 4}-1.070863{col 67}{space 3}-.7506364
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    26,914
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(poor_health), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:uninsured age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}uninsured {c |}{col 14}{res}{space 2} .0150244{col 26}{space 2} .0061196{col 37}{space 1}    2.46{col 46}{space 3}0.014{col 54}{space 4} .0030301{col 67}{space 3} .0270186
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0031893{col 26}{space 2} .0001271{col 37}{space 1}   25.09{col 46}{space 3}0.000{col 54}{space 4} .0029401{col 67}{space 3} .0034384
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0134686{col 26}{space 2} .0007264{col 37}{space 1}  -18.54{col 46}{space 3}0.000{col 54}{space 4}-.0148923{col 67}{space 3} -.012045
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.1445192{col 26}{space 2} .0081425{col 37}{space 1}  -17.75{col 46}{space 3}0.000{col 54}{space 4}-.1604782{col 67}{space 3}-.1285603
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0866825{col 26}{space 2} .0044642{col 37}{space 1}  -19.42{col 46}{space 3}0.000{col 54}{space 4}-.0954323{col 67}{space 3}-.0779328
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0532676{col 26}{space 2}   .00548{col 37}{space 1}    9.72{col 46}{space 3}0.000{col 54}{space 4}  .042527{col 67}{space 3} .0640081
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}   .02094{col 26}{space 2} .0099562{col 37}{space 1}    2.10{col 46}{space 3}0.035{col 54}{space 4} .0014263{col 67}{space 3} .0404537
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .0289221{col 26}{space 2} .0106315{col 37}{space 1}    2.72{col 46}{space 3}0.007{col 54}{space 4} .0080847{col 67}{space 3} .0497595
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0137505{col 26}{space 2} .0365983{col 37}{space 1}    0.38{col 46}{space 3}0.707{col 54}{space 4}-.0579809{col 67}{space 3} .0854819
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0023815{col 26}{space 2} .0069029{col 37}{space 1}    0.34{col 46}{space 3}0.730{col 54}{space 4} -.011148{col 67}{space 3} .0159109
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg uninsured incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{txt}Linear regression                               Number of obs     = {res}    27,121
+                                                {txt}F(7, 27113)       =  {res}   314.13
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0817
+                                                {txt}Root MSE          =    {res} .33998
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   uninsured{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}incomeGT75k {c |}{col 14}{res}{space 2} .1809702{col 26}{space 2} .0058035{col 37}{space 1}   31.18{col 46}{space 3}0.000{col 54}{space 4}  .169595{col 67}{space 3} .1923454
+{txt}income20~75k {c |}{col 14}{res}{space 2} .1008411{col 26}{space 2} .0056604{col 37}{space 1}   17.82{col 46}{space 3}0.000{col 54}{space 4} .0897464{col 67}{space 3} .1119358
+{txt}{space 7}black {c |}{col 14}{res}{space 2}-.0538982{col 26}{space 2} .0066437{col 37}{space 1}   -8.11{col 46}{space 3}0.000{col 54}{space 4}-.0669203{col 67}{space 3}-.0408761
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.1895904{col 26}{space 2}  .014115{col 37}{space 1}  -13.43{col 46}{space 3}0.000{col 54}{space 4}-.2172565{col 67}{space 3}-.1619244
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.0839295{col 26}{space 2} .0118918{col 37}{space 1}   -7.06{col 46}{space 3}0.000{col 54}{space 4}-.1072381{col 67}{space 3}-.0606209
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2}-.1161424{col 26}{space 2} .0531573{col 37}{space 1}   -2.18{col 46}{space 3}0.029{col 54}{space 4}-.2203335{col 67}{space 3}-.0119513
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.2080988{col 26}{space 2} .0085591{col 37}{space 1}  -24.31{col 46}{space 3}0.000{col 54}{space 4}-.2248751{col 67}{space 3}-.1913226
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.809262{col 26}{space 2} .0052112{col 37}{space 1}  347.19{col 46}{space 3}0.000{col 54}{space 4} 1.799048{col 67}{space 3} 1.819476
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. // I tried to run probit here but stata output said: "outcome does not vary"
+. 
+. gen smokeing = 0
+{txt}
+{com}.         replace smokeing = 1 if smokev == 20 
+{txt}(13,219 real changes made)
+
+{com}.         replace smokeing = . if smokev == .
+{txt}(257 real changes made, 257 to missing)
+
+{com}. 
+. probit smokeing age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-18542.706}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-18132.869}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-18132.622}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-18132.622}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    26,863
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}    779.29
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-18132.622{txt}{col 49}Pseudo R2{col 67}= {res}    0.0221
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    smokeing{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0026637{col 26}{space 2} .0005055{col 37}{space 1}    5.27{col 46}{space 3}0.000{col 54}{space 4} .0016729{col 67}{space 3} .0036545
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0387798{col 26}{space 2} .0030412{col 37}{space 1}  -12.75{col 46}{space 3}0.000{col 54}{space 4}-.0447404{col 67}{space 3}-.0328192
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.1708493{col 26}{space 2} .0274936{col 37}{space 1}   -6.21{col 46}{space 3}0.000{col 54}{space 4}-.2247358{col 67}{space 3}-.1169628
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0478671{col 26}{space 2} .0193511{col 37}{space 1}   -2.47{col 46}{space 3}0.013{col 54}{space 4}-.0857945{col 67}{space 3}-.0099397
+{txt}{space 7}black {c |}{col 14}{res}{space 2}-.2825778{col 26}{space 2}  .023426{col 37}{space 1}  -12.06{col 46}{space 3}0.000{col 54}{space 4} -.328492{col 67}{space 3}-.2366636
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.4901874{col 26}{space 2} .0422506{col 37}{space 1}  -11.60{col 46}{space 3}0.000{col 54}{space 4} -.572997{col 67}{space 3}-.4073777
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.2283856{col 26}{space 2} .0404748{col 37}{space 1}   -5.64{col 46}{space 3}0.000{col 54}{space 4}-.3077147{col 67}{space 3}-.1490565
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2}-.6180734{col 26}{space 2} .1720923{col 37}{space 1}   -3.59{col 46}{space 3}0.000{col 54}{space 4} -.955368{col 67}{space 3}-.2807787
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.5424896{col 26}{space 2} .0274338{col 37}{space 1}  -19.77{col 46}{space 3}0.000{col 54}{space 4}-.5962588{col 67}{space 3}-.4887204
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .4792363{col 26}{space 2} .0544964{col 37}{space 1}    8.79{col 46}{space 3}0.000{col 54}{space 4} .3724252{col 67}{space 3} .5860473
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    26,863
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(smokeing), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0010326{col 26}{space 2} .0001957{col 37}{space 1}    5.28{col 46}{space 3}0.000{col 54}{space 4} .0006491{col 67}{space 3} .0014162
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0150336{col 26}{space 2} .0011676{col 37}{space 1}  -12.88{col 46}{space 3}0.000{col 54}{space 4}-.0173221{col 67}{space 3}-.0127451
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.0662326{col 26}{space 2} .0106345{col 37}{space 1}   -6.23{col 46}{space 3}0.000{col 54}{space 4}-.0870759{col 67}{space 3}-.0453894
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0185565{col 26}{space 2}  .007499{col 37}{space 1}   -2.47{col 46}{space 3}0.013{col 54}{space 4}-.0332542{col 67}{space 3}-.0038588
+{txt}{space 7}black {c |}{col 14}{res}{space 2}-.1095461{col 26}{space 2} .0090053{col 37}{space 1}  -12.16{col 46}{space 3}0.000{col 54}{space 4}-.1271962{col 67}{space 3} -.091896
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.1900295{col 26}{space 2} .0162468{col 37}{space 1}  -11.70{col 46}{space 3}0.000{col 54}{space 4}-.2218726{col 67}{space 3}-.1581863
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.0885376{col 26}{space 2} .0156631{col 37}{space 1}   -5.65{col 46}{space 3}0.000{col 54}{space 4}-.1192366{col 67}{space 3}-.0578385
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2}-.2396067{col 26}{space 2} .0666643{col 37}{space 1}   -3.59{col 46}{space 3}0.000{col 54}{space 4}-.3702663{col 67}{space 3}-.1089471
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.2103053{col 26}{space 2} .0103879{col 37}{space 1}  -20.25{col 46}{space 3}0.000{col 54}{space 4}-.2306653{col 67}{space 3}-.1899454
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. probit poor_health uninsured smokeing age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-10907.907}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-9366.2515}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-9323.2485}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-9323.1415}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-9323.1415}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    26,780
+{txt}{col 49}Wald chi2({res}11{txt}){col 67}= {res}   2882.41
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-9323.1415{txt}{col 49}Pseudo R2{col 67}= {res}    0.1453
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} poor_health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}uninsured {c |}{col 14}{res}{space 2}  .091602{col 26}{space 2} .0321904{col 37}{space 1}    2.85{col 46}{space 3}0.004{col 54}{space 4}   .02851{col 67}{space 3} .1546939
+{txt}{space 4}smokeing {c |}{col 14}{res}{space 2} .2394896{col 26}{space 2}  .020798{col 37}{space 1}   11.52{col 46}{space 3}0.000{col 54}{space 4} .1987263{col 67}{space 3} .2802528
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0167424{col 26}{space 2} .0006721{col 37}{space 1}   24.91{col 46}{space 3}0.000{col 54}{space 4} .0154251{col 67}{space 3} .0180596
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0691491{col 26}{space 2} .0038519{col 37}{space 1}  -17.95{col 46}{space 3}0.000{col 54}{space 4}-.0766986{col 67}{space 3}-.0615996
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.7428068{col 26}{space 2} .0431056{col 37}{space 1}  -17.23{col 46}{space 3}0.000{col 54}{space 4}-.8272922{col 67}{space 3}-.6583214
+{txt}income20~75k {c |}{col 14}{res}{space 2} -.446813{col 26}{space 2} .0236367{col 37}{space 1}  -18.90{col 46}{space 3}0.000{col 54}{space 4}  -.49314{col 67}{space 3} -.400486
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .3033203{col 26}{space 2} .0290365{col 37}{space 1}   10.45{col 46}{space 3}0.000{col 54}{space 4} .2464099{col 67}{space 3} .3602308
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .1619582{col 26}{space 2} .0522157{col 37}{space 1}    3.10{col 46}{space 3}0.002{col 54}{space 4} .0596173{col 67}{space 3} .2642992
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .1718295{col 26}{space 2} .0557111{col 37}{space 1}    3.08{col 46}{space 3}0.002{col 54}{space 4} .0626377{col 67}{space 3} .2810214
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0749926{col 26}{space 2} .1978929{col 37}{space 1}    0.38{col 46}{space 3}0.705{col 54}{space 4}-.3128705{col 67}{space 3} .4628556
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0656017{col 26}{space 2} .0362217{col 37}{space 1}    1.81{col 46}{space 3}0.070{col 54}{space 4}-.0053915{col 67}{space 3} .1365948
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-1.094522{col 26}{space 2} .0836754{col 37}{space 1}  -13.08{col 46}{space 3}0.000{col 54}{space 4}-1.258523{col 67}{space 3}-.9305214
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    26,780
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(poor_health), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:uninsured smokeing age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}uninsured {c |}{col 14}{res}{space 2} .0174692{col 26}{space 2} .0061299{col 37}{space 1}    2.85{col 46}{space 3}0.004{col 54}{space 4} .0054548{col 67}{space 3} .0294835
+{txt}{space 4}smokeing {c |}{col 14}{res}{space 2} .0456724{col 26}{space 2} .0039558{col 37}{space 1}   11.55{col 46}{space 3}0.000{col 54}{space 4} .0379192{col 67}{space 3} .0534257
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0031929{col 26}{space 2} .0001278{col 37}{space 1}   24.98{col 46}{space 3}0.000{col 54}{space 4} .0029424{col 67}{space 3} .0034434
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0131872{col 26}{space 2} .0007291{col 37}{space 1}  -18.09{col 46}{space 3}0.000{col 54}{space 4}-.0146163{col 67}{space 3}-.0117582
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.1416588{col 26}{space 2} .0081492{col 37}{space 1}  -17.38{col 46}{space 3}0.000{col 54}{space 4}-.1576309{col 67}{space 3}-.1256867
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0852106{col 26}{space 2}  .004448{col 37}{space 1}  -19.16{col 46}{space 3}0.000{col 54}{space 4}-.0939285{col 67}{space 3}-.0764927
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0578454{col 26}{space 2}  .005519{col 37}{space 1}   10.48{col 46}{space 3}0.000{col 54}{space 4} .0470284{col 67}{space 3} .0686625
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .0308866{col 26}{space 2} .0099557{col 37}{space 1}    3.10{col 46}{space 3}0.002{col 54}{space 4} .0113739{col 67}{space 3} .0503994
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .0327692{col 26}{space 2} .0106231{col 37}{space 1}    3.08{col 46}{space 3}0.002{col 54}{space 4} .0119483{col 67}{space 3}   .05359
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0143016{col 26}{space 2} .0377377{col 37}{space 1}    0.38{col 46}{space 3}0.705{col 54}{space 4}-.0596628{col 67}{space 3} .0882661
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0125107{col 26}{space 2} .0069085{col 37}{space 1}    1.81{col 46}{space 3}0.070{col 54}{space 4}-.0010296{col 67}{space 3} .0260511
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. //Q8
+. probit mort5 poor_health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-7103.7386}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-5278.9039}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-5129.8786}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-5128.4282}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-5128.4275}  
+Iteration 5:{space 3}log pseudolikelihood = {res:-5128.4275}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    25,767
+{txt}{col 49}Wald chi2({res}10{txt}){col 67}= {res}   2597.29
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-5128.4275{txt}{col 49}Pseudo R2{col 67}= {res}    0.2781
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}poor_health {c |}{col 14}{res}{space 2} .5639053{col 26}{space 2} .0318799{col 37}{space 1}   17.69{col 46}{space 3}0.000{col 54}{space 4} .5014217{col 67}{space 3} .6263888
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0404795{col 26}{space 2}  .001052{col 37}{space 1}   38.48{col 46}{space 3}0.000{col 54}{space 4} .0384176{col 67}{space 3} .0425414
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0157485{col 26}{space 2} .0048718{col 37}{space 1}   -3.23{col 46}{space 3}0.001{col 54}{space 4} -.025297{col 67}{space 3}   -.0062
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.2791375{col 26}{space 2} .0553566{col 37}{space 1}   -5.04{col 46}{space 3}0.000{col 54}{space 4}-.3876344{col 67}{space 3}-.1706406
+{txt}income20~75k {c |}{col 14}{res}{space 2} -.166747{col 26}{space 2} .0318731{col 37}{space 1}   -5.23{col 46}{space 3}0.000{col 54}{space 4}-.2292172{col 67}{space 3}-.1042768
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0078749{col 26}{space 2} .0417958{col 37}{space 1}    0.19{col 46}{space 3}0.851{col 54}{space 4}-.0740434{col 67}{space 3} .0897932
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.1672979{col 26}{space 2} .0931938{col 37}{space 1}   -1.80{col 46}{space 3}0.073{col 54}{space 4}-.3499544{col 67}{space 3} .0153586
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.1443008{col 26}{space 2} .0896636{col 37}{space 1}   -1.61{col 46}{space 3}0.108{col 54}{space 4}-.3200382{col 67}{space 3} .0314367
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .1127472{col 26}{space 2} .2768995{col 37}{space 1}    0.41{col 46}{space 3}0.684{col 54}{space 4}-.4299659{col 67}{space 3} .6554603
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.2138736{col 26}{space 2} .0557307{col 37}{space 1}   -3.84{col 46}{space 3}0.000{col 54}{space 4}-.3231038{col 67}{space 3}-.1046434
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-3.529729{col 26}{space 2} .1044028{col 37}{space 1}  -33.81{col 46}{space 3}0.000{col 54}{space 4}-3.734355{col 67}{space 3}-3.325103
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    25,767
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(mort5), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:poor_health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}poor_health {c |}{col 14}{res}{space 2} .0611853{col 26}{space 2} .0034462{col 37}{space 1}   17.75{col 46}{space 3}0.000{col 54}{space 4} .0544308{col 67}{space 3} .0679397
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0043921{col 26}{space 2} .0001087{col 37}{space 1}   40.39{col 46}{space 3}0.000{col 54}{space 4}  .004179{col 67}{space 3} .0046053
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0017088{col 26}{space 2} .0005283{col 37}{space 1}   -3.23{col 46}{space 3}0.001{col 54}{space 4}-.0027443{col 67}{space 3}-.0006732
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.0302872{col 26}{space 2}  .006029{col 37}{space 1}   -5.02{col 46}{space 3}0.000{col 54}{space 4}-.0421038{col 67}{space 3}-.0184706
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0180925{col 26}{space 2} .0034601{col 37}{space 1}   -5.23{col 46}{space 3}0.000{col 54}{space 4}-.0248742{col 67}{space 3}-.0113108
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .0008544{col 26}{space 2} .0045352{col 37}{space 1}    0.19{col 46}{space 3}0.851{col 54}{space 4}-.0080343{col 67}{space 3} .0097432
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.0181523{col 26}{space 2} .0100996{col 37}{space 1}   -1.80{col 46}{space 3}0.072{col 54}{space 4}-.0379472{col 67}{space 3} .0016426
+{txt}{space 7}other {c |}{col 14}{res}{space 2} -.015657{col 26}{space 2} .0097248{col 37}{space 1}   -1.61{col 46}{space 3}0.107{col 54}{space 4}-.0347173{col 67}{space 3} .0034032
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0122334{col 26}{space 2} .0300416{col 37}{space 1}    0.41{col 46}{space 3}0.684{col 54}{space 4} -.046647{col 67}{space 3} .0711137
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.0232059{col 26}{space 2} .0060324{col 37}{space 1}   -3.85{col 46}{space 3}0.000{col 54}{space 4}-.0350291{col 67}{space 3}-.0113826
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. save temp,replace
+{txt}file temp.dta saved
+
+{com}. 
+. probit mort5 health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-7095.1289}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-5251.5545}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-5086.9051}  
+Iteration 3:{space 3}log pseudolikelihood = {res: -5084.561}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-5084.5585}  
+Iteration 5:{space 3}log pseudolikelihood = {res:-5084.5585}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    25,752
+{txt}{col 49}Wald chi2({res}10{txt}){col 67}= {res}   2469.93
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-5084.5585{txt}{col 49}Pseudo R2{col 67}= {res}    0.2834
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}health {c |}{col 14}{res}{space 2}  .249317{col 26}{space 2} .0135626{col 37}{space 1}   18.38{col 46}{space 3}0.000{col 54}{space 4} .2227348{col 67}{space 3} .2758993
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0394908{col 26}{space 2} .0010655{col 37}{space 1}   37.06{col 46}{space 3}0.000{col 54}{space 4} .0374025{col 67}{space 3} .0415792
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0132469{col 26}{space 2} .0049459{col 37}{space 1}   -2.68{col 46}{space 3}0.007{col 54}{space 4}-.0229407{col 67}{space 3}-.0035531
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.2254394{col 26}{space 2}  .056153{col 37}{space 1}   -4.01{col 46}{space 3}0.000{col 54}{space 4}-.3354973{col 67}{space 3}-.1153815
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.1519049{col 26}{space 2} .0318322{col 37}{space 1}   -4.77{col 46}{space 3}0.000{col 54}{space 4}-.2142948{col 67}{space 3}-.0895149
+{txt}{space 7}black {c |}{col 14}{res}{space 2}-.0059086{col 26}{space 2} .0417104{col 37}{space 1}   -0.14{col 46}{space 3}0.887{col 54}{space 4}-.0876594{col 67}{space 3} .0758423
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.1604141{col 26}{space 2} .0930375{col 37}{space 1}   -1.72{col 46}{space 3}0.085{col 54}{space 4}-.3427643{col 67}{space 3} .0219361
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.1447842{col 26}{space 2} .0910553{col 37}{space 1}   -1.59{col 46}{space 3}0.112{col 54}{space 4}-.3232493{col 67}{space 3} .0336809
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .1461498{col 26}{space 2} .2763982{col 37}{space 1}    0.53{col 46}{space 3}0.597{col 54}{space 4}-.3955807{col 67}{space 3} .6878804
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.2084672{col 26}{space 2} .0556936{col 37}{space 1}   -3.74{col 46}{space 3}0.000{col 54}{space 4}-.3176247{col 67}{space 3}-.0993096
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-4.055945{col 26}{space 2} .1148266{col 37}{space 1}  -35.32{col 46}{space 3}0.000{col 54}{space 4}-4.281001{col 67}{space 3}-3.830889
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. foreach var of varlist age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp {c -(}
+{txt}  2{com}.   sum `var'
+{txt}  3{com}.   replace `var' = r(mean)
+{txt}  4{com}.   {c )-}
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}age {c |}{res}     28,890    49.39733    16.48097         25         85
+{txt}variable {bf}age{sf} was {bf}{res}byte{sf}{txt} now {bf}{res}float{sf}
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 7}edyrs {c |}{res}     28,585    13.46252    2.999954          1         19
+{txt}variable {bf}edyrs{sf} was {bf}{res}byte{sf}{txt} now {bf}{res}float{sf}
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 1}incomeGT75k {c |}{res}     28,890    .1417792    .3488295          0          1
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+income20~75k {c |}{res}     28,890    .5470405    .4977909          0          1
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 7}black {c |}{res}     28,890    .1380408    .3449488          0          1
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}hisp {c |}{res}     28,890    .0411561    .1986546          0          1
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 7}other {c |}{res}     28,890    .0384562    .1922982          0          1
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 2}black_hisp {c |}{res}     28,890    .0022153    .0470156          0          1
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 2}white_hisp {c |}{res}     28,890    .1136379    .3173765          0          1
+{txt}(28,890 real changes made)
+
+{com}. 
+. predict z_hat
+{txt}(option {bf:pr} assumed; Pr(mort5))
+(26 missing values generated)
+
+{com}. twoway scatter z_hat health
+{res}{txt}
+{com}. use temp, clear
+{txt}
+{com}. 
+. probit mort5 health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-7095.1289}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-5251.5545}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-5086.9051}  
+Iteration 3:{space 3}log pseudolikelihood = {res: -5084.561}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-5084.5585}  
+Iteration 5:{space 3}log pseudolikelihood = {res:-5084.5585}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    25,752
+{txt}{col 49}Wald chi2({res}10{txt}){col 67}= {res}   2469.93
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-5084.5585{txt}{col 49}Pseudo R2{col 67}= {res}    0.2834
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}       mort5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}health {c |}{col 14}{res}{space 2}  .249317{col 26}{space 2} .0135626{col 37}{space 1}   18.38{col 46}{space 3}0.000{col 54}{space 4} .2227348{col 67}{space 3} .2758993
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0394908{col 26}{space 2} .0010655{col 37}{space 1}   37.06{col 46}{space 3}0.000{col 54}{space 4} .0374025{col 67}{space 3} .0415792
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0132469{col 26}{space 2} .0049459{col 37}{space 1}   -2.68{col 46}{space 3}0.007{col 54}{space 4}-.0229407{col 67}{space 3}-.0035531
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.2254394{col 26}{space 2}  .056153{col 37}{space 1}   -4.01{col 46}{space 3}0.000{col 54}{space 4}-.3354973{col 67}{space 3}-.1153815
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.1519049{col 26}{space 2} .0318322{col 37}{space 1}   -4.77{col 46}{space 3}0.000{col 54}{space 4}-.2142948{col 67}{space 3}-.0895149
+{txt}{space 7}black {c |}{col 14}{res}{space 2}-.0059086{col 26}{space 2} .0417104{col 37}{space 1}   -0.14{col 46}{space 3}0.887{col 54}{space 4}-.0876594{col 67}{space 3} .0758423
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.1604141{col 26}{space 2} .0930375{col 37}{space 1}   -1.72{col 46}{space 3}0.085{col 54}{space 4}-.3427643{col 67}{space 3} .0219361
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.1447842{col 26}{space 2} .0910553{col 37}{space 1}   -1.59{col 46}{space 3}0.112{col 54}{space 4}-.3232493{col 67}{space 3} .0336809
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .1461498{col 26}{space 2} .2763982{col 37}{space 1}    0.53{col 46}{space 3}0.597{col 54}{space 4}-.3955807{col 67}{space 3} .6878804
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.2084672{col 26}{space 2} .0556936{col 37}{space 1}   -3.74{col 46}{space 3}0.000{col 54}{space 4}-.3176247{col 67}{space 3}-.0993096
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-4.055945{col 26}{space 2} .1148266{col 37}{space 1}  -35.32{col 46}{space 3}0.000{col 54}{space 4}-4.281001{col 67}{space 3}-3.830889
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    25,752
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(mort5), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}health {c |}{col 14}{res}{space 2} .0269324{col 26}{space 2}  .001452{col 37}{space 1}   18.55{col 46}{space 3}0.000{col 54}{space 4} .0240866{col 67}{space 3} .0297783
+{txt}{space 9}age {c |}{col 14}{res}{space 2}  .004266{col 26}{space 2} .0001088{col 37}{space 1}   39.21{col 46}{space 3}0.000{col 54}{space 4} .0040528{col 67}{space 3} .0044792
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2} -.001431{col 26}{space 2} .0005341{col 37}{space 1}   -2.68{col 46}{space 3}0.007{col 54}{space 4}-.0024779{col 67}{space 3}-.0003841
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2} -.024353{col 26}{space 2} .0060831{col 37}{space 1}   -4.00{col 46}{space 3}0.000{col 54}{space 4}-.0362758{col 67}{space 3}-.0124303
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.0164095{col 26}{space 2} .0034397{col 37}{space 1}   -4.77{col 46}{space 3}0.000{col 54}{space 4}-.0231511{col 67}{space 3}-.0096679
+{txt}{space 7}black {c |}{col 14}{res}{space 2}-.0006383{col 26}{space 2} .0045056{col 37}{space 1}   -0.14{col 46}{space 3}0.887{col 54}{space 4} -.009469{col 67}{space 3} .0081925
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2}-.0173287{col 26}{space 2} .0100364{col 37}{space 1}   -1.73{col 46}{space 3}0.084{col 54}{space 4}-.0369996{col 67}{space 3} .0023422
+{txt}{space 7}other {c |}{col 14}{res}{space 2}-.0156403{col 26}{space 2} .0098304{col 37}{space 1}   -1.59{col 46}{space 3}0.112{col 54}{space 4}-.0349076{col 67}{space 3}  .003627
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2} .0157878{col 26}{space 2} .0298534{col 37}{space 1}    0.53{col 46}{space 3}0.597{col 54}{space 4}-.0427237{col 67}{space 3} .0742994
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.0225196{col 26}{space 2} .0060021{col 37}{space 1}   -3.75{col 46}{space 3}0.000{col 54}{space 4}-.0342835{col 67}{space 3}-.0107557
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. //Q9
+. 
+. oprobit health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-38573.482}  
+Iteration 1:{space 3}log pseudolikelihood = {res: -35815.98}  
+Iteration 2:{space 3}log pseudolikelihood = {res: -35811.57}  
+Iteration 3:{space 3}log pseudolikelihood = {res: -35811.57}  
+{res}
+{txt}Ordered probit regression{col 49}Number of obs{col 67}= {res}    26,982
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   5122.17
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res} -35811.57{txt}{col 49}Pseudo R2{col 67}= {res}    0.0716
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2}  .017636{col 26}{space 2} .0004305{col 37}{space 1}   40.97{col 46}{space 3}0.000{col 54}{space 4} .0167923{col 67}{space 3} .0184798
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0671062{col 26}{space 2} .0026709{col 37}{space 1}  -25.13{col 46}{space 3}0.000{col 54}{space 4}-.0723411{col 67}{space 3}-.0618714
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.6455215{col 26}{space 2} .0236927{col 37}{space 1}  -27.25{col 46}{space 3}0.000{col 54}{space 4}-.6919583{col 67}{space 3}-.5990847
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.3541586{col 26}{space 2} .0166757{col 37}{space 1}  -21.24{col 46}{space 3}0.000{col 54}{space 4}-.3868423{col 67}{space 3}-.3214749
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .2291002{col 26}{space 2} .0198782{col 37}{space 1}   11.53{col 46}{space 3}0.000{col 54}{space 4} .1901397{col 67}{space 3} .2680607
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .1400827{col 26}{space 2} .0336864{col 37}{space 1}    4.16{col 46}{space 3}0.000{col 54}{space 4} .0740587{col 67}{space 3} .2061068
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .1066138{col 26}{space 2}  .034885{col 37}{space 1}    3.06{col 46}{space 3}0.002{col 54}{space 4} .0382405{col 67}{space 3} .1749872
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2}-.1278496{col 26}{space 2} .1426143{col 37}{space 1}   -0.90{col 46}{space 3}0.370{col 54}{space 4}-.4073686{col 67}{space 3} .1516693
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.0124603{col 26}{space 2} .0230081{col 37}{space 1}   -0.54{col 46}{space 3}0.588{col 54}{space 4}-.0575553{col 67}{space 3} .0326347
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}/cut1 {c |}{col 14}{res}{space 2}-.9536476{col 26}{space 2} .0477331{col 54}{space 4}-1.047203{col 67}{space 3}-.8600924
+{txt}{space 7}/cut2 {c |}{col 14}{res}{space 2}-.0337705{col 26}{space 2} .0474814{col 54}{space 4}-.1268323{col 67}{space 3} .0592913
+{txt}{space 7}/cut3 {c |}{col 14}{res}{space 2}  .907373{col 26}{space 2} .0477266{col 54}{space 4} .8138305{col 67}{space 3} 1.000915
+{txt}{space 7}/cut4 {c |}{col 14}{res}{space 2}  1.71877{col 26}{space 2} .0491445{col 54}{space 4} 1.622448{col 67}{space 3} 1.815091
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins, dydx(*)
+{res}
+{txt}Average marginal effects{col 49}Number of obs{col 67}= {res}    26,982
+{txt}Model VCE{col 14}: {res}Robust
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:dy/dx w.r.t.}:{space 1}{res:age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(health==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(health==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(health==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(health==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(health==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}      dy/dx{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}age          {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2}-.0053887{col 26}{space 2}  .000128{col 37}{space 1}  -42.10{col 46}{space 3}0.000{col 54}{space 4}-.0056396{col 67}{space 3}-.0051378
+{txt}{space 10}2  {c |}{col 14}{res}{space 2}-.0006622{col 26}{space 2} .0000328{col 37}{space 1}  -20.17{col 46}{space 3}0.000{col 54}{space 4}-.0007266{col 67}{space 3}-.0005979
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} .0026181{col 26}{space 2} .0000659{col 37}{space 1}   39.71{col 46}{space 3}0.000{col 54}{space 4} .0024889{col 67}{space 3} .0027473
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} .0021931{col 26}{space 2} .0000599{col 37}{space 1}   36.62{col 46}{space 3}0.000{col 54}{space 4} .0020757{col 67}{space 3} .0023105
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} .0012397{col 26}{space 2} .0000425{col 37}{space 1}   29.16{col 46}{space 3}0.000{col 54}{space 4} .0011564{col 67}{space 3}  .001323
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}edyrs        {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .0205044{col 26}{space 2} .0008054{col 37}{space 1}   25.46{col 46}{space 3}0.000{col 54}{space 4} .0189258{col 67}{space 3}  .022083
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} .0025198{col 26}{space 2} .0001501{col 37}{space 1}   16.79{col 46}{space 3}0.000{col 54}{space 4} .0022256{col 67}{space 3}  .002814
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} -.009962{col 26}{space 2} .0004031{col 37}{space 1}  -24.72{col 46}{space 3}0.000{col 54}{space 4} -.010752{col 67}{space 3} -.009172
+{txt}{space 10}4  {c |}{col 14}{res}{space 2}-.0083449{col 26}{space 2} .0003457{col 37}{space 1}  -24.14{col 46}{space 3}0.000{col 54}{space 4}-.0090225{col 67}{space 3}-.0076674
+{txt}{space 10}5  {c |}{col 14}{res}{space 2}-.0047172{col 26}{space 2} .0002201{col 37}{space 1}  -21.43{col 46}{space 3}0.000{col 54}{space 4}-.0051487{col 67}{space 3}-.0042858
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}incomeGT75k  {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .1972397{col 26}{space 2} .0070842{col 37}{space 1}   27.84{col 46}{space 3}0.000{col 54}{space 4} .1833549{col 67}{space 3} .2111245
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} .0242391{col 26}{space 2} .0014165{col 37}{space 1}   17.11{col 46}{space 3}0.000{col 54}{space 4} .0214629{col 67}{space 3} .0270154
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}-.0958287{col 26}{space 2} .0034871{col 37}{space 1}  -27.48{col 46}{space 3}0.000{col 54}{space 4}-.1026633{col 67}{space 3}-.0889942
+{txt}{space 10}4  {c |}{col 14}{res}{space 2}-.0802731{col 26}{space 2} .0031299{col 37}{space 1}  -25.65{col 46}{space 3}0.000{col 54}{space 4}-.0864077{col 67}{space 3}-.0741386
+{txt}{space 10}5  {c |}{col 14}{res}{space 2}-.0453769{col 26}{space 2} .0020365{col 37}{space 1}  -22.28{col 46}{space 3}0.000{col 54}{space 4}-.0493684{col 67}{space 3}-.0413855
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}income20~75k {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .1082135{col 26}{space 2}  .005064{col 37}{space 1}   21.37{col 46}{space 3}0.000{col 54}{space 4} .0982882{col 67}{space 3} .1181388
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} .0132985{col 26}{space 2} .0008347{col 37}{space 1}   15.93{col 46}{space 3}0.000{col 54}{space 4} .0116626{col 67}{space 3} .0149345
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}-.0525754{col 26}{space 2} .0024717{col 37}{space 1}  -21.27{col 46}{space 3}0.000{col 54}{space 4}-.0574199{col 67}{space 3}-.0477309
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} -.044041{col 26}{space 2} .0021268{col 37}{space 1}  -20.71{col 46}{space 3}0.000{col 54}{space 4}-.0482094{col 67}{space 3}-.0398726
+{txt}{space 10}5  {c |}{col 14}{res}{space 2}-.0248956{col 26}{space 2} .0013404{col 37}{space 1}  -18.57{col 46}{space 3}0.000{col 54}{space 4}-.0275226{col 67}{space 3}-.0222685
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}black        {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2}-.0700018{col 26}{space 2} .0060484{col 37}{space 1}  -11.57{col 46}{space 3}0.000{col 54}{space 4}-.0818565{col 67}{space 3}-.0581471
+{txt}{space 10}2  {c |}{col 14}{res}{space 2}-.0086026{col 26}{space 2} .0008434{col 37}{space 1}  -10.20{col 46}{space 3}0.000{col 54}{space 4}-.0102556{col 67}{space 3}-.0069497
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} .0340103{col 26}{space 2} .0029595{col 37}{space 1}   11.49{col 46}{space 3}0.000{col 54}{space 4} .0282098{col 67}{space 3} .0398108
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} .0284895{col 26}{space 2}  .002508{col 37}{space 1}   11.36{col 46}{space 3}0.000{col 54}{space 4} .0235739{col 67}{space 3} .0334051
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} .0161046{col 26}{space 2} .0014362{col 37}{space 1}   11.21{col 46}{space 3}0.000{col 54}{space 4} .0132897{col 67}{space 3} .0189195
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}hisp         {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2}-.0428024{col 26}{space 2} .0102885{col 37}{space 1}   -4.16{col 46}{space 3}0.000{col 54}{space 4}-.0629675{col 67}{space 3}-.0226373
+{txt}{space 10}2  {c |}{col 14}{res}{space 2}-.0052601{col 26}{space 2} .0012854{col 37}{space 1}   -4.09{col 46}{space 3}0.000{col 54}{space 4}-.0077794{col 67}{space 3}-.0027407
+{txt}{space 10}3  {c |}{col 14}{res}{space 2} .0207955{col 26}{space 2}  .005007{col 37}{space 1}    4.15{col 46}{space 3}0.000{col 54}{space 4} .0109819{col 67}{space 3} .0306091
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} .0174198{col 26}{space 2} .0041971{col 37}{space 1}    4.15{col 46}{space 3}0.000{col 54}{space 4} .0091938{col 67}{space 3} .0256459
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} .0098471{col 26}{space 2} .0023714{col 37}{space 1}    4.15{col 46}{space 3}0.000{col 54}{space 4} .0051992{col 67}{space 3}  .014495
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}other        {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} -.032576{col 26}{space 2} .0106554{col 37}{space 1}   -3.06{col 46}{space 3}0.002{col 54}{space 4}-.0534601{col 67}{space 3}-.0116918
+{txt}{space 10}2  {c |}{col 14}{res}{space 2}-.0040033{col 26}{space 2} .0013236{col 37}{space 1}   -3.02{col 46}{space 3}0.002{col 54}{space 4}-.0065975{col 67}{space 3}-.0014091
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}  .015827{col 26}{space 2} .0051795{col 37}{space 1}    3.06{col 46}{space 3}0.002{col 54}{space 4} .0056754{col 67}{space 3} .0259786
+{txt}{space 10}4  {c |}{col 14}{res}{space 2} .0132579{col 26}{space 2} .0043436{col 37}{space 1}    3.05{col 46}{space 3}0.002{col 54}{space 4} .0047445{col 67}{space 3} .0217712
+{txt}{space 10}5  {c |}{col 14}{res}{space 2} .0074944{col 26}{space 2} .0024567{col 37}{space 1}    3.05{col 46}{space 3}0.002{col 54}{space 4} .0026794{col 67}{space 3} .0123094
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}black_hisp   {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .0390646{col 26}{space 2} .0435777{col 37}{space 1}    0.90{col 46}{space 3}0.370{col 54}{space 4}-.0463462{col 67}{space 3} .1244754
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} .0048007{col 26}{space 2} .0053589{col 37}{space 1}    0.90{col 46}{space 3}0.370{col 54}{space 4}-.0057025{col 67}{space 3} .0153039
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}-.0189795{col 26}{space 2} .0211724{col 37}{space 1}   -0.90{col 46}{space 3}0.370{col 54}{space 4}-.0604767{col 67}{space 3} .0225177
+{txt}{space 10}4  {c |}{col 14}{res}{space 2}-.0158986{col 26}{space 2} .0177335{col 37}{space 1}   -0.90{col 46}{space 3}0.370{col 54}{space 4}-.0506556{col 67}{space 3} .0188584
+{txt}{space 10}5  {c |}{col 14}{res}{space 2}-.0089872{col 26}{space 2}  .010031{col 37}{space 1}   -0.90{col 46}{space 3}0.370{col 54}{space 4}-.0286476{col 67}{space 3} .0106732
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}white_hisp   {txt}{c |}
+{space 4}_predict {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .0038073{col 26}{space 2} .0070305{col 37}{space 1}    0.54{col 46}{space 3}0.588{col 54}{space 4}-.0099722{col 67}{space 3} .0175867
+{txt}{space 10}2  {c |}{col 14}{res}{space 2} .0004679{col 26}{space 2} .0008638{col 37}{space 1}    0.54{col 46}{space 3}0.588{col 54}{space 4}-.0012251{col 67}{space 3} .0021608
+{txt}{space 10}3  {c |}{col 14}{res}{space 2}-.0018498{col 26}{space 2} .0034156{col 37}{space 1}   -0.54{col 46}{space 3}0.588{col 54}{space 4}-.0085442{col 67}{space 3} .0048447
+{txt}{space 10}4  {c |}{col 14}{res}{space 2}-.0015495{col 26}{space 2} .0028607{col 37}{space 1}   -0.54{col 46}{space 3}0.588{col 54}{space 4}-.0071563{col 67}{space 3} .0040574
+{txt}{space 10}5  {c |}{col 14}{res}{space 2}-.0008759{col 26}{space 2} .0016179{col 37}{space 1}   -0.54{col 46}{space 3}0.588{col 54}{space 4} -.004047{col 67}{space 3} .0022952
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. probit poor_health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-10997.209}  
+Iteration 1:{space 3}log pseudolikelihood = {res:-9501.3438}  
+Iteration 2:{space 3}log pseudolikelihood = {res:-9466.1169}  
+Iteration 3:{space 3}log pseudolikelihood = {res:-9465.9936}  
+Iteration 4:{space 3}log pseudolikelihood = {res:-9465.9936}  
+{res}
+{txt}Probit regression{col 49}Number of obs{col 67}= {res}    26,999
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   2880.58
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res}-9465.9936{txt}{col 49}Pseudo R2{col 67}= {res}    0.1392
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} poor_health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2} .0171825{col 26}{space 2} .0006332{col 37}{space 1}   27.14{col 46}{space 3}0.000{col 54}{space 4} .0159415{col 67}{space 3} .0184234
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0692257{col 26}{space 2} .0037918{col 37}{space 1}  -18.26{col 46}{space 3}0.000{col 54}{space 4}-.0766574{col 67}{space 3}-.0617939
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.7399619{col 26}{space 2} .0421485{col 37}{space 1}  -17.56{col 46}{space 3}0.000{col 54}{space 4}-.8225715{col 67}{space 3}-.6573523
+{txt}income20~75k {c |}{col 14}{res}{space 2} -.443803{col 26}{space 2} .0230428{col 37}{space 1}  -19.26{col 46}{space 3}0.000{col 54}{space 4}-.4889661{col 67}{space 3}-.3986399
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .2769243{col 26}{space 2} .0285816{col 37}{space 1}    9.69{col 46}{space 3}0.000{col 54}{space 4} .2209055{col 67}{space 3} .3329432
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .1081182{col 26}{space 2} .0515469{col 37}{space 1}    2.10{col 46}{space 3}0.036{col 54}{space 4} .0070881{col 67}{space 3} .2091483
+{txt}{space 7}other {c |}{col 14}{res}{space 2}  .152966{col 26}{space 2} .0552625{col 37}{space 1}    2.77{col 46}{space 3}0.006{col 54}{space 4} .0446536{col 67}{space 3} .2612784
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2}  .071613{col 26}{space 2} .1912044{col 37}{space 1}    0.37{col 46}{space 3}0.708{col 54}{space 4}-.3031407{col 67}{space 3} .4463666
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2} .0047822{col 26}{space 2} .0356721{col 37}{space 1}    0.13{col 46}{space 3}0.893{col 54}{space 4}-.0651338{col 67}{space 3} .0746981
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.8132518{col 26}{space 2} .0696327{col 37}{space 1}  -11.68{col 46}{space 3}0.000{col 54}{space 4}-.9497293{col 67}{space 3}-.6767743
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. 
+. //Q10
+. save temp, replace 
+{txt}file temp.dta saved
+
+{com}. 
+. oprobit health age edyrs incomeGT75k income20kt75k black hisp other black_hisp white_hisp if !income_missing, r
+
+{res}{txt}Iteration 0:{space 3}log pseudolikelihood = {res:-38573.482}  
+Iteration 1:{space 3}log pseudolikelihood = {res: -35815.98}  
+Iteration 2:{space 3}log pseudolikelihood = {res: -35811.57}  
+Iteration 3:{space 3}log pseudolikelihood = {res: -35811.57}  
+{res}
+{txt}Ordered probit regression{col 49}Number of obs{col 67}= {res}    26,982
+{txt}{col 49}Wald chi2({res}9{txt}){col 67}= {res}   5122.17
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log pseudolikelihood = {res} -35811.57{txt}{col 49}Pseudo R2{col 67}= {res}    0.0716
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      health{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}age {c |}{col 14}{res}{space 2}  .017636{col 26}{space 2} .0004305{col 37}{space 1}   40.97{col 46}{space 3}0.000{col 54}{space 4} .0167923{col 67}{space 3} .0184798
+{txt}{space 7}edyrs {c |}{col 14}{res}{space 2}-.0671062{col 26}{space 2} .0026709{col 37}{space 1}  -25.13{col 46}{space 3}0.000{col 54}{space 4}-.0723411{col 67}{space 3}-.0618714
+{txt}{space 1}incomeGT75k {c |}{col 14}{res}{space 2}-.6455215{col 26}{space 2} .0236927{col 37}{space 1}  -27.25{col 46}{space 3}0.000{col 54}{space 4}-.6919583{col 67}{space 3}-.5990847
+{txt}income20~75k {c |}{col 14}{res}{space 2}-.3541586{col 26}{space 2} .0166757{col 37}{space 1}  -21.24{col 46}{space 3}0.000{col 54}{space 4}-.3868423{col 67}{space 3}-.3214749
+{txt}{space 7}black {c |}{col 14}{res}{space 2} .2291002{col 26}{space 2} .0198782{col 37}{space 1}   11.53{col 46}{space 3}0.000{col 54}{space 4} .1901397{col 67}{space 3} .2680607
+{txt}{space 8}hisp {c |}{col 14}{res}{space 2} .1400827{col 26}{space 2} .0336864{col 37}{space 1}    4.16{col 46}{space 3}0.000{col 54}{space 4} .0740587{col 67}{space 3} .2061068
+{txt}{space 7}other {c |}{col 14}{res}{space 2} .1066138{col 26}{space 2}  .034885{col 37}{space 1}    3.06{col 46}{space 3}0.002{col 54}{space 4} .0382405{col 67}{space 3} .1749872
+{txt}{space 2}black_hisp {c |}{col 14}{res}{space 2}-.1278496{col 26}{space 2} .1426143{col 37}{space 1}   -0.90{col 46}{space 3}0.370{col 54}{space 4}-.4073686{col 67}{space 3} .1516693
+{txt}{space 2}white_hisp {c |}{col 14}{res}{space 2}-.0124603{col 26}{space 2} .0230081{col 37}{space 1}   -0.54{col 46}{space 3}0.588{col 54}{space 4}-.0575553{col 67}{space 3} .0326347
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}/cut1 {c |}{col 14}{res}{space 2}-.9536476{col 26}{space 2} .0477331{col 54}{space 4}-1.047203{col 67}{space 3}-.8600924
+{txt}{space 7}/cut2 {c |}{col 14}{res}{space 2}-.0337705{col 26}{space 2} .0474814{col 54}{space 4}-.1268323{col 67}{space 3} .0592913
+{txt}{space 7}/cut3 {c |}{col 14}{res}{space 2}  .907373{col 26}{space 2} .0477266{col 54}{space 4} .8138305{col 67}{space 3} 1.000915
+{txt}{space 7}/cut4 {c |}{col 14}{res}{space 2}  1.71877{col 26}{space 2} .0491445{col 54}{space 4} 1.622448{col 67}{space 3} 1.815091
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. 
+. foreach var of varlist age edyrs incomeGT75k income20kt75k {c -(}
+{txt}  2{com}.   sum `var'
+{txt}  3{com}.   replace `var' = r(mean)
+{txt}  4{com}.   {c )-}
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}age {c |}{res}     28,890    49.39733    16.48097         25         85
+{txt}variable {bf}age{sf} was {bf}{res}byte{sf}{txt} now {bf}{res}float{sf}
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 7}edyrs {c |}{res}     28,585    13.46252    2.999954          1         19
+{txt}variable {bf}edyrs{sf} was {bf}{res}byte{sf}{txt} now {bf}{res}float{sf}
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 1}incomeGT75k {c |}{res}     28,890    .1417792    .3488295          0          1
+{txt}(28,890 real changes made)
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+income20~75k {c |}{res}     28,890    .5470405    .4977909          0          1
+{txt}(28,890 real changes made)
+
+{com}. 
+. predict health_hat1, outcome(1)
+{txt}(option {bf:pr} assumed; predicted probability)
+
+{com}. predict health_hat2, outcome(2)
+{txt}(option {bf:pr} assumed; predicted probability)
+
+{com}. predict health_hat3, outcome(3)
+{txt}(option {bf:pr} assumed; predicted probability)
+
+{com}. predict health_hat4, outcome(4)
+{txt}(option {bf:pr} assumed; predicted probability)
+
+{com}. predict health_hat5, outcome(5)
+{txt}(option {bf:pr} assumed; predicted probability)
+
+{com}. 
+. keep if white == 1 | black == 1
+{txt}(5,647 observations deleted)
+
+{com}. contract white black health_hat*
+{txt}
+{com}.         drop _f
+{txt}
+{com}. collapse (mean) health_hat*, by(white black)
+{txt}
+{com}. reshape long health_hat, i(black white) j(health)
+{txt}(note: j = 1 2 3 4 5)
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}       2   {txt}->{res}      10
+{txt}Number of variables            {res}       7   {txt}->{res}       4
+{txt}j variable (5 values)                     ->   {res}health
+{txt}xij variables:
+{res}health_hat1 health_hat2 ... health_hat5   {txt}->   {res}health_hat
+{txt}{hline 77}
+
+{com}. 
+. twoway (scatter health_hat health if white == 1, connect(1)) ///
+>         (scatter health_hat health if white == 0, connect(1)), ///
+>         legend(label(1 "white") label(2 "black"))
+{p 0 4 2}
+{txt}(note:  named style
+1 not found in class
+connectstyle,  default attributes used)
+{p_end}
+{p 0 4 2}
+{txt}(note:  named style
+1 not found in class
+connectstyle,  default attributes used)
+{p_end}
+{res}{txt}
+{com}.  
+. 
+. use temp, clear
+{txt}
+{com}. 
+. 
+. 
+. graph bar black white, by(health) percent
+{res}{txt}
+{com}. 
+. 
+. 
+. 
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\log_ps_3.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Mar 2019, 15:51:46
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

@@ -1,0 +1,1511 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\Log_problemset_4.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}12 Apr 2019, 14:30:47
+
+{com}. use "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\nlsy_deming.dta"
+
+. do "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\dofile_ps4.do"
+{txt}
+{com}. *\ Problem set 4 Truett Bloxsom (tsb962)
+. *\ Q1
+. 
+. *\use "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\n
+. *\> lsy_deming.dta"
+. 
+. d
+
+{txt}Contains data from {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\nlsy_deming.dta
+{txt}  obs:{res}         4,265                          
+{txt} vars:{res}            22                          7 Apr 2012 15:28
+{txt} size:{res}       311,345                          
+{txt}{hline}
+              storage   display    value
+variable name   type    format     label      variable label
+{hline}
+{p 0 48}{res}{bind:head_start     }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Participated in Head Start{p_end}
+{p 0 48}{bind:sibdiff        }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Different HS Participation from Sibling{p_end}
+{p 0 48}{bind:mom_id         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Unique Mother Identifier{p_end}
+{p 0 48}{bind:hispanic       }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Non-Black Hispanic{p_end}
+{p 0 48}{bind:black          }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Black{p_end}
+{p 0 48}{bind:male           }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}Male{p_end}
+{p 0 48}{bind:firstborn      }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}1st-Born Sibling{p_end}
+{p 0 48}{bind:lninc_0to3     }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log HH Income, Ages 0 to 3{p_end}
+{p 0 48}{bind:momed          }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Mother's Years of Education{p_end}
+{p 0 48}{bind:dadhome_0to3   }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Living with Father, Ages 0 to 3{p_end}
+{p 0 48}{bind:ppvt_3         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}PPVT Score, Age 3{p_end}
+{p 0 48}{bind:lnbw           }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Log Birth Weight{p_end}
+{p 0 48}{bind:comp_score_5to6}{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Composite Test Score, Age 5-6{p_end}
+{p 0 48}{bind:comp_score_7~10}{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Composite Test Score, Age 7-10{p_end}
+{p 0 48}{bind:comp_score_1~14}{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Composite Test Score, Age 11-14{p_end}
+{p 0 48}{bind:repeat         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Repeated a Grade{p_end}
+{p 0 48}{bind:learndis       }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Learning Disability{p_end}
+{p 0 48}{bind:hsgrad         }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}High Schol Graduate{p_end}
+{p 0 48}{bind:somecoll       }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Attended Some College{p_end}
+{p 0 48}{bind:idle           }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Idle{p_end}
+{p 0 48}{bind:fphealth       }{txt}{bind: float   }{bind:{txt}%9.0g     }{space 1}{bind:         }{bind:  }{res}{res}Self-Rated Fair/Poor Health{p_end}
+{p 0 48}{bind:HS2_FE90       }{txt}{bind: byte    }{bind:{txt}%8.0g     }{space 1}{bind:         }{bind:  }{res}{res}{p_end}
+{txt}{hline}
+Sorted by: {res}mom_id
+{txt}
+{com}. sum
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 2}head_start {c |}{res}      4,265    .2065651    .4048881          0          1
+{txt}{space 5}sibdiff {c |}{res}      4,265    .2321219    .4222359          0          1
+{txt}{space 6}mom_id {c |}{res}      4,265    6227.424    3320.364          3      12667
+{txt}{space 4}hispanic {c |}{res}      4,265    .2004689    .4003982          0          1
+{txt}{space 7}black {c |}{res}      4,265    .3202814    .4666393          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 8}male {c |}{res}      4,265    .5097304    .4999639          0          1
+{txt}{space 3}firstborn {c |}{res}      4,265    .4044549    .4908438          0          1
+{txt}{space 2}lninc_0to3 {c |}{res}      4,047    10.06992    .7627533   3.908818   13.42314
+{txt}{space 7}momed {c |}{res}      4,259    11.70134    2.407231          1         20
+{txt}dadhome_0to3 {c |}{res}      2,662    .6780303    .4317648          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 6}ppvt_3 {c |}{res}        674    21.88131    13.12782          0        101
+{txt}{space 8}lnbw {c |}{res}      4,120    4.718402    .2290714   1.791759   5.433722
+{txt}comp_score~6 {c |}{res}      2,420    45.42266    22.37593          0       98.5
+{txt}comp_scor~10 {c |}{res}      3,246    45.19414    24.12119          0         99
+{txt}comp_scor~14 {c |}{res}      2,881    43.77577    24.80608   .6666667         99
+{txt}{hline 13}{c +}{hline 57}
+{space 6}repeat {c |}{res}      3,239    .3158382    .4649206          0          1
+{txt}{space 4}learndis {c |}{res}      4,144    .0410232    .1983677          0          1
+{txt}{space 6}hsgrad {c |}{res}      3,188    .7151819    .4513985          0          1
+{txt}{space 4}somecoll {c |}{res}      3,188    .3152447    .4646861          0          1
+{txt}{space 8}idle {c |}{res}      3,187    .1590838    .3658116          0          1
+{txt}{hline 13}{c +}{hline 57}
+{space 4}fphealth {c |}{res}      3,188     .098808    .2984509          0          1
+{txt}{space 4}HS2_FE90 {c |}{res}      1,878    .2598509    .4386694          0          1
+{txt}
+{com}. 
+. gen white2 = 0
+{txt}
+{com}. replace white2 = 1 if black == 0 & hispanic == 0
+{txt}(2,044 real changes made)
+
+{com}. 
+. tabulate head_start black, row
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+Participat {c |}
+ed in Head {c |}         Black
+     Start {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}     2,474        910 {txt}{c |}{res}     3,384 
+           {txt}{c |}{res}     73.11      26.89 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}       425        456 {txt}{c |}{res}       881 
+           {txt}{c |}{res}     48.24      51.76 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,899      1,366 {txt}{c |}{res}     4,265 
+           {txt}{c |}{res}     67.97      32.03 {txt}{c |}{res}    100.00 
+{txt}
+{com}. tabulate head_start white2, row
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+Participat {c |}
+ed in Head {c |}        white2
+     Start {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}     1,599      1,785 {txt}{c |}{res}     3,384 
+           {txt}{c |}{res}     47.25      52.75 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}       622        259 {txt}{c |}{res}       881 
+           {txt}{c |}{res}     70.60      29.40 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,221      2,044 {txt}{c |}{res}     4,265 
+           {txt}{c |}{res}     52.08      47.92 {txt}{c |}{res}    100.00 
+{txt}
+{com}. tabulate head_start hispanic, row
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+Participat {c |}
+ed in Head {c |}  Non-Black Hispanic
+     Start {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}     2,695        689 {txt}{c |}{res}     3,384 
+           {txt}{c |}{res}     79.64      20.36 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}       715        166 {txt}{c |}{res}       881 
+           {txt}{c |}{res}     81.16      18.84 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     3,410        855 {txt}{c |}{res}     4,265 
+           {txt}{c |}{res}     79.95      20.05 {txt}{c |}{res}    100.00 
+{txt}
+{com}. tab white2
+
+     {txt}white2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      2,221       52.08       52.08
+{txt}          1 {c |}{res}      2,044       47.92      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,265      100.00
+{txt}
+{com}. tab black
+
+      {txt}Black {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      2,899       67.97       67.97
+{txt}          1 {c |}{res}      1,366       32.03      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,265      100.00
+{txt}
+{com}. tab hispanic
+
+  {txt}Non-Black {c |}
+   Hispanic {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      3,410       79.95       79.95
+{txt}          1 {c |}{res}        855       20.05      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,265      100.00
+{txt}
+{com}. 
+. tabulate head_start firstborn, row
+{txt}
+{c TLC}{hline 16}{c TRC}
+{c |} Key{col 18}{c |}
+{c LT}{hline 16}{c RT}
+{c |}{space 3}{it:frequency}{col 18}{c |}
+{c |}{space 1}{it:row percentage}{col 18}{c |}
+{c BLC}{hline 16}{c BRC}
+
+Participat {c |}
+ed in Head {c |}   1st-Born Sibling
+     Start {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}     2,032      1,352 {txt}{c |}{res}     3,384 
+           {txt}{c |}{res}     60.05      39.95 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}       508        373 {txt}{c |}{res}       881 
+           {txt}{c |}{res}     57.66      42.34 {txt}{c |}{res}    100.00 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,540      1,725 {txt}{c |}{res}     4,265 
+           {txt}{c |}{res}     59.55      40.45 {txt}{c |}{res}    100.00 
+{txt}
+{com}. 
+. tab head_start dadhome_0to3, col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+Participat {c |}
+ed in Head {c |}       Living with Father, Ages 0 to 3
+     Start {c |}         0        .25   .3333333         .5 {c |}     Total
+{hline 11}{c +}{hline 44}{c +}{hline 10}
+         0 {c |}{res}       464         53         50         91 {txt}{c |}{res}     2,169 
+           {txt}{c |}{res}     70.09      76.81      74.63      77.78 {txt}{c |}{res}     81.48 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+         1 {c |}{res}       198         16         17         26 {txt}{c |}{res}       493 
+           {txt}{c |}{res}     29.91      23.19      25.37      22.22 {txt}{c |}{res}     18.52 
+{txt}{hline 11}{c +}{hline 44}{c +}{hline 10}
+     Total {c |}{res}       662         69         67        117 {txt}{c |}{res}     2,662 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+
+{txt}Participat {c |}
+ed in Head {c |} Living with Father, Ages 0 to 3
+     Start {c |}  .6666667        .75          1 {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         0 {c |}{res}        55         47      1,409 {txt}{c |}{res}     2,169 
+           {txt}{c |}{res}     71.43      81.03      87.41 {txt}{c |}{res}     81.48 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        22         11        203 {txt}{c |}{res}       493 
+           {txt}{c |}{res}     28.57      18.97      12.59 {txt}{c |}{res}     18.52 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}        77         58      1,612 {txt}{c |}{res}     2,662 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+{txt}
+{com}. 
+. *\ Q2
+. gen sample = 1
+{txt}
+{com}. foreach var in hispanic black male firstborn lninc_0to3 momed lnbw {c -(}
+{txt}  2{com}. replace sample = 0 if missing(`var')
+{txt}  3{com}. {c )-} 
+{txt}(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(218 real changes made)
+(6 real changes made)
+(124 real changes made)
+
+{com}. 
+. reg comp_score~6 head_start if sample == 1, cluster(mom_id)
+
+{txt}Linear regression                               Number of obs     = {res}     2,313
+                                                {txt}F(1, 1392)        =  {res}    21.03
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0101
+                                                {txt}Root MSE          =    {res}  22.27
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,393} clusters in mom_id)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-5.531203{col 26}{space 2} 1.206101{col 37}{space 1}   -4.59{col 46}{space 3}0.000{col 54}{space 4}-7.897174{col 67}{space 3}-3.165231
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 46.86935{col 26}{space 2} .6308557{col 37}{space 1}   74.29{col 46}{space 3}0.000{col 54}{space 4} 45.63182{col 67}{space 3} 48.10688
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg comp_score~6 head_start if sample ==1, r
+
+{txt}Linear regression                               Number of obs     = {res}     2,313
+                                                {txt}F(1, 2311)        =  {res}    26.89
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0101
+                                                {txt}Root MSE          =    {res}  22.27
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-5.531203{col 26}{space 2} 1.066593{col 37}{space 1}   -5.19{col 46}{space 3}0.000{col 54}{space 4}-7.622783{col 67}{space 3}-3.439623
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 46.86935{col 26}{space 2} .5321077{col 37}{space 1}   88.08{col 46}{space 3}0.000{col 54}{space 4} 45.82589{col 67}{space 3} 47.91281
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg comp_score~6 head_start lninc if sample == 1, cluster(mom_id)
+
+{txt}Linear regression                               Number of obs     = {res}     2,313
+                                                {txt}F(2, 1392)        =  {res}    67.49
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0836
+                                                {txt}Root MSE          =    {res} 21.432
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,393} clusters in mom_id)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-2.133044{col 26}{space 2} 1.218047{col 37}{space 1}   -1.75{col 46}{space 3}0.080{col 54}{space 4} -4.52245{col 67}{space 3} .2563617
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2} 8.061051{col 26}{space 2} .7680625{col 37}{space 1}   10.50{col 46}{space 3}0.000{col 54}{space 4} 6.554366{col 67}{space 3} 9.567736
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-35.51999{col 26}{space 2} 7.904638{col 37}{space 1}   -4.49{col 46}{space 3}0.000{col 54}{space 4}-51.02628{col 67}{space 3} -20.0137
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg comp_score~6 head_start if sample == 1, cluster(mom_id)
+
+{txt}Linear regression                               Number of obs     = {res}     2,313
+                                                {txt}F(1, 1392)        =  {res}    21.03
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0101
+                                                {txt}Root MSE          =    {res}  22.27
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,393} clusters in mom_id)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-5.531203{col 26}{space 2} 1.206101{col 37}{space 1}   -4.59{col 46}{space 3}0.000{col 54}{space 4}-7.897174{col 67}{space 3}-3.165231
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 46.86935{col 26}{space 2} .6308557{col 37}{space 1}   74.29{col 46}{space 3}0.000{col 54}{space 4} 45.63182{col 67}{space 3} 48.10688
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg comp_score~6 head_start if sample == 1, r
+
+{txt}Linear regression                               Number of obs     = {res}     2,313
+                                                {txt}F(1, 2311)        =  {res}    26.89
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0101
+                                                {txt}Root MSE          =    {res}  22.27
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-5.531203{col 26}{space 2} 1.066593{col 37}{space 1}   -5.19{col 46}{space 3}0.000{col 54}{space 4}-7.622783{col 67}{space 3}-3.439623
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 46.86935{col 26}{space 2} .5321077{col 37}{space 1}   88.08{col 46}{space 3}0.000{col 54}{space 4} 45.82589{col 67}{space 3} 47.91281
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\ Q3
+. 
+. xtset mom_id
+{txt}{col 8}panel variable:  {res}mom_id (unbalanced)
+{txt}
+{com}. xtreg comp_score~6 head_start if sample == 1, i(mom_id) re
+{res}
+{txt}Random-effects GLS regression                   Number of obs     = {res}     2,313
+{txt}Group variable: {res}mom_id                          {txt}Number of groups  = {res}     1,393
+
+{txt}R-sq:                                           Obs per group:
+     within  = {res}0.0154                                         {txt}min = {res}         1
+{txt}     between = {res}0.0176                                         {txt}avg = {res}       1.7
+{txt}     overall = {res}0.0101                                         {txt}max = {res}         5
+
+                                                {txt}Wald chi2({res}1{txt})      =  {res}     4.63
+{txt}corr(u_i, X)   = {res}0{txt} (assumed)                    Prob > chi2       =     {res}0.0315
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-2.504711{col 26}{space 2} 1.164601{col 37}{space 1}   -2.15{col 46}{space 3}0.031{col 54}{space 4}-4.787286{col 67}{space 3}-.2221349
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 46.36268{col 26}{space 2} .5873186{col 37}{space 1}   78.94{col 46}{space 3}0.000{col 54}{space 4} 45.21155{col 67}{space 3}  47.5138
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 14.440423
+     {txt}sigma_e {c |} {res} 16.723057
+         {txt}rho {c |} {res} .42714379{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+
+{com}. 
+. *\ Q4
+. 
+. xtreg comp_score~6 head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,313
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,393
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0154{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0176{col 63}{txt}avg{col 67}={col 69}{res}       1.7
+{txt}     overall = {res}0.0101{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}1{txt},{res}919{txt}){col 67}={col 70}{res}    14.33
+{txt}corr(u_i, Xb){col 16}= {res}-0.2593{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0002
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} 7.400425{col 26}{space 2}  1.95461{col 37}{space 1}    3.79{col 46}{space 3}0.000{col 54}{space 4} 3.564408{col 67}{space 3} 11.23644
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 44.15779{col 26}{space 2} .5374814{col 37}{space 1}   82.16{col 46}{space 3}0.000{col 54}{space 4} 43.10295{col 67}{space 3} 45.21262
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 20.879142
+     {txt}sigma_e {c |} {res} 16.723057
+         {txt}rho {c |} {res} .60919376{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1392{txt}, {res}919{txt}) = {res}2.28{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. xtreg comp_score~6 head_start hispanic black male firstborn lninc momed lnbw if sample == 1, i(mom_id) fe
+{p 0 6 2}{txt}note: hispanic omitted because of collinearity{p_end}
+{p 0 6 2}note: black omitted because of collinearity{p_end}
+{p 0 6 2}note: momed omitted because of collinearity{p_end}
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,313
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,393
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0366{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0021{col 63}{txt}avg{col 67}={col 69}{res}       1.7
+{txt}     overall = {res}0.0070{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}5{txt},{res}915{txt}){col 67}={col 70}{res}     6.95
+{txt}corr(u_i, Xb){col 16}= {res}-0.0914{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} 6.951821{col 26}{space 2} 1.953342{col 37}{space 1}    3.56{col 46}{space 3}0.000{col 54}{space 4} 3.118271{col 67}{space 3} 10.78537
+{txt}{space 4}hispanic {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 7}black {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 8}male {c |}{col 14}{res}{space 2} -3.15578{col 26}{space 2} 1.077835{col 37}{space 1}   -2.93{col 46}{space 3}0.003{col 54}{space 4}-5.271095{col 67}{space 3}-1.040465
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2} 2.381953{col 26}{space 2} .9434372{col 37}{space 1}    2.52{col 46}{space 3}0.012{col 54}{space 4} .5304007{col 67}{space 3} 4.233505
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2} .6206483{col 26}{space 2} 1.428771{col 37}{space 1}    0.43{col 46}{space 3}0.664{col 54}{space 4}-2.183401{col 67}{space 3} 3.424697
+{txt}{space 7}momed {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 8}lnbw {c |}{col 14}{res}{space 2} 7.142452{col 26}{space 2} 2.968283{col 37}{space 1}    2.41{col 46}{space 3}0.016{col 54}{space 4} 1.317018{col 67}{space 3} 12.96789
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  5.04674{col 26}{space 2}  18.9424{col 37}{space 1}    0.27{col 46}{space 3}0.790{col 54}{space 4}-32.12886{col 67}{space 3} 42.22234
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 20.431047
+     {txt}sigma_e {c |} {res}  16.57778
+         {txt}rho {c |} {res} .60300095{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1392{txt}, {res}915{txt}) = {res}2.03{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. xtreg comp_score~6 head_start male firstborn lninc lnbw if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,313
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,393
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0366{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0021{col 63}{txt}avg{col 67}={col 69}{res}       1.7
+{txt}     overall = {res}0.0070{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}5{txt},{res}915{txt}){col 67}={col 70}{res}     6.95
+{txt}corr(u_i, Xb){col 16}= {res}-0.0914{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} 6.951821{col 26}{space 2} 1.953342{col 37}{space 1}    3.56{col 46}{space 3}0.000{col 54}{space 4} 3.118271{col 67}{space 3} 10.78537
+{txt}{space 8}male {c |}{col 14}{res}{space 2} -3.15578{col 26}{space 2} 1.077835{col 37}{space 1}   -2.93{col 46}{space 3}0.003{col 54}{space 4}-5.271095{col 67}{space 3}-1.040465
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2} 2.381953{col 26}{space 2} .9434372{col 37}{space 1}    2.52{col 46}{space 3}0.012{col 54}{space 4} .5304007{col 67}{space 3} 4.233505
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2} .6206483{col 26}{space 2} 1.428771{col 37}{space 1}    0.43{col 46}{space 3}0.664{col 54}{space 4}-2.183401{col 67}{space 3} 3.424697
+{txt}{space 8}lnbw {c |}{col 14}{res}{space 2} 7.142452{col 26}{space 2} 2.968283{col 37}{space 1}    2.41{col 46}{space 3}0.016{col 54}{space 4} 1.317018{col 67}{space 3} 12.96789
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  5.04674{col 26}{space 2}  18.9424{col 37}{space 1}    0.27{col 46}{space 3}0.790{col 54}{space 4}-32.12886{col 67}{space 3} 42.22234
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 20.431047
+     {txt}sigma_e {c |} {res}  16.57778
+         {txt}rho {c |} {res} .60300095{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1392{txt}, {res}915{txt}) = {res}2.03{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. *\ Q5
+. reg male head_start if sample == 1, cluster(mom_id)
+
+{txt}Linear regression                               Number of obs     = {res}     3,917
+                                                {txt}F(1, 1706)        =  {res}     2.08
+                                                {txt}Prob > F          = {res}    0.1491
+                                                {txt}R-squared         = {res}    0.0006
+                                                {txt}Root MSE          =    {res} .49987
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,707} clusters in mom_id)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        male{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .0292291{col 26}{space 2} .0202519{col 37}{space 1}    1.44{col 46}{space 3}0.149{col 54}{space 4} -.010492{col 67}{space 3} .0689502
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5045132{col 26}{space 2} .0088757{col 37}{space 1}   56.84{col 46}{space 3}0.000{col 54}{space 4} .4871048{col 67}{space 3} .5219216
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. xtreg male head_start if sample == 1, fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     3,917
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,707
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0002{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0011{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0006{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}2209{txt}){col 67}={col 70}{res}     0.38
+{txt}corr(u_i, Xb){col 16}= {res}0.0088{txt}{col 49}Prob > F{col 67}={col 73}{res}0.5387
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        male{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .0221709{col 26}{space 2} .0360558{col 37}{space 1}    0.61{col 46}{space 3}0.539{col 54}{space 4} -.048536{col 67}{space 3} .0928778
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5059818{col 26}{space 2} .0109971{col 37}{space 1}   46.01{col 46}{space 3}0.000{col 54}{space 4} .4844161{col 67}{space 3} .5275475
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .34193723
+     {txt}sigma_e {c |} {res} .50324325
+         {txt}rho {c |} {res} .31585364{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1706{txt}, {res}2209{txt}) = {res}0.97{col 62}{txt}Prob > F = {res}0.7517
+{txt}
+{com}. 
+. reg firstborn head_start if sample == 1, cluster(mom_id)
+
+{txt}Linear regression                               Number of obs     = {res}     3,917
+                                                {txt}F(1, 1706)        =  {res}     1.07
+                                                {txt}Prob > F          = {res}    0.3002
+                                                {txt}R-squared         = {res}    0.0002
+                                                {txt}Root MSE          =    {res} .48983
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,707} clusters in mom_id)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   firstborn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .0163963{col 26}{space 2}  .015823{col 37}{space 1}    1.04{col 46}{space 3}0.300{col 54}{space 4}-.0146383{col 67}{space 3} .0474309
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .3958736{col 26}{space 2} .0049697{col 37}{space 1}   79.66{col 46}{space 3}0.000{col 54}{space 4} .3861262{col 67}{space 3} .4056211
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. xtreg firstborn head_start if sample == 1, fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     3,917
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,707
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0050{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0041{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0002{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}2209{txt}){col 67}={col 70}{res}    11.09
+{txt}corr(u_i, Xb){col 16}= {res}-0.3095{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0009
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   firstborn{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1467874{col 26}{space 2} .0440705{col 37}{space 1}    3.33{col 46}{space 3}0.001{col 54}{space 4} .0603634{col 67}{space 3} .2332115
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .3687435{col 26}{space 2} .0134416{col 37}{space 1}   27.43{col 46}{space 3}0.000{col 54}{space 4}  .342384{col 67}{space 3} .3951029
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .19081566
+     {txt}sigma_e {c |} {res} .61510733
+         {txt}rho {c |} {res} .08778558{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1706{txt}, {res}2209{txt}) = {res}0.16{col 62}{txt}Prob > F = {res}1.0000
+{txt}
+{com}. 
+. reg lninc head_start if sample == 1, cluster(mom_id)
+
+{txt}Linear regression                               Number of obs     = {res}     3,917
+                                                {txt}F(1, 1706)        =  {res}   134.89
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0372
+                                                {txt}Root MSE          =    {res} .74762
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,707} clusters in mom_id)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}  lninc_0to3{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} -.362128{col 26}{space 2} .0311798{col 37}{space 1}  -11.61{col 46}{space 3}0.000{col 54}{space 4}-.4232827{col 67}{space 3}-.3009732
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 10.14854{col 26}{space 2} .0189869{col 37}{space 1}  534.50{col 46}{space 3}0.000{col 54}{space 4}  10.1113{col 67}{space 3} 10.18578
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. xtreg lninc head_start if sample == 1, fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     3,917
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,707
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0000{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0583{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0372{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}2209{txt}){col 67}={col 70}{res}     0.02
+{txt}corr(u_i, Xb){col 16}= {res}0.2114{txt}{col 49}Prob > F{col 67}={col 73}{res}0.8856
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  lninc_0to3{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0045145{col 26}{space 2} .0313652{col 37}{space 1}   -0.14{col 46}{space 3}0.886{col 54}{space 4}-.0660228{col 67}{space 3} .0569938
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 10.07413{col 26}{space 2} .0095664{col 37}{space 1} 1053.07{col 46}{space 3}0.000{col 54}{space 4} 10.05537{col 67}{space 3} 10.09289
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .70553709
+     {txt}sigma_e {c |} {res} .43777439
+         {txt}rho {c |} {res} .72202154{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1706{txt}, {res}2209{txt}) = {res}5.40{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. reg lnbw head_start if sample == 1, cluster(mom_id)
+
+{txt}Linear regression                               Number of obs     = {res}     3,917
+                                                {txt}F(1, 1706)        =  {res}     0.17
+                                                {txt}Prob > F          = {res}    0.6824
+                                                {txt}R-squared         = {res}    0.0001
+                                                {txt}Root MSE          =    {res} .21876
+
+{txt}{ralign 78:(Std. Err. adjusted for {res:1,707} clusters in mom_id)}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        lnbw{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0038759{col 26}{space 2} .0094697{col 37}{space 1}   -0.41{col 46}{space 3}0.682{col 54}{space 4}-.0224495{col 67}{space 3} .0146976
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.722781{col 26}{space 2} .0048926{col 37}{space 1}  965.29{col 46}{space 3}0.000{col 54}{space 4} 4.713185{col 67}{space 3} 4.732377
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. xtreg lnbw head_start if sample == 1, fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     3,917
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,707
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0046{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0016{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0001{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}2209{txt}){col 67}={col 70}{res}    10.26
+{txt}corr(u_i, Xb){col 16}= {res}-0.1046{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0014
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}        lnbw{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .0409357{col 26}{space 2} .0127798{col 37}{space 1}    3.20{col 46}{space 3}0.001{col 54}{space 4}  .015874{col 67}{space 3} .0659974
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.713457{col 26}{space 2} .0038979{col 37}{space 1} 1209.24{col 46}{space 3}0.000{col 54}{space 4} 4.705813{col 67}{space 3} 4.721101
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .17481774
+     {txt}sigma_e {c |} {res} .17837205
+         {txt}rho {c |} {res} .48993758{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1706{txt}, {res}2209{txt}) = {res}2.16{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. 
+. *\ Q6
+. 
+. sum comp_score~6
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+comp_score~6 {c |}{res}      2,420    45.42266    22.37593          0       98.5
+{txt}
+{com}. gen comp_score6_standard = (comp_score_5to6 - r(mean))/r(sd)
+{txt}(1,845 missing values generated)
+
+{com}. sum comp_score~10
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+comp_scor~10 {c |}{res}      3,246    45.19414    24.12119          0         99
+{txt}
+{com}. gen comp_score10_standard = (comp_score_7to10 - r(mean))/r(sd)
+{txt}(1,019 missing values generated)
+
+{com}. sum comp_score~14 
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+comp_scor~14 {c |}{res}      2,881    43.77577    24.80608   .6666667         99
+{txt}
+{com}. gen comp_score14_standard = (comp_score_11to14 - r(mean))/r(sd)
+{txt}(1,384 missing values generated)
+
+{com}. 
+. xtreg comp_score6_standard head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,313
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,393
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0154{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0176{col 63}{txt}avg{col 67}={col 69}{res}       1.7
+{txt}     overall = {res}0.0101{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}1{txt},{res}919{txt}){col 67}={col 70}{res}    14.33
+{txt}corr(u_i, Xb){col 16}= {res}-0.2593{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0002
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}c~6_standard{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .3307315{col 26}{space 2} .0873533{col 37}{space 1}    3.79{col 46}{space 3}0.000{col 54}{space 4} .1592965{col 67}{space 3} .5021666
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0565282{col 26}{space 2} .0240205{col 37}{space 1}   -2.35{col 46}{space 3}0.019{col 54}{space 4}-.1036697{col 67}{space 3}-.0093868
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .93310733
+     {txt}sigma_e {c |} {res} .74736821
+         {txt}rho {c |} {res} .60919376{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1392{txt}, {res}919{txt}) = {res}2.28{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg comp_score10_standard head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     3,082
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,511
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0038{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0377{col 63}{txt}avg{col 67}={col 69}{res}       2.0
+{txt}     overall = {res}0.0236{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}1{txt},{res}1570{txt}){col 67}={col 70}{res}     5.91
+{txt}corr(u_i, Xb){col 16}= {res}-0.2494{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0152
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}c~0_standard{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1501024{col 26}{space 2} .0617356{col 37}{space 1}    2.43{col 46}{space 3}0.015{col 54}{space 4} .0290096{col 67}{space 3} .2711952
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0231688{col 26}{space 2} .0192056{col 37}{space 1}   -1.21{col 46}{space 3}0.228{col 54}{space 4}-.0608401{col 67}{space 3} .0145025
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .88274514
+     {txt}sigma_e {c |} {res} .72741498
+         {txt}rho {c |} {res} .59557929{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1510{txt}, {res}1570{txt}) = {res}2.73{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg comp_score14_standard head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,661
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,305
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0052{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0482{col 63}{txt}avg{col 67}={col 69}{res}       2.0
+{txt}     overall = {res}0.0304{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}1355{txt}){col 67}={col 70}{res}     7.14
+{txt}corr(u_i, Xb){col 16}= {res}-0.2779{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0076
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}c~4_standard{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1686152{col 26}{space 2} .0630986{col 37}{space 1}    2.67{col 46}{space 3}0.008{col 54}{space 4} .0448336{col 67}{space 3} .2923968
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-.0268122{col 26}{space 2} .0202903{col 37}{space 1}   -1.32{col 46}{space 3}0.187{col 54}{space 4}-.0666161{col 67}{space 3} .0129916
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .90018697
+     {txt}sigma_e {c |} {res} .70022414
+         {txt}rho {c |} {res} .62302412{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1304{txt}, {res}1355{txt}) = {res}3.04{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. *\ Q7
+. xtreg repeat head_start if sample == 1, fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,997
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,414
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0019{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0219{col 63}{txt}avg{col 67}={col 69}{res}       2.1
+{txt}     overall = {res}0.0115{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}1582{txt}){col 67}={col 70}{res}     3.01
+{txt}corr(u_i, Xb){col 16}= {res}-0.1993{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0829
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      repeat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0571159{col 26}{space 2} .0329155{col 37}{space 1}   -1.74{col 46}{space 3}0.083{col 54}{space 4}-.1216786{col 67}{space 3} .0074468
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .3231074{col 26}{space 2} .0104076{col 37}{space 1}   31.05{col 46}{space 3}0.000{col 54}{space 4} .3026932{col 67}{space 3} .3435216
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .37381326
+     {txt}sigma_e {c |} {res} .39117364
+         {txt}rho {c |} {res} .47731799{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1413{txt}, {res}1582{txt}) = {res}1.81{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg learndis head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     3,832
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,684
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0025{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0012{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0000{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}2147{txt}){col 67}={col 70}{res}     5.46
+{txt}corr(u_i, Xb){col 16}= {res}-0.0892{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0196
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    learndis{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0314249{col 26}{space 2} .0134498{col 37}{space 1}   -2.34{col 46}{space 3}0.020{col 54}{space 4}-.0578008{col 67}{space 3}-.0050489
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0476461{col 26}{space 2} .0041474{col 37}{space 1}   11.49{col 46}{space 3}0.000{col 54}{space 4} .0395128{col 67}{space 3} .0557794
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .14639948
+     {txt}sigma_e {c |} {res} .18610429
+         {txt}rho {c |} {res} .38226717{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1683{txt}, {res}2147{txt}) = {res}1.31{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg hsgrad head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,958
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,335
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0115{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0014{col 63}{txt}avg{col 67}={col 69}{res}       2.2
+{txt}     overall = {res}0.0000{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}1622{txt}){col 67}={col 70}{res}    18.90
+{txt}corr(u_i, Xb){col 16}= {res}-0.1774{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      hsgrad{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1467329{col 26}{space 2} .0337483{col 37}{space 1}    4.35{col 46}{space 3}0.000{col 54}{space 4}  .080538{col 67}{space 3} .2129277
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6863586{col 26}{space 2} .0107025{col 37}{space 1}   64.13{col 46}{space 3}0.000{col 54}{space 4} .6653664{col 67}{space 3} .7073509
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  .3469347
+     {txt}sigma_e {c |} {res} .40549467
+         {txt}rho {c |} {res} .42264072{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1334{txt}, {res}1622{txt}) = {res}1.50{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg somecoll head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,958
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,335
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0053{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0067{col 63}{txt}avg{col 67}={col 69}{res}       2.2
+{txt}     overall = {res}0.0022{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}1622{txt}){col 67}={col 70}{res}     8.72
+{txt}corr(u_i, Xb){col 16}= {res}-0.1785{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0032
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    somecoll{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1004387{col 26}{space 2} .0340173{col 37}{space 1}    2.95{col 46}{space 3}0.003{col 54}{space 4} .0337163{col 67}{space 3} .1671611
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2956067{col 26}{space 2} .0107878{col 37}{space 1}   27.40{col 46}{space 3}0.000{col 54}{space 4} .2744472{col 67}{space 3} .3167663
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .37238662
+     {txt}sigma_e {c |} {res} .40872682
+         {txt}rho {c |} {res} .45357689{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1334{txt}, {res}1622{txt}) = {res}1.66{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg fphealth head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,958
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,335
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0057{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0008{col 63}{txt}avg{col 67}={col 69}{res}       2.2
+{txt}     overall = {res}0.0001{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}1{txt},{res}1622{txt}){col 67}={col 70}{res}     9.37
+{txt}corr(u_i, Xb){col 16}= {res}-0.1424{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0022
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    fphealth{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0746941{col 26}{space 2} .0244056{col 37}{space 1}   -3.06{col 46}{space 3}0.002{col 54}{space 4}-.1225639{col 67}{space 3}-.0268242
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1136812{col 26}{space 2} .0077397{col 37}{space 1}   14.69{col 46}{space 3}0.000{col 54}{space 4} .0985004{col 67}{space 3} .1288621
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .21278914
+     {txt}sigma_e {c |} {res} .29324022
+         {txt}rho {c |} {res} .34493446{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1334{txt}, {res}1622{txt}) = {res}1.04{col 62}{txt}Prob > F = {res}0.2480
+{txt}
+{com}. 
+. 
+. *\ Q8
+. gen male_head_start = male*head_start
+{txt}
+{com}. xtreg repeat head_start male male_head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,997
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,414
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0138{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0014{col 63}{txt}avg{col 67}={col 69}{res}       2.1
+{txt}     overall = {res}0.0019{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}3{txt},{res}1580{txt}){col 67}={col 70}{res}     7.37
+{txt}corr(u_i, Xb){col 16}= {res}-0.0766{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0001
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      repeat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} -.055467{col 26}{space 2}  .040043{col 37}{space 1}   -1.39{col 46}{space 3}0.166{col 54}{space 4}  -.13401{col 67}{space 3} .0230761
+{txt}{space 8}male {c |}{col 14}{res}{space 2} .0852909{col 26}{space 2} .0221339{col 37}{space 1}    3.85{col 46}{space 3}0.000{col 54}{space 4}  .041876{col 67}{space 3} .1287059
+{txt}male_head_~t {c |}{col 14}{res}{space 2}-.0041338{col 26}{space 2} .0456744{col 37}{space 1}   -0.09{col 46}{space 3}0.928{col 54}{space 4}-.0937226{col 67}{space 3}  .085455
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2803146{col 26}{space 2} .0151037{col 37}{space 1}   18.56{col 46}{space 3}0.000{col 54}{space 4} .2506892{col 67}{space 3} .3099399
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .37062059
+     {txt}sigma_e {c |} {res} .38907907
+         {txt}rho {c |} {res} .47571726{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1413{txt}, {res}1580{txt}) = {res}1.81{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg learndis head_start male male_head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     3,832
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,684
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0102{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0005{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0033{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}3{txt},{res}2145{txt}){col 67}={col 70}{res}     7.36
+{txt}corr(u_i, Xb){col 16}= {res}-0.0649{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0001
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    learndis{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0283447{col 26}{space 2} .0169893{col 37}{space 1}   -1.67{col 46}{space 3}0.095{col 54}{space 4} -.061662{col 67}{space 3} .0049726
+{txt}{space 8}male {c |}{col 14}{res}{space 2} .0336793{col 26}{space 2} .0089254{col 37}{space 1}    3.77{col 46}{space 3}0.000{col 54}{space 4} .0161759{col 67}{space 3} .0511827
+{txt}male_head_~t {c |}{col 14}{res}{space 2}-.0071731{col 26}{space 2} .0196071{col 37}{space 1}   -0.37{col 46}{space 3}0.715{col 54}{space 4} -.045624{col 67}{space 3} .0312777
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0305866{col 26}{space 2}   .00613{col 37}{space 1}    4.99{col 46}{space 3}0.000{col 54}{space 4} .0185652{col 67}{space 3} .0426081
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .14610601
+     {txt}sigma_e {c |} {res} .18547584
+         {txt}rho {c |} {res} .38291722{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1683{txt}, {res}2145{txt}) = {res}1.31{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg hsgrad head_start male male_head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,958
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,335
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0242{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0013{col 63}{txt}avg{col 67}={col 69}{res}       2.2
+{txt}     overall = {res}0.0051{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}3{txt},{res}1620{txt}){col 67}={col 70}{res}    13.41
+{txt}corr(u_i, Xb){col 16}= {res}-0.1295{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      hsgrad{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1385486{col 26}{space 2} .0413384{col 37}{space 1}    3.35{col 46}{space 3}0.001{col 54}{space 4} .0574663{col 67}{space 3} .2196309
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.0949413{col 26}{space 2} .0226828{col 37}{space 1}   -4.19{col 46}{space 3}0.000{col 54}{space 4} -.139432{col 67}{space 3}-.0504506
+{txt}male_head_~t {c |}{col 14}{res}{space 2} .0163833{col 26}{space 2} .0471294{col 37}{space 1}    0.35{col 46}{space 3}0.728{col 54}{space 4}-.0760577{col 67}{space 3} .1088242
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7342973{col 26}{space 2} .0155837{col 37}{space 1}   47.12{col 46}{space 3}0.000{col 54}{space 4} .7037311{col 67}{space 3} .7648636
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .34418177
+     {txt}sigma_e {c |} {res} .40312756
+         {txt}rho {c |} {res} .42161034{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1334{txt}, {res}1620{txt}) = {res}1.50{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg somecoll head_start male male_head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,958
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,335
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0314{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0017{col 63}{txt}avg{col 67}={col 69}{res}       2.2
+{txt}     overall = {res}0.0072{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}3{txt},{res}1620{txt}){col 67}={col 70}{res}    17.48
+{txt}corr(u_i, Xb){col 16}= {res}-0.1049{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    somecoll{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1116348{col 26}{space 2} .0413865{col 37}{space 1}    2.70{col 46}{space 3}0.007{col 54}{space 4} .0304581{col 67}{space 3} .1928116
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.1261727{col 26}{space 2} .0227092{col 37}{space 1}   -5.56{col 46}{space 3}0.000{col 54}{space 4}-.1707152{col 67}{space 3}-.0816301
+{txt}male_head_~t {c |}{col 14}{res}{space 2}-.0212598{col 26}{space 2} .0471843{col 37}{space 1}   -0.45{col 46}{space 3}0.652{col 54}{space 4}-.1138085{col 67}{space 3} .0712888
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .3594722{col 26}{space 2} .0156018{col 37}{space 1}   23.04{col 46}{space 3}0.000{col 54}{space 4} .3288703{col 67}{space 3} .3900741
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .36984012
+     {txt}sigma_e {c |} {res} .40359727
+         {txt}rho {c |} {res} .45643737{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1334{txt}, {res}1620{txt}) = {res}1.68{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg fphealth head_start male male_head_start if sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     2,958
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}     1,335
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0178{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0021{col 63}{txt}avg{col 67}={col 69}{res}       2.2
+{txt}     overall = {res}0.0069{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}3{txt},{res}1620{txt}){col 67}={col 70}{res}     9.80
+{txt}corr(u_i, Xb){col 16}= {res}-0.1035{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    fphealth{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0721652{col 26}{space 2} .0299051{col 37}{space 1}   -2.41{col 46}{space 3}0.016{col 54}{space 4} -.130822{col 67}{space 3}-.0135085
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.0631864{col 26}{space 2} .0164092{col 37}{space 1}   -3.85{col 46}{space 3}0.000{col 54}{space 4} -.095372{col 67}{space 3}-.0310008
+{txt}male_head_~t {c |}{col 14}{res}{space 2}-.0046457{col 26}{space 2} .0340945{col 37}{space 1}   -0.14{col 46}{space 3}0.892{col 54}{space 4}-.0715196{col 67}{space 3} .0622281
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1456427{col 26}{space 2} .0112736{col 37}{space 1}   12.92{col 46}{space 3}0.000{col 54}{space 4} .1235304{col 67}{space 3}  .167755
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .21173697
+     {txt}sigma_e {c |} {res} .29163162
+         {txt}rho {c |} {res} .34518025{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}1334{txt}, {res}1620{txt}) = {res}1.04{col 62}{txt}Prob > F = {res}0.2520
+{txt}
+{com}. 
+. xtreg repeat head_start male if black == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     1,131
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       501
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0144{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0047{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0044{col 63}{txt}max{col 67}={col 69}{res}         5
+
+{txt}{col 49}F({res}2{txt},{res}628{txt}){col 67}={col 70}{res}     4.58
+{txt}corr(u_i, Xb){col 16}= {res}-0.0556{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0106
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      repeat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} -.051784{col 26}{space 2} .0490361{col 37}{space 1}   -1.06{col 46}{space 3}0.291{col 54}{space 4}-.1480785{col 67}{space 3} .0445105
+{txt}{space 8}male {c |}{col 14}{res}{space 2} .0961598{col 26}{space 2} .0337581{col 37}{space 1}    2.85{col 46}{space 3}0.005{col 54}{space 4} .0298673{col 67}{space 3} .1624522
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .3604395{col 26}{space 2} .0274583{col 37}{space 1}   13.13{col 46}{space 3}0.000{col 54}{space 4} .3065183{col 67}{space 3} .4143607
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .37725737
+     {txt}sigma_e {c |} {res}  .4268388
+         {txt}rho {c |} {res} .43857249{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}500{txt}, {res}628{txt}) = {res}1.67{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg repeat head_start male if hispanic == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       652
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       296
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0216{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0147{col 63}{txt}avg{col 67}={col 69}{res}       2.2
+{txt}     overall = {res}0.0140{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}354{txt}){col 67}={col 70}{res}     3.91
+{txt}corr(u_i, Xb){col 16}= {res}-0.0053{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0209
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      repeat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0515215{col 26}{space 2} .0612744{col 37}{space 1}   -0.84{col 46}{space 3}0.401{col 54}{space 4}-.1720291{col 67}{space 3} .0689861
+{txt}{space 8}male {c |}{col 14}{res}{space 2} .1054742{col 26}{space 2}  .039622{col 37}{space 1}    2.66{col 46}{space 3}0.008{col 54}{space 4}   .02755{col 67}{space 3} .1833983
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2658092{col 26}{space 2} .0281544{col 37}{space 1}    9.44{col 46}{space 3}0.000{col 54}{space 4} .2104383{col 67}{space 3}   .32118
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  .3673736
+     {txt}sigma_e {c |} {res} .37371781
+         {txt}rho {c |} {res} .49144001{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}295{txt}, {res}354{txt}) = {res}2.12{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. xtreg learndis head_start male if black == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     1,241
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       529
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0128{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0017{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0050{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}710{txt}){col 67}={col 70}{res}     4.60
+{txt}corr(u_i, Xb){col 16}= {res}-0.0801{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0103
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    learndis{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0519815{col 26}{space 2}   .02088{col 37}{space 1}   -2.49{col 46}{space 3}0.013{col 54}{space 4}-.0929755{col 67}{space 3}-.0109875
+{txt}{space 8}male {c |}{col 14}{res}{space 2} .0251185{col 26}{space 2} .0142322{col 37}{space 1}    1.76{col 46}{space 3}0.078{col 54}{space 4}-.0028237{col 67}{space 3} .0530607
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0519313{col 26}{space 2} .0114656{col 37}{space 1}    4.53{col 46}{space 3}0.000{col 54}{space 4} .0294207{col 67}{space 3} .0744419
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .16305264
+     {txt}sigma_e {c |} {res} .19110687
+         {txt}rho {c |} {res} .42128041{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}528{txt}, {res}710{txt}) = {res}1.51{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg learndis head_start male if hispanic == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       738
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       318
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0098{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0036{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0063{col 63}{txt}max{col 67}={col 69}{res}         7
+
+{txt}{col 49}F({res}2{txt},{res}418{txt}){col 67}={col 70}{res}     2.08
+{txt}corr(u_i, Xb){col 16}= {res}-0.0225{txt}{col 49}Prob > F{col 67}={col 73}{res}0.1265
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    learndis{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0167646{col 26}{space 2} .0291798{col 37}{space 1}   -0.57{col 46}{space 3}0.566{col 54}{space 4}-.0741221{col 67}{space 3} .0405928
+{txt}{space 8}male {c |}{col 14}{res}{space 2} .0358338{col 26}{space 2} .0183459{col 37}{space 1}    1.95{col 46}{space 3}0.051{col 54}{space 4}-.0002278{col 67}{space 3} .0718955
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0265601{col 26}{space 2} .0130959{col 37}{space 1}    2.03{col 46}{space 3}0.043{col 54}{space 4} .0008181{col 67}{space 3}  .052302
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}  .1510355
+     {txt}sigma_e {c |} {res} .18713285
+         {txt}rho {c |} {res} .39445881{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}317{txt}, {res}418{txt}) = {res}1.34{col 62}{txt}Prob > F = {res}0.0026
+{txt}
+{com}. 
+. xtreg hsgrad head_start male if black == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     1,159
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       508
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0345{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0133{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0186{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}649{txt}){col 67}={col 70}{res}    11.60
+{txt}corr(u_i, Xb){col 16}= {res}-0.1028{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      hsgrad{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1868936{col 26}{space 2} .0453787{col 37}{space 1}    4.12{col 46}{space 3}0.000{col 54}{space 4} .0977868{col 67}{space 3} .2760003
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.0802903{col 26}{space 2} .0315155{col 37}{space 1}   -2.55{col 46}{space 3}0.011{col 54}{space 4}-.1421751{col 67}{space 3}-.0184056
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6833176{col 26}{space 2} .0254131{col 37}{space 1}   26.89{col 46}{space 3}0.000{col 54}{space 4} .6334158{col 67}{space 3} .7332195
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .34822646
+     {txt}sigma_e {c |} {res} .40372946
+         {txt}rho {c |} {res} .42658845{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}507{txt}, {res}649{txt}) = {res}1.54{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg hsgrad head_start male if hispanic == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       675
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       299
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0260{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0000{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0046{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}374{txt}){col 67}={col 70}{res}     5.00
+{txt}corr(u_i, Xb){col 16}= {res}-0.1209{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0072
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      hsgrad{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .1480549{col 26}{space 2} .0661698{col 37}{space 1}    2.24{col 46}{space 3}0.026{col 54}{space 4} .0179433{col 67}{space 3} .2781665
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.0925694{col 26}{space 2} .0417709{col 37}{space 1}   -2.22{col 46}{space 3}0.027{col 54}{space 4}-.1747046{col 67}{space 3}-.0104341
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6929556{col 26}{space 2} .0297858{col 37}{space 1}   23.26{col 46}{space 3}0.000{col 54}{space 4} .6343871{col 67}{space 3} .7515242
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .36815015
+     {txt}sigma_e {c |} {res} .39856426
+         {txt}rho {c |} {res} .46039422{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}298{txt}, {res}374{txt}) = {res}1.82{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. 
+. xtreg somecoll head_start male if black == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     1,159
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       508
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0539{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0047{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0153{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}649{txt}){col 67}={col 70}{res}    18.48
+{txt}corr(u_i, Xb){col 16}= {res}-0.1500{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0000
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    somecoll{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}  .174627{col 26}{space 2} .0430081{col 37}{space 1}    4.06{col 46}{space 3}0.000{col 54}{space 4} .0901752{col 67}{space 3} .2590787
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.1366439{col 26}{space 2} .0298691{col 37}{space 1}   -4.57{col 46}{space 3}0.000{col 54}{space 4}-.1952957{col 67}{space 3} -.077992
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2704396{col 26}{space 2} .0240855{col 37}{space 1}   11.23{col 46}{space 3}0.000{col 54}{space 4} .2231447{col 67}{space 3} .3177345
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .35328479
+     {txt}sigma_e {c |} {res} .38263817
+         {txt}rho {c |} {res} .46017686{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}507{txt}, {res}649{txt}) = {res}1.70{col 62}{txt}Prob > F = {res}0.0000
+{txt}
+{com}. xtreg somecoll head_start male if hispanic == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       675
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       299
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0425{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0325{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0369{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}374{txt}){col 67}={col 70}{res}     8.30
+{txt}corr(u_i, Xb){col 16}= {res}0.0018{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0003
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    somecoll{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0105709{col 26}{space 2} .0672193{col 37}{space 1}   -0.16{col 46}{space 3}0.875{col 54}{space 4}-.1427459{col 67}{space 3} .1216042
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.1728549{col 26}{space 2} .0424333{col 37}{space 1}   -4.07{col 46}{space 3}0.000{col 54}{space 4}-.2562928{col 67}{space 3}-.0894171
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .3796466{col 26}{space 2} .0302581{col 37}{space 1}   12.55{col 46}{space 3}0.000{col 54}{space 4} .3201492{col 67}{space 3}  .439144
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .34848268
+     {txt}sigma_e {c |} {res}  .4048852
+         {txt}rho {c |} {res} .42555014{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}298{txt}, {res}374{txt}) = {res}1.47{col 62}{txt}Prob > F = {res}0.0002
+{txt}
+{com}. 
+. xtreg fphealth head_start male if black == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}     1,159
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       508
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0275{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0363{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0298{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}649{txt}){col 67}={col 70}{res}     9.16
+{txt}corr(u_i, Xb){col 16}= {res}-0.0061{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0001
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    fphealth{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0451347{col 26}{space 2} .0323707{col 37}{space 1}   -1.39{col 46}{space 3}0.164{col 54}{space 4}-.1086986{col 67}{space 3} .0184292
+{txt}{space 8}male {c |}{col 14}{res}{space 2} -.090598{col 26}{space 2} .0224815{col 37}{space 1}   -4.03{col 46}{space 3}0.000{col 54}{space 4}-.1347431{col 67}{space 3}-.0464528
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1543309{col 26}{space 2} .0181283{col 37}{space 1}    8.51{col 46}{space 3}0.000{col 54}{space 4} .1187337{col 67}{space 3} .1899282
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .19797676
+     {txt}sigma_e {c |} {res} .28799844
+         {txt}rho {c |} {res} .32090611{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}507{txt}, {res}649{txt}) = {res}0.97{col 62}{txt}Prob > F = {res}0.6175
+{txt}
+{com}. xtreg fphealth head_start male if hispanic == 1 & sample == 1, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       675
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       299
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0144{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0000{col 63}{txt}avg{col 67}={col 69}{res}       2.3
+{txt}     overall = {res}0.0025{col 63}{txt}max{col 67}={col 69}{res}         6
+
+{txt}{col 49}F({res}2{txt},{res}374{txt}){col 67}={col 70}{res}     2.73
+{txt}corr(u_i, Xb){col 16}= {res}-0.1215{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0664
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    fphealth{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0674636{col 26}{space 2} .0521325{col 37}{space 1}   -1.29{col 46}{space 3}0.196{col 54}{space 4}-.1699732{col 67}{space 3} .0350459
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.0644255{col 26}{space 2} .0329096{col 37}{space 1}   -1.96{col 46}{space 3}0.051{col 54}{space 4}-.1291365{col 67}{space 3} .0002855
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1581006{col 26}{space 2}  .023467{col 37}{space 1}    6.74{col 46}{space 3}0.000{col 54}{space 4} .1119568{col 67}{space 3} .2042443
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .22513444
+     {txt}sigma_e {c |} {res} .31401239
+         {txt}rho {c |} {res} .33951205{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}298{txt}, {res}374{txt}) = {res}1.00{col 62}{txt}Prob > F = {res}0.5136
+{txt}
+{com}. 
+. *\ Q9
+. 
+. xtreg comp_score~6 head_start male firstborn lninc lnbw dadhome_0to3 ppvt_3, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       551
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       493
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0691{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.1162{col 63}{txt}avg{col 67}={col 69}{res}       1.1
+{txt}     overall = {res}0.1200{col 63}{txt}max{col 67}={col 69}{res}         3
+
+{txt}{col 49}F({res}7{txt},{res}51{txt}){col 67}={col 70}{res}     0.54
+{txt}corr(u_i, Xb){col 16}= {res}0.0727{txt}{col 49}Prob > F{col 67}={col 73}{res}0.7996
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}comp_score~6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-2.930055{col 26}{space 2}  8.61362{col 37}{space 1}   -0.34{col 46}{space 3}0.735{col 54}{space 4}-20.22262{col 67}{space 3} 14.36251
+{txt}{space 8}male {c |}{col 14}{res}{space 2} 4.155883{col 26}{space 2} 4.791848{col 37}{space 1}    0.87{col 46}{space 3}0.390{col 54}{space 4}-5.464154{col 67}{space 3} 13.77592
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2}-2.640133{col 26}{space 2} 4.011491{col 37}{space 1}   -0.66{col 46}{space 3}0.513{col 54}{space 4}-10.69354{col 67}{space 3} 5.413272
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2} 2.424553{col 26}{space 2} 6.525768{col 37}{space 1}    0.37{col 46}{space 3}0.712{col 54}{space 4}-10.67647{col 67}{space 3} 15.52558
+{txt}{space 8}lnbw {c |}{col 14}{res}{space 2} 10.46049{col 26}{space 2} 18.10044{col 37}{space 1}    0.58{col 46}{space 3}0.566{col 54}{space 4}-25.87767{col 67}{space 3} 46.79864
+{txt}dadhome_0to3 {c |}{col 14}{res}{space 2} 1.844181{col 26}{space 2} 12.50948{col 37}{space 1}    0.15{col 46}{space 3}0.883{col 54}{space 4}-23.26965{col 67}{space 3} 26.95801
+{txt}{space 6}ppvt_3 {c |}{col 14}{res}{space 2} .2793586{col 26}{space 2} .2174208{col 37}{space 1}    1.28{col 46}{space 3}0.205{col 54}{space 4} -.157132{col 67}{space 3} .7158491
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-32.20125{col 26}{space 2} 118.6293{col 37}{space 1}   -0.27{col 46}{space 3}0.787{col 54}{space 4}-270.3594{col 67}{space 3} 205.9569
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} 22.134544
+     {txt}sigma_e {c |} {res} 15.260061
+         {txt}rho {c |} {res} .67782645{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}492{txt}, {res}51{txt}) = {res}2.00{col 62}{txt}Prob > F = {res}0.0015
+{txt}
+{com}. xtreg repeat head_start male firstborn lninc lnbw dadhome_0to3 ppvt_3, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       479
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       429
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.1754{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0190{col 63}{txt}avg{col 67}={col 69}{res}       1.1
+{txt}     overall = {res}0.0212{col 63}{txt}max{col 67}={col 69}{res}         3
+
+{txt}{col 49}F({res}7{txt},{res}43{txt}){col 67}={col 70}{res}     1.31
+{txt}corr(u_i, Xb){col 16}= {res}-0.3565{txt}{col 49}Prob > F{col 67}={col 73}{res}0.2705
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      repeat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0913087{col 26}{space 2} .2154481{col 37}{space 1}   -0.42{col 46}{space 3}0.674{col 54}{space 4}-.5258013{col 67}{space 3} .3431838
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.0986285{col 26}{space 2} .1044904{col 37}{space 1}   -0.94{col 46}{space 3}0.350{col 54}{space 4}-.3093534{col 67}{space 3} .1120964
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2}-.0065548{col 26}{space 2} .0888161{col 37}{space 1}   -0.07{col 46}{space 3}0.942{col 54}{space 4}-.1856696{col 67}{space 3}   .17256
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2}-.1787908{col 26}{space 2} .1365945{col 37}{space 1}   -1.31{col 46}{space 3}0.198{col 54}{space 4}-.4542598{col 67}{space 3} .0966781
+{txt}{space 8}lnbw {c |}{col 14}{res}{space 2} .0559462{col 26}{space 2} .3915167{col 37}{space 1}    0.14{col 46}{space 3}0.887{col 54}{space 4}-.7336226{col 67}{space 3} .8455149
+{txt}dadhome_0to3 {c |}{col 14}{res}{space 2} .3570661{col 26}{space 2} .2644198{col 37}{space 1}    1.35{col 46}{space 3}0.184{col 54}{space 4}-.1761873{col 67}{space 3} .8903195
+{txt}{space 6}ppvt_3 {c |}{col 14}{res}{space 2}-.0115599{col 26}{space 2} .0050576{col 37}{space 1}   -2.29{col 46}{space 3}0.027{col 54}{space 4}-.0217596{col 67}{space 3}-.0013603
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  1.87065{col 26}{space 2} 2.530032{col 37}{space 1}    0.74{col 46}{space 3}0.464{col 54}{space 4}-3.231646{col 67}{space 3} 6.972946
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .44096845
+     {txt}sigma_e {c |} {res} .31477465
+         {txt}rho {c |} {res} .66245027{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}428{txt}, {res}43{txt}) = {res}1.63{col 62}{txt}Prob > F = {res}0.0250
+{txt}
+{com}. xtreg learndis head_start male firstborn lninc lnbw dadhome_0to3 ppvt_3, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       651
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       582
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.1540{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0011{col 63}{txt}avg{col 67}={col 69}{res}       1.1
+{txt}     overall = {res}0.0000{col 63}{txt}max{col 67}={col 69}{res}         3
+
+{txt}{col 49}F({res}7{txt},{res}62{txt}){col 67}={col 70}{res}     1.61
+{txt}corr(u_i, Xb){col 16}= {res}-0.6046{txt}{col 49}Prob > F{col 67}={col 73}{res}0.1488
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    learndis{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2} .0287532{col 26}{space 2}   .06929{col 37}{space 1}    0.41{col 46}{space 3}0.680{col 54}{space 4}-.1097555{col 67}{space 3}  .167262
+{txt}{space 8}male {c |}{col 14}{res}{space 2} -.038447{col 26}{space 2} .0473219{col 37}{space 1}   -0.81{col 46}{space 3}0.420{col 54}{space 4}-.1330421{col 67}{space 3} .0561481
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2}-.0692166{col 26}{space 2} .0420352{col 37}{space 1}   -1.65{col 46}{space 3}0.105{col 54}{space 4}-.1532438{col 67}{space 3} .0148105
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2} .0446071{col 26}{space 2} .0686105{col 37}{space 1}    0.65{col 46}{space 3}0.518{col 54}{space 4}-.0925433{col 67}{space 3} .1817575
+{txt}{space 8}lnbw {c |}{col 14}{res}{space 2}-.2131885{col 26}{space 2} .1769907{col 37}{space 1}   -1.20{col 46}{space 3}0.233{col 54}{space 4} -.566988{col 67}{space 3}  .140611
+{txt}dadhome_0to3 {c |}{col 14}{res}{space 2} -.291872{col 26}{space 2} .1311685{col 37}{space 1}   -2.23{col 46}{space 3}0.030{col 54}{space 4} -.554074{col 67}{space 3}  -.02967
+{txt}{space 6}ppvt_3 {c |}{col 14}{res}{space 2}-.0003881{col 26}{space 2} .0021639{col 37}{space 1}   -0.18{col 46}{space 3}0.858{col 54}{space 4}-.0047138{col 67}{space 3} .0039375
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .828652{col 26}{space 2} 1.172554{col 37}{space 1}    0.71{col 46}{space 3}0.482{col 54}{space 4} -1.51525{col 67}{space 3} 3.172554
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .22122996
+     {txt}sigma_e {c |} {res} .17194562
+         {txt}rho {c |} {res} .62341037{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}581{txt}, {res}62{txt}) = {res}1.09{col 62}{txt}Prob > F = {res}0.3461
+{txt}
+{com}. xtreg hsgrad head_start male firstborn lninc lnbw dadhome_0to3 ppvt_3, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       502
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       450
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.1766{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0002{col 63}{txt}avg{col 67}={col 69}{res}       1.1
+{txt}     overall = {res}0.0004{col 63}{txt}max{col 67}={col 69}{res}         3
+
+{txt}{col 49}F({res}7{txt},{res}45{txt}){col 67}={col 70}{res}     1.38
+{txt}corr(u_i, Xb){col 16}= {res}-0.4459{txt}{col 49}Prob > F{col 67}={col 73}{res}0.2375
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      hsgrad{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.0532479{col 26}{space 2} .2714415{col 37}{space 1}   -0.20{col 46}{space 3}0.845{col 54}{space 4}-.5999591{col 67}{space 3} .4934633
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.2097287{col 26}{space 2} .1527271{col 37}{space 1}   -1.37{col 46}{space 3}0.176{col 54}{space 4}-.5173368{col 67}{space 3} .0978795
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2} .1293677{col 26}{space 2} .1236776{col 37}{space 1}    1.05{col 46}{space 3}0.301{col 54}{space 4}-.1197318{col 67}{space 3} .3784672
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2}-.1309688{col 26}{space 2} .1926563{col 37}{space 1}   -0.68{col 46}{space 3}0.500{col 54}{space 4}-.5189984{col 67}{space 3} .2570608
+{txt}{space 8}lnbw {c |}{col 14}{res}{space 2}-.3934059{col 26}{space 2} .5205751{col 37}{space 1}   -0.76{col 46}{space 3}0.454{col 54}{space 4}-1.441898{col 67}{space 3} .6550861
+{txt}dadhome_0to3 {c |}{col 14}{res}{space 2}-.1857146{col 26}{space 2} .3852338{col 37}{space 1}   -0.48{col 46}{space 3}0.632{col 54}{space 4}-.9616154{col 67}{space 3} .5901862
+{txt}{space 6}ppvt_3 {c |}{col 14}{res}{space 2}  .005111{col 26}{space 2} .0062428{col 37}{space 1}    0.82{col 46}{space 3}0.417{col 54}{space 4}-.0074626{col 67}{space 3} .0176846
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 4.017308{col 26}{space 2} 3.386561{col 37}{space 1}    1.19{col 46}{space 3}0.242{col 54}{space 4}-2.803575{col 67}{space 3} 10.83819
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res}   .492019
+     {txt}sigma_e {c |} {res} .45201595
+         {txt}rho {c |} {res} .54229859{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}449{txt}, {res}45{txt}) = {res}0.89{col 62}{txt}Prob > F = {res}0.7156
+{txt}
+{com}. xtreg somecoll head_start male firstborn lninc lnbw dadhome_0to3 ppvt_3, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       502
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       450
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.3725{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0236{col 63}{txt}avg{col 67}={col 69}{res}       1.1
+{txt}     overall = {res}0.0444{col 63}{txt}max{col 67}={col 69}{res}         3
+
+{txt}{col 49}F({res}7{txt},{res}45{txt}){col 67}={col 70}{res}     3.82
+{txt}corr(u_i, Xb){col 16}= {res}-0.3088{txt}{col 49}Prob > F{col 67}={col 73}{res}0.0025
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    somecoll{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}  .053202{col 26}{space 2} .2261035{col 37}{space 1}    0.24{col 46}{space 3}0.815{col 54}{space 4}-.4021938{col 67}{space 3} .5085979
+{txt}{space 8}male {c |}{col 14}{res}{space 2} .0109032{col 26}{space 2} .1272176{col 37}{space 1}    0.09{col 46}{space 3}0.932{col 54}{space 4}-.2453262{col 67}{space 3} .2671326
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2} .3822423{col 26}{space 2} .1030201{col 37}{space 1}    3.71{col 46}{space 3}0.001{col 54}{space 4} .1747491{col 67}{space 3} .5897355
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2} .1047783{col 26}{space 2} .1604775{col 37}{space 1}    0.65{col 46}{space 3}0.517{col 54}{space 4}  -.21844{col 67}{space 3} .4279966
+{txt}{space 8}lnbw {c |}{col 14}{res}{space 2}-.4997628{col 26}{space 2} .4336251{col 37}{space 1}   -1.15{col 46}{space 3}0.255{col 54}{space 4}-1.373129{col 67}{space 3} .3736031
+{txt}dadhome_0to3 {c |}{col 14}{res}{space 2}-.1591872{col 26}{space 2} .3208895{col 37}{space 1}   -0.50{col 46}{space 3}0.622{col 54}{space 4}-.8054918{col 67}{space 3} .4871174
+{txt}{space 6}ppvt_3 {c |}{col 14}{res}{space 2} .0062763{col 26}{space 2} .0052001{col 37}{space 1}    1.21{col 46}{space 3}0.234{col 54}{space 4}-.0041972{col 67}{space 3} .0167497
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1.431879{col 26}{space 2} 2.820914{col 37}{space 1}    0.51{col 46}{space 3}0.614{col 54}{space 4}-4.249734{col 67}{space 3} 7.113492
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .44594716
+     {txt}sigma_e {c |} {res} .37651721
+         {txt}rho {c |} {res} .58381964{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}449{txt}, {res}45{txt}) = {res}1.24{col 62}{txt}Prob > F = {res}0.1890
+{txt}
+{com}. xtreg fphealth head_start male firstborn lninc lnbw dadhome_0to3 ppvt_3, i(mom_id) fe
+{res}
+{txt}Fixed-effects (within) regression{col 49}Number of obs{col 67}={col 69}{res}       502
+{txt}Group variable: {res}mom_id{txt}{col 49}Number of groups{col 67}={col 69}{res}       450
+
+{txt}R-sq:{col 49}Obs per group:
+     within  = {res}0.0866{col 63}{txt}min{col 67}={col 69}{res}         1
+{txt}     between = {res}0.0002{col 63}{txt}avg{col 67}={col 69}{res}       1.1
+{txt}     overall = {res}0.0001{col 63}{txt}max{col 67}={col 69}{res}         3
+
+{txt}{col 49}F({res}7{txt},{res}45{txt}){col 67}={col 70}{res}     0.61
+{txt}corr(u_i, Xb){col 16}= {res}-0.4567{txt}{col 49}Prob > F{col 67}={col 73}{res}0.7452
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}    fphealth{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}head_start {c |}{col 14}{res}{space 2}-.1667689{col 26}{space 2} .1600626{col 37}{space 1}   -1.04{col 46}{space 3}0.303{col 54}{space 4}-.4891516{col 67}{space 3} .1556137
+{txt}{space 8}male {c |}{col 14}{res}{space 2}-.0187205{col 26}{space 2} .0900595{col 37}{space 1}   -0.21{col 46}{space 3}0.836{col 54}{space 4}-.2001098{col 67}{space 3} .1626687
+{txt}{space 3}firstborn {c |}{col 14}{res}{space 2}-.0329899{col 26}{space 2} .0729297{col 37}{space 1}   -0.45{col 46}{space 3}0.653{col 54}{space 4}-.1798779{col 67}{space 3} .1138982
+{txt}{space 2}lninc_0to3 {c |}{col 14}{res}{space 2} .1538136{col 26}{space 2} .1136048{col 37}{space 1}    1.35{col 46}{space 3}0.183{col 54}{space 4}-.0749983{col 67}{space 3} .3826254
+{txt}{space 8}lnbw {c |}{col 14}{res}{space 2} .1219011{col 26}{space 2} .3069708{col 37}{space 1}    0.40{col 46}{space 3}0.693{col 54}{space 4}-.4963697{col 67}{space 3}  .740172
+{txt}dadhome_0to3 {c |}{col 14}{res}{space 2}-.1517231{col 26}{space 2} .2271632{col 37}{space 1}   -0.67{col 46}{space 3}0.508{col 54}{space 4}-.6092534{col 67}{space 3} .3058072
+{txt}{space 6}ppvt_3 {c |}{col 14}{res}{space 2}  .001864{col 26}{space 2} .0036812{col 37}{space 1}    0.51{col 46}{space 3}0.615{col 54}{space 4}-.0055504{col 67}{space 3} .0092783
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-1.938211{col 26}{space 2} 1.996974{col 37}{space 1}   -0.97{col 46}{space 3}0.337{col 54}{space 4}-5.960324{col 67}{space 3} 2.083902
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+     sigma_u {c |} {res} .32675365
+     {txt}sigma_e {c |} {res} .26654308
+         {txt}rho {c |} {res}  .6004502{txt}   (fraction of variance due to u_i)
+{hline 13}{c BT}{hline 64}
+F test that all u_i=0: F({res}449{txt}, {res}45{txt}) = {res}1.21{col 62}{txt}Prob > F = {res}0.2183
+{txt}
+{com}. 
+. gen miss_dad = 0
+{txt}
+{com}. replace miss_dad = 1 if dadhome_0to3 == .
+{txt}(1,603 real changes made)
+
+{com}. 
+. gen miss_score = 0
+{txt}
+{com}. replace miss_score = 1 if ppvt_3 == .
+{txt}(3,591 real changes made)
+
+{com}. 
+. reg head_start miss_dad miss_score, r
+
+{txt}Linear regression                               Number of obs     = {res}     4,265
+                                                {txt}F(2, 4262)        =  {res}    10.05
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0049
+                                                {txt}Root MSE          =    {res}   .404
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}  head_start{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}miss_dad {c |}{col 14}{res}{space 2} .0612596{col 26}{space 2} .0137071{col 37}{space 1}    4.47{col 46}{space 3}0.000{col 54}{space 4} .0343865{col 67}{space 3} .0881327
+{txt}{space 2}miss_score {c |}{col 14}{res}{space 2}-.0177071{col 26}{space 2} .0175878{col 37}{space 1}   -1.01{col 46}{space 3}0.314{col 54}{space 4}-.0521883{col 67}{space 3} .0167741
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .1984495{col 26}{space 2} .0153869{col 37}{space 1}   12.90{col 46}{space 3}0.000{col 54}{space 4} .1682831{col 67}{space 3} .2286159
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\Log_problemset_4.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}12 Apr 2019, 14:31:30
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
