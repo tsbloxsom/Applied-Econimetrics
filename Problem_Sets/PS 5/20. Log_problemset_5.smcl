@@ -1,0 +1,1345 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\Log_problemset_5.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}29 Apr 2019, 15:05:40
+
+{com}. use "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\crime_ps5.dta"
+
+. do "C:\Users\tsb962\AppData\Local\Temp\613\STD5a30_000000.tmp"
+{txt}
+{com}. *\ Problem set 5 Truett Bloxsom
+. *\ Q1
+. sum
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 5}birthyr {c |}{res}      5,000        1960    1.414355       1958       1962
+{txt}{space 1}draftnumber {c |}{res}      5,000       500.5    288.7039          1       1000
+{txt}{space 1}conscripted {c |}{res}      5,000    .5031219    .3048805   .0044843   .8638498
+{txt}{space 3}crimerate {c |}{res}      5,000     .069266    .0177859   .0178141   .1490737
+{txt}{space 8}arms {c |}{res}      5,000    .0010047    .0023807          0   .0228779
+{txt}{hline 13}{c +}{hline 57}
+{space 4}property {c |}{res}      5,000    .0074641    .0072837          0   .0545566
+{txt}{space 6}sexual {c |}{res}      5,000    .0007174    .0020622          0   .0184197
+{txt}{space 6}murder {c |}{res}      5,000    .0008641    .0021345          0   .0184197
+{txt}{space 6}threat {c |}{res}      5,000    .0016815    .0031157          0   .0311747
+{txt}{space 8}drug {c |}{res}      5,000    .0012081    .0028086          0   .0311747
+{txt}{hline 13}{c +}{hline 57}
+{space 1}whitecollar {c |}{res}      5,000    .0033947    .0045673          0   .0368394
+{txt}{space 3}argentine {c |}{res}      5,000    .9985559    .0025697    .973913          1
+{txt}{space 2}indigenous {c |}{res}      5,000    .0008938    .0019932          0   .0144231
+{txt}{space 1}naturalized {c |}{res}      5,000    .0005358    .0016516          0    .026087
+{txt}
+{com}. bysort birthyr: sum crimerate
+
+{txt}{hline}
+-> birthyr = 1958
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}crimerate {c |}{res}      1,000    .0689771    .0176815   .0230246   .1335427
+
+{txt}{hline}
+-> birthyr = 1959
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}crimerate {c |}{res}      1,000    .0679747    .0176359   .0228779   .1326915
+
+{txt}{hline}
+-> birthyr = 1960
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}crimerate {c |}{res}      1,000     .069005    .0173556   .0272783   .1409379
+
+{txt}{hline}
+-> birthyr = 1961
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}crimerate {c |}{res}      1,000    .0697981    .0178143   .0180695   .1490737
+
+{txt}{hline}
+-> birthyr = 1962
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}crimerate {c |}{res}      1,000    .0705751    .0183551   .0178141   .1425129
+
+{txt}
+{com}. bysort birthyr: sum conscripted
+
+{txt}{hline}
+-> birthyr = 1958
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 1}conscripted {c |}{res}      1,000    .5764233    .2414991   .0143541   .7877358
+
+{txt}{hline}
+-> birthyr = 1959
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 1}conscripted {c |}{res}      1,000    .4617756    .2951067    .008547   .7990867
+
+{txt}{hline}
+-> birthyr = 1960
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 1}conscripted {c |}{res}      1,000    .4670117    .3103247   .0090498   .8186046
+
+{txt}{hline}
+-> birthyr = 1961
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 1}conscripted {c |}{res}      1,000    .5094383    .3338201   .0045872   .8638498
+
+{txt}{hline}
+-> birthyr = 1962
+
+    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 1}conscripted {c |}{res}      1,000    .5009606     .321786   .0044843   .8078603
+
+{txt}
+{com}. 
+. *\ Q2
+. reg crimerate conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     2.78
+                                                {txt}Prob > F          = {res}    0.0069
+                                                {txt}R-squared         = {res}    0.0040
+                                                {txt}Root MSE          =    {res} .01776
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   crimerate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0022645{col 26}{space 2} .0008362{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4} .0006252{col 67}{space 3} .0039038
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0358451{col 26}{space 2} .1273285{col 37}{space 1}   -0.28{col 46}{space 3}0.778{col 54}{space 4}-.2854649{col 67}{space 3} .2137747
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .1312705{col 26}{space 2} .1715793{col 37}{space 1}    0.77{col 46}{space 3}0.444{col 54}{space 4}-.2051004{col 67}{space 3} .4676414
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0007306{col 26}{space 2} .0007985{col 37}{space 1}   -0.91{col 46}{space 3}0.360{col 54}{space 4} -.002296{col 67}{space 3} .0008348
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0002714{col 26}{space 2} .0007923{col 37}{space 1}    0.34{col 46}{space 3}0.732{col 54}{space 4}-.0012818{col 67}{space 3} .0018246
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0009102{col 26}{space 2}  .000802{col 37}{space 1}    1.13{col 46}{space 3}0.256{col 54}{space 4}-.0006621{col 67}{space 3} .0024824
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0016153{col 26}{space 2} .0008252{col 37}{space 1}    1.96{col 46}{space 3}0.050{col 54}{space 4}-2.56e-06{col 67}{space 3} .0032331
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0676751{col 26}{space 2} .0007658{col 37}{space 1}   88.37{col 46}{space 3}0.000{col 54}{space 4} .0661738{col 67}{space 3} .0691764
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg crimerate conscripted i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(5, 4994)        =  {res}     3.82
+                                                {txt}Prob > F          = {res}    0.0019
+                                                {txt}R-squared         = {res}    0.0039
+                                                {txt}Root MSE          =    {res} .01776
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   crimerate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0022609{col 26}{space 2} .0008355{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4}  .000623{col 67}{space 3} .0038988
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0007432{col 26}{space 2} .0007974{col 37}{space 1}   -0.93{col 46}{space 3}0.351{col 54}{space 4}-.0023064{col 67}{space 3}   .00082
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0002753{col 26}{space 2} .0007907{col 37}{space 1}    0.35{col 46}{space 3}0.728{col 54}{space 4}-.0012748{col 67}{space 3} .0018253
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0009725{col 26}{space 2} .0007974{col 37}{space 1}    1.22{col 46}{space 3}0.223{col 54}{space 4}-.0005909{col 67}{space 3} .0025358
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0017686{col 26}{space 2}  .000809{col 37}{space 1}    2.19{col 46}{space 3}0.029{col 54}{space 4} .0001827{col 67}{space 3} .0033545
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0676739{col 26}{space 2} .0007473{col 37}{space 1}   90.56{col 46}{space 3}0.000{col 54}{space 4} .0662089{col 67}{space 3} .0691389
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg property conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     8.13
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0110
+                                                {txt}Root MSE          =    {res} .00725
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    property{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0008554{col 26}{space 2} .0003353{col 37}{space 1}    2.55{col 46}{space 3}0.011{col 54}{space 4} .0001981{col 67}{space 3} .0015128
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}  .010398{col 26}{space 2} .0517654{col 37}{space 1}    0.20{col 46}{space 3}0.841{col 54}{space 4}-.0910849{col 67}{space 3} .1118809
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} -.069557{col 26}{space 2} .0627006{col 37}{space 1}   -1.11{col 46}{space 3}0.267{col 54}{space 4}-.1924778{col 67}{space 3} .0533637
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2} .0006294{col 26}{space 2} .0003121{col 37}{space 1}    2.02{col 46}{space 3}0.044{col 54}{space 4} .0000175{col 67}{space 3} .0012412
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0011245{col 26}{space 2} .0003281{col 37}{space 1}    3.43{col 46}{space 3}0.001{col 54}{space 4} .0004812{col 67}{space 3} .0017678
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0016522{col 26}{space 2} .0003163{col 37}{space 1}    5.22{col 46}{space 3}0.000{col 54}{space 4}  .001032{col 67}{space 3} .0022724
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0021367{col 26}{space 2} .0003292{col 37}{space 1}    6.49{col 46}{space 3}0.000{col 54}{space 4} .0014912{col 67}{space 3} .0027821
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0059531{col 26}{space 2} .0002958{col 37}{space 1}   20.12{col 46}{space 3}0.000{col 54}{space 4} .0053731{col 67}{space 3} .0065331
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg murder conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     1.90
+                                                {txt}Prob > F          = {res}    0.0659
+                                                {txt}R-squared         = {res}    0.0032
+                                                {txt}Root MSE          =    {res} .00213
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      murder{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2}-.0000771{col 26}{space 2} .0000996{col 37}{space 1}   -0.77{col 46}{space 3}0.439{col 54}{space 4}-.0002724{col 67}{space 3} .0001181
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0457627{col 26}{space 2} .0173901{col 37}{space 1}    2.63{col 46}{space 3}0.009{col 54}{space 4} .0116705{col 67}{space 3} .0798549
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0095692{col 26}{space 2} .0187225{col 37}{space 1}   -0.51{col 46}{space 3}0.609{col 54}{space 4}-.0462735{col 67}{space 3} .0271351
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0001918{col 26}{space 2} .0000928{col 37}{space 1}   -2.07{col 46}{space 3}0.039{col 54}{space 4}-.0003738{col 67}{space 3}-9.80e-06
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001214{col 26}{space 2} .0000978{col 37}{space 1}   -1.24{col 46}{space 3}0.215{col 54}{space 4}-.0003131{col 67}{space 3} .0000703
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2}  .000013{col 26}{space 2} .0001011{col 37}{space 1}    0.13{col 46}{space 3}0.898{col 54}{space 4}-.0001852{col 67}{space 3} .0002112
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000461{col 26}{space 2} .0001032{col 37}{space 1}   -0.45{col 46}{space 3}0.655{col 54}{space 4}-.0002485{col 67}{space 3} .0001563
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0009364{col 26}{space 2} .0000916{col 37}{space 1}   10.23{col 46}{space 3}0.000{col 54}{space 4} .0007569{col 67}{space 3} .0011159
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg drug conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     3.20
+                                                {txt}Prob > F          = {res}    0.0022
+                                                {txt}R-squared         = {res}    0.0048
+                                                {txt}Root MSE          =    {res}  .0028
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        drug{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2}-.0000775{col 26}{space 2} .0001344{col 37}{space 1}   -0.58{col 46}{space 3}0.564{col 54}{space 4} -.000341{col 67}{space 3} .0001861
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0057007{col 26}{space 2} .0200226{col 37}{space 1}    0.28{col 46}{space 3}0.776{col 54}{space 4}-.0335524{col 67}{space 3} .0449538
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0014503{col 26}{space 2} .0251651{col 37}{space 1}    0.06{col 46}{space 3}0.954{col 54}{space 4}-.0478844{col 67}{space 3}  .050785
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000275{col 26}{space 2} .0001192{col 37}{space 1}   -0.23{col 46}{space 3}0.817{col 54}{space 4}-.0002611{col 67}{space 3} .0002061
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000214{col 26}{space 2} .0001232{col 37}{space 1}    0.17{col 46}{space 3}0.862{col 54}{space 4}  -.00022{col 67}{space 3} .0002629
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0003439{col 26}{space 2} .0001278{col 37}{space 1}    2.69{col 46}{space 3}0.007{col 54}{space 4} .0000933{col 67}{space 3} .0005945
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0004315{col 26}{space 2} .0001349{col 37}{space 1}    3.20{col 46}{space 3}0.001{col 54}{space 4} .0001671{col 67}{space 3}  .000696
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0010873{col 26}{space 2} .0001209{col 37}{space 1}    8.99{col 46}{space 3}0.000{col 54}{space 4} .0008502{col 67}{space 3} .0013244
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg sexual conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     1.20
+                                                {txt}Prob > F          = {res}    0.3004
+                                                {txt}R-squared         = {res}    0.0018
+                                                {txt}Root MSE          =    {res} .00206
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      sexual{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0001459{col 26}{space 2} .0000939{col 37}{space 1}    1.55{col 46}{space 3}0.120{col 54}{space 4}-.0000382{col 67}{space 3}   .00033
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0057069{col 26}{space 2} .0158792{col 37}{space 1}    0.36{col 46}{space 3}0.719{col 54}{space 4}-.0254232{col 67}{space 3}  .036837
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0119943{col 26}{space 2} .0193153{col 37}{space 1}    0.62{col 46}{space 3}0.535{col 54}{space 4}-.0258721{col 67}{space 3} .0498608
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000758{col 26}{space 2}   .00009{col 37}{space 1}   -0.84{col 46}{space 3}0.400{col 54}{space 4}-.0002522{col 67}{space 3} .0001006
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0000126{col 26}{space 2} .0000909{col 37}{space 1}   -0.14{col 46}{space 3}0.889{col 54}{space 4}-.0001909{col 67}{space 3} .0001656
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0000594{col 26}{space 2} .0000952{col 37}{space 1}    0.62{col 46}{space 3}0.532{col 54}{space 4}-.0001271{col 67}{space 3}  .000246
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0001184{col 26}{space 2} .0000968{col 37}{space 1}    1.22{col 46}{space 3}0.221{col 54}{space 4}-.0000713{col 67}{space 3} .0003081
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0006146{col 26}{space 2}  .000086{col 37}{space 1}    7.15{col 46}{space 3}0.000{col 54}{space 4}  .000446{col 67}{space 3} .0007832
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg threat conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     0.59
+                                                {txt}Prob > F          = {res}    0.7672
+                                                {txt}R-squared         = {res}    0.0007
+                                                {txt}Root MSE          =    {res} .00312
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      threat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0002324{col 26}{space 2}   .00014{col 37}{space 1}    1.66{col 46}{space 3}0.097{col 54}{space 4} -.000042{col 67}{space 3} .0005068
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0111193{col 26}{space 2} .0217391{col 37}{space 1}   -0.51{col 46}{space 3}0.609{col 54}{space 4}-.0537376{col 67}{space 3}  .031499
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0110236{col 26}{space 2} .0272672{col 37}{space 1}   -0.40{col 46}{space 3}0.686{col 54}{space 4}-.0644794{col 67}{space 3} .0424321
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-2.84e-06{col 26}{space 2} .0001407{col 37}{space 1}   -0.02{col 46}{space 3}0.984{col 54}{space 4}-.0002787{col 67}{space 3}  .000273
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000166{col 26}{space 2} .0001421{col 37}{space 1}    0.12{col 46}{space 3}0.907{col 54}{space 4} -.000262{col 67}{space 3} .0002951
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} -.000093{col 26}{space 2} .0001372{col 37}{space 1}   -0.68{col 46}{space 3}0.498{col 54}{space 4} -.000362{col 67}{space 3} .0001761
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000206{col 26}{space 2}  .000147{col 37}{space 1}   -0.14{col 46}{space 3}0.888{col 54}{space 4}-.0003088{col 67}{space 3} .0002675
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0016004{col 26}{space 2} .0001296{col 37}{space 1}   12.35{col 46}{space 3}0.000{col 54}{space 4} .0013464{col 67}{space 3} .0018544
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg arms conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     0.53
+                                                {txt}Prob > F          = {res}    0.8163
+                                                {txt}R-squared         = {res}    0.0007
+                                                {txt}Root MSE          =    {res} .00238
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        arms{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0001345{col 26}{space 2} .0001107{col 37}{space 1}    1.21{col 46}{space 3}0.225{col 54}{space 4}-.0000826{col 67}{space 3} .0003516
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0081605{col 26}{space 2} .0162566{col 37}{space 1}   -0.50{col 46}{space 3}0.616{col 54}{space 4}-.0400306{col 67}{space 3} .0237096
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0114366{col 26}{space 2}  .020149{col 37}{space 1}   -0.57{col 46}{space 3}0.570{col 54}{space 4}-.0509374{col 67}{space 3} .0280642
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2} .0000877{col 26}{space 2} .0001102{col 37}{space 1}    0.80{col 46}{space 3}0.426{col 54}{space 4}-.0001283{col 67}{space 3} .0003037
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000441{col 26}{space 2} .0001021{col 37}{space 1}    0.43{col 46}{space 3}0.666{col 54}{space 4} -.000156{col 67}{space 3} .0002443
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0001295{col 26}{space 2} .0001068{col 37}{space 1}    1.21{col 46}{space 3}0.225{col 54}{space 4}-.0000799{col 67}{space 3} .0003389
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0000921{col 26}{space 2} .0001091{col 37}{space 1}    0.84{col 46}{space 3}0.398{col 54}{space 4}-.0001217{col 67}{space 3} .0003059
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0008797{col 26}{space 2} .0001003{col 37}{space 1}    8.77{col 46}{space 3}0.000{col 54}{space 4} .0006832{col 67}{space 3} .0010763
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg whitecollar conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     2.15
+                                                {txt}Prob > F          = {res}    0.0355
+                                                {txt}R-squared         = {res}    0.0030
+                                                {txt}Root MSE          =    {res} .00456
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} whitecollar{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0006043{col 26}{space 2} .0002104{col 37}{space 1}    2.87{col 46}{space 3}0.004{col 54}{space 4} .0001919{col 67}{space 3} .0010167
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0002785{col 26}{space 2} .0322188{col 37}{space 1}   -0.01{col 46}{space 3}0.993{col 54}{space 4}-.0634414{col 67}{space 3} .0628845
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0161955{col 26}{space 2} .0377521{col 37}{space 1}   -0.43{col 46}{space 3}0.668{col 54}{space 4}-.0902061{col 67}{space 3} .0578151
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0002895{col 26}{space 2} .0002083{col 37}{space 1}   -1.39{col 46}{space 3}0.165{col 54}{space 4}-.0006978{col 67}{space 3} .0001188
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000391{col 26}{space 2}  .000209{col 37}{space 1}    0.19{col 46}{space 3}0.852{col 54}{space 4}-.0003706{col 67}{space 3} .0004487
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0002055{col 26}{space 2} .0002088{col 37}{space 1}    0.98{col 46}{space 3}0.325{col 54}{space 4}-.0002039{col 67}{space 3} .0006148
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000101{col 26}{space 2} .0002111{col 37}{space 1}   -0.05{col 46}{space 3}0.962{col 54}{space 4}-.0004239{col 67}{space 3} .0004037
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0031106{col 26}{space 2} .0001951{col 37}{space 1}   15.95{col 46}{space 3}0.000{col 54}{space 4} .0027282{col 67}{space 3}  .003493
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\ Q3
+. gen eligible = 0
+{txt}
+{com}.         replace eligible = 1 if draftnumber >= 175 & birthyr == 1958
+{txt}(826 real changes made)
+
+{com}.         replace eligible = 1 if draftnumber >= 320 & birthyr == 1959
+{txt}(681 real changes made)
+
+{com}.         replace eligible = 1 if draftnumber >= 341 & birthyr == 1960
+{txt}(660 real changes made)
+
+{com}.         replace eligible = 1 if draftnumber >= 350 & birthyr == 1961
+{txt}(651 real changes made)
+
+{com}.         replace eligible = 1 if draftnumber >= 320 & birthyr == 1962
+{txt}(681 real changes made)
+
+{com}.         
+. *\ Q4
+. 
+. reg conscripted eligible indigenous naturalized i.birthyr, r 
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res} 59875.49
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.9799
+                                                {txt}Root MSE          =    {res} .04329
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011525{col 37}{space 1}  571.57{col 46}{space 3}0.000{col 54}{space 4} .6564736{col 67}{space 3} .6609924
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193599{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555215{col 67}{space 3}   .39665
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3538786{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4} -1.25064{col 67}{space 3} .1368754
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2} .0023658{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239234{col 67}{space 3}-.0146475
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017992{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037209{col 67}{space 3} .0033335
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017659{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448577{col 67}{space 3} .0517818
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019006{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168841{col 67}{space 3} .0243363
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017372{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293482{col 67}{space 3} .0361595
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg conscripted eligible i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(5, 4994)        =  {res} 83625.76
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.9799
+                                                {txt}Root MSE          =    {res} .04329
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .6587458{col 26}{space 2} .0011519{col 37}{space 1}  571.86{col 46}{space 3}0.000{col 54}{space 4} .6564876{col 67}{space 3} .6610041
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0191296{col 26}{space 2} .0023588{col 37}{space 1}   -8.11{col 46}{space 3}0.000{col 54}{space 4}-.0237539{col 67}{space 3}-.0145052
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0000598{col 26}{space 2} .0017881{col 37}{space 1}   -0.03{col 46}{space 3}0.973{col 54}{space 4}-.0035652{col 67}{space 3} .0034457
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0482955{col 26}{space 2} .0017505{col 37}{space 1}   27.59{col 46}{space 3}0.000{col 54}{space 4} .0448637{col 67}{space 3} .0517272
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0200554{col 26}{space 2}  .001862{col 37}{space 1}   10.77{col 46}{space 3}0.000{col 54}{space 4}  .016405{col 67}{space 3} .0237058
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0322993{col 26}{space 2} .0016633{col 37}{space 1}   19.42{col 46}{space 3}0.000{col 54}{space 4} .0290385{col 67}{space 3} .0355601
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\ Q5
+. reg crimerate eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     3.17
+                                                {txt}Prob > F          = {res}    0.0024
+                                                {txt}R-squared         = {res}    0.0046
+                                                {txt}Root MSE          =    {res} .01776
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   crimerate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0017608{col 26}{space 2} .0005559{col 37}{space 1}    3.17{col 46}{space 3}0.002{col 54}{space 4}  .000671{col 67}{space 3} .0028506
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0360917{col 26}{space 2} .1272881{col 37}{space 1}   -0.28{col 46}{space 3}0.777{col 54}{space 4}-.2856324{col 67}{space 3} .2134489
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .1303571{col 26}{space 2} .1712392{col 37}{space 1}    0.76{col 46}{space 3}0.447{col 54}{space 4} -.205347{col 67}{space 3} .4660612
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0007351{col 26}{space 2} .0007962{col 37}{space 1}   -0.92{col 46}{space 3}0.356{col 54}{space 4}-.0022961{col 67}{space 3} .0008259
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0003157{col 26}{space 2} .0007922{col 37}{space 1}    0.40{col 46}{space 3}0.690{col 54}{space 4}-.0012372{col 67}{space 3} .0018687
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0010667{col 26}{space 2} .0008071{col 37}{space 1}    1.32{col 46}{space 3}0.186{col 54}{space 4}-.0005156{col 67}{space 3} .0026491
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0017006{col 26}{space 2} .0008269{col 37}{space 1}    2.06{col 46}{space 3}0.040{col 54}{space 4} .0000795{col 67}{space 3} .0033217
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0675266{col 26}{space 2} .0007512{col 37}{space 1}   89.89{col 46}{space 3}0.000{col 54}{space 4} .0660539{col 67}{space 3} .0689993
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg property eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     8.07
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0109
+                                                {txt}Root MSE          =    {res} .00725
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    property{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0005417{col 26}{space 2} .0002225{col 37}{space 1}    2.43{col 46}{space 3}0.015{col 54}{space 4} .0001055{col 67}{space 3} .0009778
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0101796{col 26}{space 2} .0517641{col 37}{space 1}    0.20{col 46}{space 3}0.844{col 54}{space 4}-.0913007{col 67}{space 3} .1116599
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0700616{col 26}{space 2} .0626926{col 37}{space 1}   -1.12{col 46}{space 3}0.264{col 54}{space 4}-.1929667{col 67}{space 3} .0528435
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2} .0006097{col 26}{space 2} .0003116{col 37}{space 1}    1.96{col 46}{space 3}0.050{col 54}{space 4}-1.13e-06{col 67}{space 3} .0012205
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0011207{col 26}{space 2}  .000328{col 37}{space 1}    3.42{col 46}{space 3}0.001{col 54}{space 4} .0004778{col 67}{space 3} .0017637
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0016897{col 26}{space 2} .0003179{col 37}{space 1}    5.32{col 46}{space 3}0.000{col 54}{space 4} .0010666{col 67}{space 3} .0023128
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0021512{col 26}{space 2}   .00033{col 37}{space 1}    6.52{col 46}{space 3}0.000{col 54}{space 4} .0015043{col 67}{space 3}  .002798
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0059992{col 26}{space 2} .0002894{col 37}{space 1}   20.73{col 46}{space 3}0.000{col 54}{space 4} .0054318{col 67}{space 3} .0065666
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg murder eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     1.88
+                                                {txt}Prob > F          = {res}    0.0686
+                                                {txt}R-squared         = {res}    0.0031
+                                                {txt}Root MSE          =    {res} .00213
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      murder{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.0000476{col 26}{space 2} .0000657{col 37}{space 1}   -0.72{col 46}{space 3}0.469{col 54}{space 4}-.0001764{col 67}{space 3} .0000812
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0457836{col 26}{space 2} .0173895{col 37}{space 1}    2.63{col 46}{space 3}0.008{col 54}{space 4} .0116926{col 67}{space 3} .0798747
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0095221{col 26}{space 2} .0187222{col 37}{space 1}   -0.51{col 46}{space 3}0.611{col 54}{space 4}-.0462259{col 67}{space 3} .0271816
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0001898{col 26}{space 2} .0000927{col 37}{space 1}   -2.05{col 46}{space 3}0.041{col 54}{space 4}-.0003716{col 67}{space 3}-8.10e-06
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001208{col 26}{space 2} .0000977{col 37}{space 1}   -1.24{col 46}{space 3}0.216{col 54}{space 4}-.0003124{col 67}{space 3} .0000708
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} 9.81e-06{col 26}{space 2} .0001013{col 37}{space 1}    0.10{col 46}{space 3}0.923{col 54}{space 4}-.0001888{col 67}{space 3} .0002085
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000472{col 26}{space 2} .0001033{col 37}{space 1}   -0.46{col 46}{space 3}0.648{col 54}{space 4}-.0002498{col 67}{space 3} .0001554
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0009312{col 26}{space 2} .0000895{col 37}{space 1}   10.40{col 46}{space 3}0.000{col 54}{space 4} .0007557{col 67}{space 3} .0011067
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg drug eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     3.21
+                                                {txt}Prob > F          = {res}    0.0021
+                                                {txt}R-squared         = {res}    0.0049
+                                                {txt}Root MSE          =    {res}  .0028
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        drug{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}-.0000589{col 26}{space 2} .0000893{col 37}{space 1}   -0.66{col 46}{space 3}0.510{col 54}{space 4} -.000234{col 67}{space 3} .0001162
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0057105{col 26}{space 2} .0200222{col 37}{space 1}    0.29{col 46}{space 3}0.775{col 54}{space 4}-.0335418{col 67}{space 3} .0449629
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0014833{col 26}{space 2} .0251686{col 37}{space 1}    0.06{col 46}{space 3}0.953{col 54}{space 4}-.0478583{col 67}{space 3} .0508249
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000272{col 26}{space 2}  .000119{col 37}{space 1}   -0.23{col 46}{space 3}0.819{col 54}{space 4}-.0002605{col 67}{space 3} .0002062
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000201{col 26}{space 2} .0001233{col 37}{space 1}    0.16{col 46}{space 3}0.870{col 54}{space 4}-.0002215{col 67}{space 3} .0002618
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0003388{col 26}{space 2} .0001285{col 37}{space 1}    2.64{col 46}{space 3}0.008{col 54}{space 4} .0000868{col 67}{space 3} .0005907
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0004288{col 26}{space 2} .0001352{col 37}{space 1}    3.17{col 46}{space 3}0.002{col 54}{space 4} .0001638{col 67}{space 3} .0006938
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0010913{col 26}{space 2} .0001194{col 37}{space 1}    9.14{col 46}{space 3}0.000{col 54}{space 4} .0008572{col 67}{space 3} .0013254
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg sexual eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     1.18
+                                                {txt}Prob > F          = {res}    0.3112
+                                                {txt}R-squared         = {res}    0.0017
+                                                {txt}Root MSE          =    {res} .00206
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      sexual{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0000886{col 26}{space 2} .0000617{col 37}{space 1}    1.44{col 46}{space 3}0.151{col 54}{space 4}-.0000323{col 67}{space 3} .0002095
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0056658{col 26}{space 2} .0158828{col 37}{space 1}    0.36{col 46}{space 3}0.721{col 54}{space 4}-.0254714{col 67}{space 3}  .036803
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0119034{col 26}{space 2} .0193167{col 37}{space 1}    0.62{col 46}{space 3}0.538{col 54}{space 4}-.0259658{col 67}{space 3} .0497725
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000797{col 26}{space 2} .0000899{col 37}{space 1}   -0.89{col 46}{space 3}0.375{col 54}{space 4}-.0002559{col 67}{space 3} .0000965
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0000139{col 26}{space 2} .0000909{col 37}{space 1}   -0.15{col 46}{space 3}0.878{col 54}{space 4}-.0001922{col 67}{space 3} .0001644
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0000652{col 26}{space 2} .0000959{col 37}{space 1}    0.68{col 46}{space 3}0.497{col 54}{space 4}-.0001229{col 67}{space 3} .0002532
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0001203{col 26}{space 2} .0000969{col 37}{space 1}    1.24{col 46}{space 3}0.215{col 54}{space 4}-.0000697{col 67}{space 3} .0003104
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0006256{col 26}{space 2} .0000842{col 37}{space 1}    7.43{col 46}{space 3}0.000{col 54}{space 4} .0004605{col 67}{space 3} .0007907
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg threat eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     0.54
+                                                {txt}Prob > F          = {res}    0.8083
+                                                {txt}R-squared         = {res}    0.0007
+                                                {txt}Root MSE          =    {res} .00312
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      threat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0001447{col 26}{space 2} .0000934{col 37}{space 1}    1.55{col 46}{space 3}0.121{col 54}{space 4}-.0000383{col 67}{space 3} .0003278
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} -.011181{col 26}{space 2} .0217374{col 37}{space 1}   -0.51{col 46}{space 3}0.607{col 54}{space 4}-.0537958{col 67}{space 3} .0314338
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0111638{col 26}{space 2} .0272687{col 37}{space 1}   -0.41{col 46}{space 3}0.682{col 54}{space 4}-.0646223{col 67}{space 3} .0422948
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-8.54e-06{col 26}{space 2} .0001405{col 37}{space 1}   -0.06{col 46}{space 3}0.952{col 54}{space 4}-.0002839{col 67}{space 3} .0002669
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000151{col 26}{space 2} .0001421{col 37}{space 1}    0.11{col 46}{space 3}0.915{col 54}{space 4}-.0002635{col 67}{space 3} .0002938
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2}-.0000832{col 26}{space 2} .0001378{col 37}{space 1}   -0.60{col 46}{space 3}0.546{col 54}{space 4}-.0003534{col 67}{space 3}  .000187
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000171{col 26}{space 2} .0001474{col 37}{space 1}   -0.12{col 46}{space 3}0.908{col 54}{space 4} -.000306{col 67}{space 3} .0002719
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0016149{col 26}{space 2} .0001274{col 37}{space 1}   12.68{col 46}{space 3}0.000{col 54}{space 4} .0013652{col 67}{space 3} .0018646
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg arms eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     0.52
+                                                {txt}Prob > F          = {res}    0.8214
+                                                {txt}R-squared         = {res}    0.0007
+                                                {txt}Root MSE          =    {res} .00238
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        arms{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .000088{col 26}{space 2} .0000735{col 37}{space 1}    1.20{col 46}{space 3}0.231{col 54}{space 4}-.0000561{col 67}{space 3} .0002321
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0081919{col 26}{space 2} .0162565{col 37}{space 1}   -0.50{col 46}{space 3}0.614{col 54}{space 4}-.0400619{col 67}{space 3}  .023678
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0115123{col 26}{space 2} .0201525{col 37}{space 1}   -0.57{col 46}{space 3}0.568{col 54}{space 4}-.0510201{col 67}{space 3} .0279956
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}  .000085{col 26}{space 2} .0001098{col 37}{space 1}    0.77{col 46}{space 3}0.439{col 54}{space 4}-.0001303{col 67}{space 3} .0003003
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}  .000044{col 26}{space 2} .0001022{col 37}{space 1}    0.43{col 46}{space 3}0.667{col 54}{space 4}-.0001564{col 67}{space 3} .0002444
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0001359{col 26}{space 2} .0001074{col 37}{space 1}    1.27{col 46}{space 3}0.206{col 54}{space 4}-.0000746{col 67}{space 3} .0003464
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0000948{col 26}{space 2} .0001094{col 37}{space 1}    0.87{col 46}{space 3}0.386{col 54}{space 4}-.0001196{col 67}{space 3} .0003093
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0008846{col 26}{space 2} .0000985{col 37}{space 1}    8.98{col 46}{space 3}0.000{col 54}{space 4} .0006916{col 67}{space 3} .0010777
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg whitecollar eligible indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     2.28
+                                                {txt}Prob > F          = {res}    0.0259
+                                                {txt}R-squared         = {res}    0.0031
+                                                {txt}Root MSE          =    {res} .00456
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} whitecollar{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .0004204{col 26}{space 2}  .000139{col 37}{space 1}    3.02{col 46}{space 3}0.003{col 54}{space 4} .0001478{col 67}{space 3} .0006929
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0003945{col 26}{space 2} .0322162{col 37}{space 1}   -0.01{col 46}{space 3}0.990{col 54}{space 4}-.0635524{col 67}{space 3} .0627634
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0165032{col 26}{space 2} .0377489{col 37}{space 1}   -0.44{col 46}{space 3}0.662{col 54}{space 4}-.0905076{col 67}{space 3} .0575012
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0002979{col 26}{space 2} .0002078{col 37}{space 1}   -1.43{col 46}{space 3}0.152{col 54}{space 4}-.0007053{col 67}{space 3} .0001095
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000427{col 26}{space 2} .0002088{col 37}{space 1}    0.20{col 46}{space 3}0.838{col 54}{space 4}-.0003667{col 67}{space 3} .0004521
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0002386{col 26}{space 2} .0002097{col 37}{space 1}    1.14{col 46}{space 3}0.255{col 54}{space 4}-.0001725{col 67}{space 3} .0006497
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} 5.58e-06{col 26}{space 2} .0002112{col 37}{space 1}    0.03{col 46}{space 3}0.979{col 54}{space 4}-.0004085{col 67}{space 3} .0004196
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0031119{col 26}{space 2} .0001906{col 37}{space 1}   16.32{col 46}{space 3}0.000{col 54}{space 4} .0027382{col 67}{space 3} .0034857
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\ Q6
+. *\ reduced form coefficent from Q5 / first stage(does not change) from Q4
+. display .0017608/.658733
+{res}.00267301
+{txt}
+{com}. 
+. display .0005417/.658733 
+{res}.00082234
+{txt}
+{com}. display -.0000476/.658733
+{res}-.00007226
+{txt}
+{com}. display -.0000589 /.658733
+{res}-.00008941
+{txt}
+{com}. display .0000886 /.658733
+{res}.0001345
+{txt}
+{com}. display .0001447/.658733
+{res}.00021966
+{txt}
+{com}. display .000088 /.658733
+{res}.00013359
+{txt}
+{com}. display .0004204 /.658733
+{res}.00063819
+{txt}
+{com}. 
+. *\ Q7
+. ivregress 2sls crimerate (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}     22.19
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0024
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0040
+{txt}{col 51}Root MSE{col 67}=    {res} .01775
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   crimerate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2}  .002673{col 26}{space 2} .0008433{col 37}{space 1}    3.17{col 46}{space 3}0.002{col 54}{space 4} .0010202{col 67}{space 3} .0043258
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0354784{col 26}{space 2} .1272424{col 37}{space 1}   -0.28{col 46}{space 3}0.780{col 54}{space 4} -.284869{col 67}{space 3} .2139122
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .1318456{col 26}{space 2} .1712656{col 37}{space 1}    0.77{col 46}{space 3}0.441{col 54}{space 4}-.2038289{col 67}{space 3} .4675201
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0006836{col 26}{space 2}  .000798{col 37}{space 1}   -0.86{col 46}{space 3}0.392{col 54}{space 4}-.0022476{col 67}{space 3} .0008805
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0003163{col 26}{space 2} .0007918{col 37}{space 1}    0.40{col 46}{space 3}0.690{col 54}{space 4}-.0012355{col 67}{space 3} .0018681
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0009376{col 26}{space 2} .0008015{col 37}{space 1}    1.17{col 46}{space 3}0.242{col 54}{space 4}-.0006334{col 67}{space 3} .0025085
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0016455{col 26}{space 2} .0008246{col 37}{space 1}    2.00{col 46}{space 3}0.046{col 54}{space 4} .0000294{col 67}{space 3} .0032617
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  .067439{col 26}{space 2} .0007684{col 37}{space 1}   87.77{col 46}{space 3}0.000{col 54}{space 4} .0659331{col 67}{space 3}  .068945
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. ivregress 2sls crimerate (conscripted = eligible), r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   1{txt},{res}   4998{txt}){col 67}= {res} 347666.00
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9742
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9742
+{txt}{col 49}Root MSE{col 67}= {res}    0.0489
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}eligible {c |}{col 14}{res}{space 2} .6564878{col 26}{space 2} .0011134{col 37}{space 1}  589.63{col 46}{space 3}0.000{col 54}{space 4} .6543051{col 67}{space 3} .6586705
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0437117{col 26}{space 2} .0005661{col 37}{space 1}   77.21{col 46}{space 3}0.000{col 54}{space 4} .0426019{col 67}{space 3} .0448216
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}1{txt}){col 67}= {res}      9.35
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0022
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0016
+{txt}{col 51}Root MSE{col 67}=    {res} .01777
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   crimerate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0025516{col 26}{space 2} .0008345{col 37}{space 1}    3.06{col 46}{space 3}0.002{col 54}{space 4}  .000916{col 67}{space 3} .0041873
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0679822{col 26}{space 2} .0004889{col 37}{space 1}  139.04{col 46}{space 3}0.000{col 54}{space 4} .0670239{col 67}{space 3} .0689405
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}eligible{p_end}
+
+{com}. reg crimerate conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     2.78
+                                                {txt}Prob > F          = {res}    0.0069
+                                                {txt}R-squared         = {res}    0.0040
+                                                {txt}Root MSE          =    {res} .01776
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}   crimerate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0022645{col 26}{space 2} .0008362{col 37}{space 1}    2.71{col 46}{space 3}0.007{col 54}{space 4} .0006252{col 67}{space 3} .0039038
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0358451{col 26}{space 2} .1273285{col 37}{space 1}   -0.28{col 46}{space 3}0.778{col 54}{space 4}-.2854649{col 67}{space 3} .2137747
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .1312705{col 26}{space 2} .1715793{col 37}{space 1}    0.77{col 46}{space 3}0.444{col 54}{space 4}-.2051004{col 67}{space 3} .4676414
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0007306{col 26}{space 2} .0007985{col 37}{space 1}   -0.91{col 46}{space 3}0.360{col 54}{space 4} -.002296{col 67}{space 3} .0008348
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0002714{col 26}{space 2} .0007923{col 37}{space 1}    0.34{col 46}{space 3}0.732{col 54}{space 4}-.0012818{col 67}{space 3} .0018246
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0009102{col 26}{space 2}  .000802{col 37}{space 1}    1.13{col 46}{space 3}0.256{col 54}{space 4}-.0006621{col 67}{space 3} .0024824
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0016153{col 26}{space 2} .0008252{col 37}{space 1}    1.96{col 46}{space 3}0.050{col 54}{space 4}-2.56e-06{col 67}{space 3} .0032331
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0676751{col 26}{space 2} .0007658{col 37}{space 1}   88.37{col 46}{space 3}0.000{col 54}{space 4} .0661738{col 67}{space 3} .0691764
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ivregress 2sls property (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}     56.56
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0110
+{txt}{col 51}Root MSE{col 67}=    {res} .00724
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    property{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0008223{col 26}{space 2} .0003375{col 37}{space 1}    2.44{col 46}{space 3}0.015{col 54}{space 4} .0001609{col 67}{space 3} .0014837
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0103682{col 26}{space 2}  .051721{col 37}{space 1}    0.20{col 46}{space 3}0.841{col 54}{space 4}-.0910032{col 67}{space 3} .1117396
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0696037{col 26}{space 2} .0626477{col 37}{space 1}   -1.11{col 46}{space 3}0.267{col 54}{space 4}-.1923909{col 67}{space 3} .0531835
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2} .0006255{col 26}{space 2} .0003119{col 37}{space 1}    2.01{col 46}{space 3}0.045{col 54}{space 4} .0000142{col 67}{space 3} .0012369
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0011209{col 26}{space 2} .0003277{col 37}{space 1}    3.42{col 46}{space 3}0.001{col 54}{space 4} .0004787{col 67}{space 3} .0017631
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2}   .00165{col 26}{space 2} .0003161{col 37}{space 1}    5.22{col 46}{space 3}0.000{col 54}{space 4} .0010305{col 67}{space 3} .0022695
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0021342{col 26}{space 2} .0003289{col 37}{space 1}    6.49{col 46}{space 3}0.000{col 54}{space 4} .0014895{col 67}{space 3} .0027789
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0059723{col 26}{space 2} .0002963{col 37}{space 1}   20.16{col 46}{space 3}0.000{col 54}{space 4} .0053916{col 67}{space 3} .0065529
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. reg property conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     8.13
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0110
+                                                {txt}Root MSE          =    {res} .00725
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    property{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0008554{col 26}{space 2} .0003353{col 37}{space 1}    2.55{col 46}{space 3}0.011{col 54}{space 4} .0001981{col 67}{space 3} .0015128
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}  .010398{col 26}{space 2} .0517654{col 37}{space 1}    0.20{col 46}{space 3}0.841{col 54}{space 4}-.0910849{col 67}{space 3} .1118809
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} -.069557{col 26}{space 2} .0627006{col 37}{space 1}   -1.11{col 46}{space 3}0.267{col 54}{space 4}-.1924778{col 67}{space 3} .0533637
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2} .0006294{col 26}{space 2} .0003121{col 37}{space 1}    2.02{col 46}{space 3}0.044{col 54}{space 4} .0000175{col 67}{space 3} .0012412
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0011245{col 26}{space 2} .0003281{col 37}{space 1}    3.43{col 46}{space 3}0.001{col 54}{space 4} .0004812{col 67}{space 3} .0017678
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0016522{col 26}{space 2} .0003163{col 37}{space 1}    5.22{col 46}{space 3}0.000{col 54}{space 4}  .001032{col 67}{space 3} .0022724
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0021367{col 26}{space 2} .0003292{col 37}{space 1}    6.49{col 46}{space 3}0.000{col 54}{space 4} .0014912{col 67}{space 3} .0027821
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0059531{col 26}{space 2} .0002958{col 37}{space 1}   20.12{col 46}{space 3}0.000{col 54}{space 4} .0053731{col 67}{space 3} .0065331
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ivregress 2sls murder (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}     13.18
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0678
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0032
+{txt}{col 51}Root MSE{col 67}=    {res} .00213
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      murder{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2}-.0000723{col 26}{space 2} .0000996{col 37}{space 1}   -0.73{col 46}{space 3}0.468{col 54}{space 4}-.0002676{col 67}{space 3}  .000123
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0457671{col 26}{space 2} .0173757{col 37}{space 1}    2.63{col 46}{space 3}0.008{col 54}{space 4} .0117114{col 67}{space 3} .0798228
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0095624{col 26}{space 2} .0187085{col 37}{space 1}   -0.51{col 46}{space 3}0.609{col 54}{space 4}-.0462303{col 67}{space 3} .0271055
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0001912{col 26}{space 2} .0000928{col 37}{space 1}   -2.06{col 46}{space 3}0.039{col 54}{space 4}-.0003731{col 67}{space 3}-9.40e-06
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001208{col 26}{space 2} .0000977{col 37}{space 1}   -1.24{col 46}{space 3}0.216{col 54}{space 4}-.0003122{col 67}{space 3} .0000706
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0000133{col 26}{space 2}  .000101{col 37}{space 1}    0.13{col 46}{space 3}0.895{col 54}{space 4}-.0001847{col 67}{space 3} .0002113
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000457{col 26}{space 2} .0001032{col 37}{space 1}   -0.44{col 46}{space 3}0.658{col 54}{space 4} -.000248{col 67}{space 3} .0001565
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0009336{col 26}{space 2} .0000913{col 37}{space 1}   10.22{col 46}{space 3}0.000{col 54}{space 4} .0007546{col 67}{space 3} .0011126
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. reg murder conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     1.90
+                                                {txt}Prob > F          = {res}    0.0659
+                                                {txt}R-squared         = {res}    0.0032
+                                                {txt}Root MSE          =    {res} .00213
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      murder{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2}-.0000771{col 26}{space 2} .0000996{col 37}{space 1}   -0.77{col 46}{space 3}0.439{col 54}{space 4}-.0002724{col 67}{space 3} .0001181
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0457627{col 26}{space 2} .0173901{col 37}{space 1}    2.63{col 46}{space 3}0.009{col 54}{space 4} .0116705{col 67}{space 3} .0798549
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0095692{col 26}{space 2} .0187225{col 37}{space 1}   -0.51{col 46}{space 3}0.609{col 54}{space 4}-.0462735{col 67}{space 3} .0271351
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0001918{col 26}{space 2} .0000928{col 37}{space 1}   -2.07{col 46}{space 3}0.039{col 54}{space 4}-.0003738{col 67}{space 3}-9.80e-06
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001214{col 26}{space 2} .0000978{col 37}{space 1}   -1.24{col 46}{space 3}0.215{col 54}{space 4}-.0003131{col 67}{space 3} .0000703
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2}  .000013{col 26}{space 2} .0001011{col 37}{space 1}    0.13{col 46}{space 3}0.898{col 54}{space 4}-.0001852{col 67}{space 3} .0002112
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000461{col 26}{space 2} .0001032{col 37}{space 1}   -0.45{col 46}{space 3}0.655{col 54}{space 4}-.0002485{col 67}{space 3} .0001563
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0009364{col 26}{space 2} .0000916{col 37}{space 1}   10.23{col 46}{space 3}0.000{col 54}{space 4} .0007569{col 67}{space 3} .0011159
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ivregress 2sls drug (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}     22.53
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0021
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0048
+{txt}{col 51}Root MSE{col 67}=    {res}  .0028
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        drug{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2}-.0000894{col 26}{space 2} .0001355{col 37}{space 1}   -0.66{col 46}{space 3}0.509{col 54}{space 4} -.000355{col 67}{space 3} .0001761
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}   .00569{col 26}{space 2} .0200062{col 37}{space 1}    0.28{col 46}{space 3}0.776{col 54}{space 4}-.0335215{col 67}{space 3} .0449015
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0014335{col 26}{space 2} .0251451{col 37}{space 1}    0.06{col 46}{space 3}0.955{col 54}{space 4}  -.04785{col 67}{space 3} .0507169
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000289{col 26}{space 2} .0001192{col 37}{space 1}   -0.24{col 46}{space 3}0.808{col 54}{space 4}-.0002626{col 67}{space 3} .0002048
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000201{col 26}{space 2} .0001232{col 37}{space 1}    0.16{col 46}{space 3}0.870{col 54}{space 4}-.0002213{col 67}{space 3} .0002616
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0003431{col 26}{space 2} .0001278{col 37}{space 1}    2.68{col 46}{space 3}0.007{col 54}{space 4} .0000925{col 67}{space 3} .0005937
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0004306{col 26}{space 2} .0001349{col 37}{space 1}    3.19{col 46}{space 3}0.001{col 54}{space 4} .0001663{col 67}{space 3}  .000695
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0010942{col 26}{space 2} .0001222{col 37}{space 1}    8.96{col 46}{space 3}0.000{col 54}{space 4} .0008548{col 67}{space 3} .0013337
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. reg drug conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     3.20
+                                                {txt}Prob > F          = {res}    0.0022
+                                                {txt}R-squared         = {res}    0.0048
+                                                {txt}Root MSE          =    {res}  .0028
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        drug{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2}-.0000775{col 26}{space 2} .0001344{col 37}{space 1}   -0.58{col 46}{space 3}0.564{col 54}{space 4} -.000341{col 67}{space 3} .0001861
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0057007{col 26}{space 2} .0200226{col 37}{space 1}    0.28{col 46}{space 3}0.776{col 54}{space 4}-.0335524{col 67}{space 3} .0449538
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0014503{col 26}{space 2} .0251651{col 37}{space 1}    0.06{col 46}{space 3}0.954{col 54}{space 4}-.0478844{col 67}{space 3}  .050785
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000275{col 26}{space 2} .0001192{col 37}{space 1}   -0.23{col 46}{space 3}0.817{col 54}{space 4}-.0002611{col 67}{space 3} .0002061
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000214{col 26}{space 2} .0001232{col 37}{space 1}    0.17{col 46}{space 3}0.862{col 54}{space 4}  -.00022{col 67}{space 3} .0002629
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0003439{col 26}{space 2} .0001278{col 37}{space 1}    2.69{col 46}{space 3}0.007{col 54}{space 4} .0000933{col 67}{space 3} .0005945
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0004315{col 26}{space 2} .0001349{col 37}{space 1}    3.20{col 46}{space 3}0.001{col 54}{space 4} .0001671{col 67}{space 3}  .000696
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0010873{col 26}{space 2} .0001209{col 37}{space 1}    8.99{col 46}{space 3}0.000{col 54}{space 4} .0008502{col 67}{space 3} .0013244
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ivregress 2sls sexual (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}      8.26
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.3098
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0018
+{txt}{col 51}Root MSE{col 67}=    {res} .00206
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      sexual{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0001345{col 26}{space 2} .0000935{col 37}{space 1}    1.44{col 46}{space 3}0.151{col 54}{space 4}-.0000489{col 67}{space 3} .0003178
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0056967{col 26}{space 2} .0158655{col 37}{space 1}    0.36{col 46}{space 3}0.720{col 54}{space 4} -.025399{col 67}{space 3} .0367924
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0119782{col 26}{space 2} .0193004{col 37}{space 1}    0.62{col 46}{space 3}0.535{col 54}{space 4}-.0258498{col 67}{space 3} .0498063
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000771{col 26}{space 2} .0000901{col 37}{space 1}   -0.86{col 46}{space 3}0.392{col 54}{space 4}-.0002537{col 67}{space 3} .0000995
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0000139{col 26}{space 2} .0000909{col 37}{space 1}   -0.15{col 46}{space 3}0.878{col 54}{space 4} -.000192{col 67}{space 3} .0001642
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0000587{col 26}{space 2} .0000951{col 37}{space 1}    0.62{col 46}{space 3}0.537{col 54}{space 4}-.0001277{col 67}{space 3} .0002451
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0001176{col 26}{space 2} .0000966{col 37}{space 1}    1.22{col 46}{space 3}0.224{col 54}{space 4}-.0000718{col 67}{space 3} .0003069
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0006212{col 26}{space 2}  .000086{col 37}{space 1}    7.22{col 46}{space 3}0.000{col 54}{space 4} .0004527{col 67}{space 3} .0007897
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. reg sexual conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     1.20
+                                                {txt}Prob > F          = {res}    0.3004
+                                                {txt}R-squared         = {res}    0.0018
+                                                {txt}Root MSE          =    {res} .00206
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      sexual{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0001459{col 26}{space 2} .0000939{col 37}{space 1}    1.55{col 46}{space 3}0.120{col 54}{space 4}-.0000382{col 67}{space 3}   .00033
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2} .0057069{col 26}{space 2} .0158792{col 37}{space 1}    0.36{col 46}{space 3}0.719{col 54}{space 4}-.0254232{col 67}{space 3}  .036837
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2} .0119943{col 26}{space 2} .0193153{col 37}{space 1}    0.62{col 46}{space 3}0.535{col 54}{space 4}-.0258721{col 67}{space 3} .0498608
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0000758{col 26}{space 2}   .00009{col 37}{space 1}   -0.84{col 46}{space 3}0.400{col 54}{space 4}-.0002522{col 67}{space 3} .0001006
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0000126{col 26}{space 2} .0000909{col 37}{space 1}   -0.14{col 46}{space 3}0.889{col 54}{space 4}-.0001909{col 67}{space 3} .0001656
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0000594{col 26}{space 2} .0000952{col 37}{space 1}    0.62{col 46}{space 3}0.532{col 54}{space 4}-.0001271{col 67}{space 3}  .000246
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0001184{col 26}{space 2} .0000968{col 37}{space 1}    1.22{col 46}{space 3}0.221{col 54}{space 4}-.0000713{col 67}{space 3} .0003081
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0006146{col 26}{space 2}  .000086{col 37}{space 1}    7.15{col 46}{space 3}0.000{col 54}{space 4}  .000446{col 67}{space 3} .0007832
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ivregress 2sls threat (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}      3.75
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.8077
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0007
+{txt}{col 51}Root MSE{col 67}=    {res} .00311
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      threat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0002197{col 26}{space 2} .0001417{col 37}{space 1}    1.55{col 46}{space 3}0.121{col 54}{space 4}-.0000579{col 67}{space 3} .0004974
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0111306{col 26}{space 2} .0217235{col 37}{space 1}   -0.51{col 46}{space 3}0.608{col 54}{space 4}-.0537079{col 67}{space 3} .0314467
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0110414{col 26}{space 2} .0272462{col 37}{space 1}   -0.41{col 46}{space 3}0.685{col 54}{space 4}-.0644429{col 67}{space 3} .0423601
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-4.30e-06{col 26}{space 2} .0001407{col 37}{space 1}   -0.03{col 46}{space 3}0.976{col 54}{space 4}  -.00028{col 67}{space 3} .0002714
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000152{col 26}{space 2}  .000142{col 37}{space 1}    0.11{col 46}{space 3}0.915{col 54}{space 4}-.0002632{col 67}{space 3} .0002936
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2}-.0000938{col 26}{space 2} .0001371{col 37}{space 1}   -0.68{col 46}{space 3}0.494{col 54}{space 4}-.0003624{col 67}{space 3} .0001748
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000216{col 26}{space 2} .0001469{col 37}{space 1}   -0.15{col 46}{space 3}0.883{col 54}{space 4}-.0003095{col 67}{space 3} .0002663
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0016077{col 26}{space 2} .0001301{col 37}{space 1}   12.36{col 46}{space 3}0.000{col 54}{space 4} .0013527{col 67}{space 3} .0018627
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. reg threat conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     0.59
+                                                {txt}Prob > F          = {res}    0.7672
+                                                {txt}R-squared         = {res}    0.0007
+                                                {txt}Root MSE          =    {res} .00312
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}      threat{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0002324{col 26}{space 2}   .00014{col 37}{space 1}    1.66{col 46}{space 3}0.097{col 54}{space 4} -.000042{col 67}{space 3} .0005068
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0111193{col 26}{space 2} .0217391{col 37}{space 1}   -0.51{col 46}{space 3}0.609{col 54}{space 4}-.0537376{col 67}{space 3}  .031499
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0110236{col 26}{space 2} .0272672{col 37}{space 1}   -0.40{col 46}{space 3}0.686{col 54}{space 4}-.0644794{col 67}{space 3} .0424321
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-2.84e-06{col 26}{space 2} .0001407{col 37}{space 1}   -0.02{col 46}{space 3}0.984{col 54}{space 4}-.0002787{col 67}{space 3}  .000273
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000166{col 26}{space 2} .0001421{col 37}{space 1}    0.12{col 46}{space 3}0.907{col 54}{space 4} -.000262{col 67}{space 3} .0002951
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} -.000093{col 26}{space 2} .0001372{col 37}{space 1}   -0.68{col 46}{space 3}0.498{col 54}{space 4} -.000362{col 67}{space 3} .0001761
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000206{col 26}{space 2}  .000147{col 37}{space 1}   -0.14{col 46}{space 3}0.888{col 54}{space 4}-.0003088{col 67}{space 3} .0002675
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0016004{col 26}{space 2} .0001296{col 37}{space 1}   12.35{col 46}{space 3}0.000{col 54}{space 4} .0013464{col 67}{space 3} .0018544
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ivregress 2sls arms (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}      3.63
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.8208
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0007
+{txt}{col 51}Root MSE{col 67}=    {res} .00238
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        arms{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0001337{col 26}{space 2} .0001115{col 37}{space 1}    1.20{col 46}{space 3}0.231{col 54}{space 4}-.0000849{col 67}{space 3} .0003522
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0081613{col 26}{space 2} .0162437{col 37}{space 1}   -0.50{col 46}{space 3}0.615{col 54}{space 4}-.0399984{col 67}{space 3} .0236759
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0114378{col 26}{space 2} .0201324{col 37}{space 1}   -0.57{col 46}{space 3}0.570{col 54}{space 4}-.0508967{col 67}{space 3}  .028021
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2} .0000876{col 26}{space 2}   .00011{col 37}{space 1}    0.80{col 46}{space 3}0.426{col 54}{space 4}-.0001281{col 67}{space 3} .0003032
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}  .000044{col 26}{space 2} .0001021{col 37}{space 1}    0.43{col 46}{space 3}0.666{col 54}{space 4}-.0001562{col 67}{space 3} .0002442
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0001294{col 26}{space 2} .0001068{col 37}{space 1}    1.21{col 46}{space 3}0.225{col 54}{space 4}-.0000798{col 67}{space 3} .0003387
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0000921{col 26}{space 2}  .000109{col 37}{space 1}    0.84{col 46}{space 3}0.398{col 54}{space 4}-.0001216{col 67}{space 3} .0003057
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0008802{col 26}{space 2} .0001007{col 37}{space 1}    8.74{col 46}{space 3}0.000{col 54}{space 4} .0006829{col 67}{space 3} .0010776
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. reg arms conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     0.53
+                                                {txt}Prob > F          = {res}    0.8163
+                                                {txt}R-squared         = {res}    0.0007
+                                                {txt}Root MSE          =    {res} .00238
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        arms{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0001345{col 26}{space 2} .0001107{col 37}{space 1}    1.21{col 46}{space 3}0.225{col 54}{space 4}-.0000826{col 67}{space 3} .0003516
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0081605{col 26}{space 2} .0162566{col 37}{space 1}   -0.50{col 46}{space 3}0.616{col 54}{space 4}-.0400306{col 67}{space 3} .0237096
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0114366{col 26}{space 2}  .020149{col 37}{space 1}   -0.57{col 46}{space 3}0.570{col 54}{space 4}-.0509374{col 67}{space 3} .0280642
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2} .0000877{col 26}{space 2} .0001102{col 37}{space 1}    0.80{col 46}{space 3}0.426{col 54}{space 4}-.0001283{col 67}{space 3} .0003037
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000441{col 26}{space 2} .0001021{col 37}{space 1}    0.43{col 46}{space 3}0.666{col 54}{space 4} -.000156{col 67}{space 3} .0002443
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0001295{col 26}{space 2} .0001068{col 37}{space 1}    1.21{col 46}{space 3}0.225{col 54}{space 4}-.0000799{col 67}{space 3} .0003389
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0000921{col 26}{space 2} .0001091{col 37}{space 1}    0.84{col 46}{space 3}0.398{col 54}{space 4}-.0001217{col 67}{space 3} .0003059
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0008797{col 26}{space 2} .0001003{col 37}{space 1}    8.77{col 46}{space 3}0.000{col 54}{space 4} .0006832{col 67}{space 3} .0010763
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ivregress 2sls whitecollar (conscripted = eligible) indigenous naturalized i.birthyr, r first
+{res}
+{txt}First-stage regressions
+{hline 23}
+{res}
+{txt}{col 49}Number of obs{col 67}= {res}     5,000
+{txt}{col 49}F({res}   7{txt},{res}   4992{txt}){col 67}= {res}  59863.50
+{txt}{col 49}Prob > F{col 67}= {res}    0.0000
+{txt}{col 49}R-squared{col 67}= {res}    0.9799
+{txt}{col 49}Adj R-squared{col 67}= {res}    0.9798
+{txt}{col 49}Root MSE{col 67}= {res}    0.0433
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} conscripted{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}indigenous {c |}{col 14}{res}{space 2}-.2294358{col 26}{space 2} .3193919{col 37}{space 1}   -0.72{col 46}{space 3}0.473{col 54}{space 4}-.8555842{col 67}{space 3} .3967127
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.5568822{col 26}{space 2} .3539141{col 37}{space 1}   -1.57{col 46}{space 3}0.116{col 54}{space 4}-1.250709{col 67}{space 3} .1369449
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0192855{col 26}{space 2}  .002366{col 37}{space 1}   -8.15{col 46}{space 3}0.000{col 54}{space 4}-.0239239{col 67}{space 3}-.0146471
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2}-.0001937{col 26}{space 2} .0017994{col 37}{space 1}   -0.11{col 46}{space 3}0.914{col 54}{space 4}-.0037213{col 67}{space 3} .0033339
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0483197{col 26}{space 2} .0017661{col 37}{space 1}   27.36{col 46}{space 3}0.000{col 54}{space 4} .0448574{col 67}{space 3} .0517821
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2} .0206102{col 26}{space 2} .0019008{col 37}{space 1}   10.84{col 46}{space 3}0.000{col 54}{space 4} .0168838{col 67}{space 3} .0243367
+{txt}{space 12} {c |}
+{space 4}eligible {c |}{col 14}{res}{space 2}  .658733{col 26}{space 2} .0011526{col 37}{space 1}  571.51{col 46}{space 3}0.000{col 54}{space 4} .6564733{col 67}{space 3} .6609926
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0327539{col 26}{space 2} .0017374{col 37}{space 1}   18.85{col 46}{space 3}0.000{col 54}{space 4} .0293479{col 67}{space 3} .0361598
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     5,000
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}     15.95
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0256
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0030
+{txt}{col 51}Root MSE{col 67}=    {res} .00456
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} whitecollar{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0006381{col 26}{space 2} .0002109{col 37}{space 1}    3.03{col 46}{space 3}0.002{col 54}{space 4} .0002247{col 67}{space 3} .0010516
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0002481{col 26}{space 2} .0321929{col 37}{space 1}   -0.01{col 46}{space 3}0.994{col 54}{space 4}-.0633451{col 67}{space 3} .0628489
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0161478{col 26}{space 2} .0377213{col 37}{space 1}   -0.43{col 46}{space 3}0.669{col 54}{space 4}-.0900802{col 67}{space 3} .0577845
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0002856{col 26}{space 2}  .000208{col 37}{space 1}   -1.37{col 46}{space 3}0.170{col 54}{space 4}-.0006933{col 67}{space 3} .0001221
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000428{col 26}{space 2} .0002087{col 37}{space 1}    0.21{col 46}{space 3}0.837{col 54}{space 4}-.0003662{col 67}{space 3} .0004518
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0002077{col 26}{space 2} .0002086{col 37}{space 1}    1.00{col 46}{space 3}0.319{col 54}{space 4}-.0002011{col 67}{space 3} .0006165
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-7.57e-06{col 26}{space 2} .0002109{col 37}{space 1}   -0.04{col 46}{space 3}0.971{col 54}{space 4}-.0004209{col 67}{space 3} .0004057
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2}  .003091{col 26}{space 2} .0001946{col 37}{space 1}   15.89{col 46}{space 3}0.000{col 54}{space 4} .0027096{col 67}{space 3} .0034724
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}conscripted{p_end}
+{p 0 15 2}Instruments:{space 3}indigenous naturalized 1959.birthyr 1960.birthyr 1961.birthyr 1962.birthyr eligible{p_end}
+
+{com}. reg whitecollar conscripted indigenous naturalized i.birthyr, r
+
+{txt}Linear regression                               Number of obs     = {res}     5,000
+                                                {txt}F(7, 4992)        =  {res}     2.15
+                                                {txt}Prob > F          = {res}    0.0355
+                                                {txt}R-squared         = {res}    0.0030
+                                                {txt}Root MSE          =    {res} .00456
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} whitecollar{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}conscripted {c |}{col 14}{res}{space 2} .0006043{col 26}{space 2} .0002104{col 37}{space 1}    2.87{col 46}{space 3}0.004{col 54}{space 4} .0001919{col 67}{space 3} .0010167
+{txt}{space 2}indigenous {c |}{col 14}{res}{space 2}-.0002785{col 26}{space 2} .0322188{col 37}{space 1}   -0.01{col 46}{space 3}0.993{col 54}{space 4}-.0634414{col 67}{space 3} .0628845
+{txt}{space 1}naturalized {c |}{col 14}{res}{space 2}-.0161955{col 26}{space 2} .0377521{col 37}{space 1}   -0.43{col 46}{space 3}0.668{col 54}{space 4}-.0902061{col 67}{space 3} .0578151
+{txt}{space 12} {c |}
+{space 5}birthyr {c |}
+{space 7}1959  {c |}{col 14}{res}{space 2}-.0002895{col 26}{space 2} .0002083{col 37}{space 1}   -1.39{col 46}{space 3}0.165{col 54}{space 4}-.0006978{col 67}{space 3} .0001188
+{txt}{space 7}1960  {c |}{col 14}{res}{space 2} .0000391{col 26}{space 2}  .000209{col 37}{space 1}    0.19{col 46}{space 3}0.852{col 54}{space 4}-.0003706{col 67}{space 3} .0004487
+{txt}{space 7}1961  {c |}{col 14}{res}{space 2} .0002055{col 26}{space 2} .0002088{col 37}{space 1}    0.98{col 46}{space 3}0.325{col 54}{space 4}-.0002039{col 67}{space 3} .0006148
+{txt}{space 7}1962  {c |}{col 14}{res}{space 2}-.0000101{col 26}{space 2} .0002111{col 37}{space 1}   -0.05{col 46}{space 3}0.962{col 54}{space 4}-.0004239{col 67}{space 3} .0004037
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .0031106{col 26}{space 2} .0001951{col 37}{space 1}   15.95{col 46}{space 3}0.000{col 54}{space 4} .0027282{col 67}{space 3}  .003493
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\ Q8
+. 
+. *\ Q9
+. 
+. *\ Q10
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\Log_problemset_5.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}29 Apr 2019, 15:07:20
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

@@ -1,0 +1,791 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\log_ps6.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}13 May 2019, 13:25:25
+
+{com}. use "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\probation_ps6.dta"
+
+. do "\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\Do_file_6.do"
+{txt}
+{com}. *\ problem set 6, truett bloxsom
+. *\ Q1
+. hist dist_from_cut,start(-2) w(.1) xline(0) 
+{txt}(bin={res}48{txt}, start={res}-2{txt}, width={res}.1{txt})
+{res}{txt}
+{com}. 
+. *\Q2
+. 
+. gen cutoff_binary = 0
+{txt}
+{com}. replace cutoff_binary = 1 if dist_from_cut >= 0
+{txt}(37,211 real changes made)
+
+{com}. tab cutoff_binary
+
+{txt}cutoff_bina {c |}
+         ry {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      7,151       16.12       16.12
+{txt}          1 {c |}{res}     37,211       83.88      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     44,362      100.00
+{txt}
+{com}. 
+. gen cut2 = (dist_from_cut)^2
+{txt}
+{com}. gen cut3 = (dist_from_cut)^3
+{txt}
+{com}. 
+. reg hsgrade_pct cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       =  {res}   201.98
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0306
+                                                {txt}Root MSE          =    {res} 22.931
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} hsgrade_pct{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.8392696{col 26}{space 2} .8105664{col 37}{space 1}   -1.04{col 46}{space 3}0.300{col 54}{space 4}-2.428104{col 67}{space 3}  .749565
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} 13.53775{col 26}{space 2} 1.195583{col 37}{space 1}   11.32{col 46}{space 3}0.000{col 54}{space 4} 11.19422{col 67}{space 3} 15.88127
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  32.3737{col 26}{space 2} .4639921{col 37}{space 1}   69.77{col 46}{space 3}0.000{col 54}{space 4}  31.4642{col 67}{space 3} 33.28319
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg male cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       =  {res}     2.84
+                                                {txt}Prob > F          = {res}    0.0583
+                                                {txt}R-squared         = {res}    0.0005
+                                                {txt}Root MSE          =    {res} .48412
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        male{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.0029152{col 26}{space 2}   .01732{col 37}{space 1}   -0.17{col 46}{space 3}0.866{col 54}{space 4}-.0368651{col 67}{space 3} .0310346
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0280629{col 26}{space 2} .0253781{col 37}{space 1}   -1.11{col 46}{space 3}0.269{col 54}{space 4}-.0778078{col 67}{space 3} .0216821
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .3801922{col 26}{space 2} .0099795{col 37}{space 1}   38.10{col 46}{space 3}0.000{col 54}{space 4} .3606308{col 67}{space 3} .3997535
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg age_at_entry cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       =  {res}     2.97
+                                                {txt}Prob > F          = {res}    0.0516
+                                                {txt}R-squared         = {res}    0.0005
+                                                {txt}Root MSE          =    {res} .73512
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}age_at_entry{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.0136731{col 26}{space 2} .0264335{col 37}{space 1}   -0.52{col 46}{space 3}0.605{col 54}{space 4}-.0654868{col 67}{space 3} .0381405
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0309321{col 26}{space 2} .0382586{col 37}{space 1}   -0.81{col 46}{space 3}0.419{col 54}{space 4}-.1059248{col 67}{space 3} .0440606
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 18.73108{col 26}{space 2} .0151859{col 37}{space 1} 1233.45{col 46}{space 3}0.000{col 54}{space 4} 18.70131{col 67}{space 3} 18.76085
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg bpl_north_ame~a cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       =  {res}    12.53
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0021
+                                                {txt}Root MSE          =    {res} .33574
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}bpl_north_~a{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.0131742{col 26}{space 2} .0119405{col 37}{space 1}   -1.10{col 46}{space 3}0.270{col 54}{space 4}-.0365795{col 67}{space 3} .0102311
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .0624352{col 26}{space 2} .0175507{col 37}{space 1}    3.56{col 46}{space 3}0.000{col 54}{space 4} .0280331{col 67}{space 3} .0968373
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8718591{col 26}{space 2} .0068792{col 37}{space 1}  126.74{col 46}{space 3}0.000{col 54}{space 4} .8583748{col 67}{space 3} .8853434
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg english cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       =  {res}     7.80
+                                                {txt}Prob > F          = {res}    0.0004
+                                                {txt}R-squared         = {res}    0.0013
+                                                {txt}Root MSE          =    {res} .44937
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     english{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .0353187{col 26}{space 2} .0161346{col 37}{space 1}    2.19{col 46}{space 3}0.029{col 54}{space 4} .0036924{col 67}{space 3}  .066945
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0029751{col 26}{space 2} .0235206{col 37}{space 1}   -0.13{col 46}{space 3}0.899{col 54}{space 4} -.049079{col 67}{space 3} .0431289
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6961269{col 26}{space 2} .0093756{col 37}{space 1}   74.25{col 46}{space 3}0.000{col 54}{space 4} .6777494{col 67}{space 3} .7145045
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg hsgrade_pct cutoff_binary dist_from_cut cut2 cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(4, 44357)       =  {res} 10630.13
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.3910
+                                                {txt}Root MSE          =    {res} 22.521
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} hsgrade_pct{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}  .181848{col 26}{space 2} .5421467{col 37}{space 1}    0.34{col 46}{space 3}0.737{col 54}{space 4}-.8807691{col 67}{space 3} 1.244465
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}  12.0501{col 26}{space 2} .3651539{col 37}{space 1}   33.00{col 46}{space 3}0.000{col 54}{space 4} 11.33439{col 67}{space 3} 12.76581
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2} 3.811466{col 26}{space 2} .2068467{col 37}{space 1}   18.43{col 46}{space 3}0.000{col 54}{space 4} 3.406043{col 67}{space 3} 4.216889
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} .4604779{col 26}{space 2} .0887602{col 37}{space 1}    5.19{col 46}{space 3}0.000{col 54}{space 4} .2865064{col 67}{space 3} .6344494
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 31.52099{col 26}{space 2} .3612813{col 37}{space 1}   87.25{col 46}{space 3}0.000{col 54}{space 4} 30.81287{col 67}{space 3}  32.2291
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg male cutoff_binary dist_from_cut cut2 cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(4, 44357)       =  {res}    23.60
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0022
+                                                {txt}Root MSE          =    {res} .48556
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}        male{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .0057937{col 26}{space 2} .0118197{col 37}{space 1}    0.49{col 46}{space 3}0.624{col 54}{space 4}-.0173732{col 67}{space 3} .0289606
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0398974{col 26}{space 2} .0082195{col 37}{space 1}   -4.85{col 46}{space 3}0.000{col 54}{space 4}-.0560078{col 67}{space 3}-.0237871
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}  .017997{col 26}{space 2} .0047816{col 37}{space 1}    3.76{col 46}{space 3}0.000{col 54}{space 4}  .008625{col 67}{space 3}  .027369
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} .0029853{col 26}{space 2} .0021606{col 37}{space 1}    1.38{col 46}{space 3}0.167{col 54}{space 4}-.0012495{col 67}{space 3} .0072201
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .376783{col 26}{space 2} .0080247{col 37}{space 1}   46.95{col 46}{space 3}0.000{col 54}{space 4} .3610544{col 67}{space 3} .3925116
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg age_at_entry cutoff_binary dist_from_cut cut2 cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(4, 44357)       =  {res}   114.81
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0113
+                                                {txt}Root MSE          =    {res} .73875
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}age_at_entry{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.0028575{col 26}{space 2} .0181783{col 37}{space 1}   -0.16{col 46}{space 3}0.875{col 54}{space 4}-.0384873{col 67}{space 3} .0327723
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0533975{col 26}{space 2}   .01275{col 37}{space 1}   -4.19{col 46}{space 3}0.000{col 54}{space 4}-.0783877{col 67}{space 3}-.0284073
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2} .0429866{col 26}{space 2} .0078728{col 37}{space 1}    5.46{col 46}{space 3}0.000{col 54}{space 4} .0275557{col 67}{space 3} .0584174
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2}-.0248516{col 26}{space 2} .0033725{col 37}{space 1}   -7.37{col 46}{space 3}0.000{col 54}{space 4}-.0314618{col 67}{space 3}-.0182415
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  18.7172{col 26}{space 2} .0124564{col 37}{space 1} 1502.61{col 46}{space 3}0.000{col 54}{space 4} 18.69278{col 67}{space 3} 18.74161
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg bpl_north_ame~a cutoff_binary dist_from_cut cut2 cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(4, 44357)       =  {res}    21.30
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0022
+                                                {txt}Root MSE          =    {res} .33502
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}bpl_north_~a{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .0073628{col 26}{space 2} .0083043{col 37}{space 1}    0.89{col 46}{space 3}0.375{col 54}{space 4}-.0089139{col 67}{space 3} .0236394
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .0252079{col 26}{space 2} .0058049{col 37}{space 1}    4.34{col 46}{space 3}0.000{col 54}{space 4} .0138302{col 67}{space 3} .0365855
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.0057158{col 26}{space 2} .0034968{col 37}{space 1}   -1.63{col 46}{space 3}0.102{col 54}{space 4}-.0125695{col 67}{space 3} .0011379
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2}-.0039316{col 26}{space 2} .0015494{col 37}{space 1}   -2.54{col 46}{space 3}0.011{col 54}{space 4}-.0069683{col 67}{space 3}-.0008948
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8616143{col 26}{space 2} .0057549{col 37}{space 1}  149.72{col 46}{space 3}0.000{col 54}{space 4} .8503346{col 67}{space 3} .8728939
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg english cutoff_binary dist_from_cut cut2 cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(4, 44357)       =  {res}    28.49
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0027
+                                                {txt}Root MSE          =    {res} .45144
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     english{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .0260768{col 26}{space 2} .0110549{col 37}{space 1}    2.36{col 46}{space 3}0.018{col 54}{space 4} .0044091{col 67}{space 3} .0477446
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .0223635{col 26}{space 2} .0076677{col 37}{space 1}    2.92{col 46}{space 3}0.004{col 54}{space 4} .0073346{col 67}{space 3} .0373925
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.0029755{col 26}{space 2} .0044636{col 37}{space 1}   -0.67{col 46}{space 3}0.505{col 54}{space 4}-.0117242{col 67}{space 3} .0057731
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2}-.0073563{col 26}{space 2} .0020251{col 37}{space 1}   -3.63{col 46}{space 3}0.000{col 54}{space 4}-.0113255{col 67}{space 3}-.0033871
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6960803{col 26}{space 2} .0075789{col 37}{space 1}   91.84{col 46}{space 3}0.000{col 54}{space 4} .6812255{col 67}{space 3} .7109351
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\Q3
+. 
+. reg probation_year1 cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       >  {res} 99999.00
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.9919
+                                                {txt}Root MSE          =    {res} .04276
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.9939672{col 26}{space 2} .0016486{col 37}{space 1} -602.93{col 46}{space 3}0.000{col 54}{space 4}-.9971986{col 67}{space 3}-.9907358
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0018971{col 26}{space 2} .0019252{col 37}{space 1}   -0.99{col 46}{space 3}0.324{col 54}{space 4}-.0056708{col 67}{space 3} .0018766
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9949325{col 26}{space 2} .0011884{col 37}{space 1}  837.23{col 46}{space 3}0.000{col 54}{space 4} .9926031{col 67}{space 3} .9972618
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg probation_ever cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       =  {res} 24999.80
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.6487
+                                                {txt}Root MSE          =    {res}  .2952
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~r{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.6263639{col 26}{space 2}  .011985{col 37}{space 1}  -52.26{col 46}{space 3}0.000{col 54}{space 4}-.6498564{col 67}{space 3}-.6028715
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.3524894{col 26}{space 2} .0167224{col 37}{space 1}  -21.08{col 46}{space 3}0.000{col 54}{space 4}-.3852678{col 67}{space 3}-.3197109
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .901548{col 26}{space 2} .0046502{col 37}{space 1}  193.87{col 46}{space 3}0.000{col 54}{space 4} .8924328{col 67}{space 3} .9106631
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg probation_year1 cutoff_binary dist_from_cut cut2 cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(4, 44357)       >  {res} 99999.00
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.9915
+                                                {txt}Root MSE          =    {res} .03379
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.9953435{col 26}{space 2} .0013912{col 37}{space 1} -715.47{col 46}{space 3}0.000{col 54}{space 4}-.9980702{col 67}{space 3}-.9926167
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .0015203{col 26}{space 2} .0009407{col 37}{space 1}    1.62{col 46}{space 3}0.106{col 54}{space 4}-.0003234{col 67}{space 3}  .003364
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.0019012{col 26}{space 2} .0009463{col 37}{space 1}   -2.01{col 46}{space 3}0.045{col 54}{space 4}-.0037561{col 67}{space 3}-.0000463
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} .0005478{col 26}{space 2} .0002736{col 37}{space 1}    2.00{col 46}{space 3}0.045{col 54}{space 4} .0000116{col 67}{space 3}  .001084
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9953408{col 26}{space 2} .0012316{col 37}{space 1}  808.18{col 46}{space 3}0.000{col 54}{space 4} .9929269{col 67}{space 3} .9977548
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg probation_ever cutoff_binary dist_from_cut cut2 cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(4, 44357)       >  {res} 99999.00
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.7972
+                                                {txt}Root MSE          =    {res} .17891
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~r{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.7448863{col 26}{space 2} .0063257{col 37}{space 1} -117.76{col 46}{space 3}0.000{col 54}{space 4}-.7572848{col 67}{space 3}-.7324879
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.1548743{col 26}{space 2} .0042561{col 37}{space 1}  -36.39{col 46}{space 3}0.000{col 54}{space 4}-.1632164{col 67}{space 3}-.1465322
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.0407076{col 26}{space 2} .0013526{col 37}{space 1}  -30.09{col 46}{space 3}0.000{col 54}{space 4}-.0433587{col 67}{space 3}-.0380564
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} .0315972{col 26}{space 2} .0008772{col 37}{space 1}   36.02{col 46}{space 3}0.000{col 54}{space 4} .0298779{col 67}{space 3} .0333165
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9445211{col 26}{space 2} .0019263{col 37}{space 1}  490.33{col 46}{space 3}0.000{col 54}{space 4} .9407455{col 67}{space 3} .9482967
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\Q4
+. 
+. gen bin2 = floor(dist_from_cut*10)/10
+{txt}
+{com}. 
+. bysort bin2: egen proby1_mean = mean(probation_year1)
+{txt}
+{com}. bysort bin2: egen probever_mean = mean(probation_ever)
+{txt}
+{com}. 
+. reg probation_year1 cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       >  {res} 99999.00
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.9919
+                                                {txt}Root MSE          =    {res} .04276
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.9939672{col 26}{space 2} .0016486{col 37}{space 1} -602.93{col 46}{space 3}0.000{col 54}{space 4}-.9971986{col 67}{space 3}-.9907358
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0018971{col 26}{space 2} .0019252{col 37}{space 1}   -0.99{col 46}{space 3}0.324{col 54}{space 4}-.0056708{col 67}{space 3} .0018766
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9949325{col 26}{space 2} .0011884{col 37}{space 1}  837.23{col 46}{space 3}0.000{col 54}{space 4} .9926031{col 67}{space 3} .9972618
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict proby1_lin
+{txt}(option {bf:xb} assumed; fitted values)
+
+{com}. reg probation_ever cutoff_binary dist_from_cut if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(2, 12527)       =  {res} 24999.80
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.6487
+                                                {txt}Root MSE          =    {res}  .2952
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~r{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.6263639{col 26}{space 2}  .011985{col 37}{space 1}  -52.26{col 46}{space 3}0.000{col 54}{space 4}-.6498564{col 67}{space 3}-.6028715
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.3524894{col 26}{space 2} .0167224{col 37}{space 1}  -21.08{col 46}{space 3}0.000{col 54}{space 4}-.3852678{col 67}{space 3}-.3197109
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .901548{col 26}{space 2} .0046502{col 37}{space 1}  193.87{col 46}{space 3}0.000{col 54}{space 4} .8924328{col 67}{space 3} .9106631
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict probever_lin
+{txt}(option {bf:xb} assumed; fitted values)
+
+{com}. 
+. gen cutb_dist = cutoff_binary*dist_from_cut
+{txt}
+{com}. gen cutb_cut2 = cutoff_binary*cut2
+{txt}
+{com}. gen cutb_cut3 = cutoff_binary*cut3
+{txt}
+{com}. 
+. reg probation_year1 cutoff_binary dist_from_cut cut2 cut3 cutb_dist cutb_cut2 cutb_cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}{help j_robustsingular:F(6, 44354) }      =  {res}        .
+                                                {txt}Prob > F          = {res}         .
+                                                {txt}R-squared         = {res}    0.9915
+                                                {txt}Root MSE          =    {res} .03379
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~1{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.9965343{col 26}{space 2}  .002741{col 37}{space 1} -363.56{col 46}{space 3}0.000{col 54}{space 4}-1.001907{col 67}{space 3}-.9911618
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .0183614{col 26}{space 2} .0189699{col 37}{space 1}    0.97{col 46}{space 3}0.333{col 54}{space 4}-.0188199{col 67}{space 3} .0555428
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2} .0273189{col 26}{space 2} .0329906{col 37}{space 1}    0.83{col 46}{space 3}0.408{col 54}{space 4}-.0373432{col 67}{space 3} .0919811
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} .0135075{col 26}{space 2} .0155133{col 37}{space 1}    0.87{col 46}{space 3}0.384{col 54}{space 4}-.0168988{col 67}{space 3} .0439138
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.0200452{col 26}{space 2}  .019001{col 37}{space 1}   -1.05{col 46}{space 3}0.291{col 54}{space 4}-.0572874{col 67}{space 3} .0171971
+{txt}{space 3}cutb_cut2 {c |}{col 14}{res}{space 2}-.0262094{col 26}{space 2} .0329994{col 37}{space 1}   -0.79{col 46}{space 3}0.427{col 54}{space 4}-.0908889{col 67}{space 3} .0384701
+{txt}{space 3}cutb_cut3 {c |}{col 14}{res}{space 2} -.013734{col 26}{space 2} .0155141{col 37}{space 1}   -0.89{col 46}{space 3}0.376{col 54}{space 4} -.044142{col 67}{space 3}  .016674
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .997307{col 26}{space 2} .0027011{col 37}{space 1}  369.22{col 46}{space 3}0.000{col 54}{space 4} .9920128{col 67}{space 3} 1.002601
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict proby1_poly
+{txt}(option {bf:xb} assumed; fitted values)
+
+{com}. reg probation_ever cutoff_binary dist_from_cut cut2 cut3 cutb_dist cutb_cut2 cutb_cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(7, 44354)       >  {res} 99999.00
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.8056
+                                                {txt}Root MSE          =    {res} .17517
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}probation_~r{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.6659279{col 26}{space 2} .0094545{col 37}{space 1}  -70.44{col 46}{space 3}0.000{col 54}{space 4}-.6844588{col 67}{space 3} -.647397
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .0159701{col 26}{space 2} .0188206{col 37}{space 1}    0.85{col 46}{space 3}0.396{col 54}{space 4}-.0209187{col 67}{space 3} .0528588
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2} .0231591{col 26}{space 2} .0327311{col 37}{space 1}    0.71{col 46}{space 3}0.479{col 54}{space 4}-.0409945{col 67}{space 3} .0873127
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} .0117594{col 26}{space 2} .0154161{col 37}{space 1}    0.76{col 46}{space 3}0.446{col 54}{space 4}-.0184564{col 67}{space 3} .0419753
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.6914677{col 26}{space 2} .0303794{col 37}{space 1}  -22.76{col 46}{space 3}0.000{col 54}{space 4}-.7510118{col 67}{space 3}-.6319236
+{txt}{space 3}cutb_cut2 {c |}{col 14}{res}{space 2} .4125485{col 26}{space 2} .0375093{col 37}{space 1}   11.00{col 46}{space 3}0.000{col 54}{space 4} .3390295{col 67}{space 3} .4860674
+{txt}{space 3}cutb_cut3 {c |}{col 14}{res}{space 2}-.1004725{col 26}{space 2}  .015976{col 37}{space 1}   -6.29{col 46}{space 3}0.000{col 54}{space 4}-.1317858{col 67}{space 3}-.0691592
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9972217{col 26}{space 2} .0026998{col 37}{space 1}  369.37{col 46}{space 3}0.000{col 54}{space 4} .9919301{col 67}{space 3} 1.002513
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. predict probever_poly
+{txt}(option {bf:xb} assumed; fitted values)
+
+{com}. 
+. 
+. twoway (scatter proby1_mean bin) (line proby1_poly dist_from_cut if dist_from_cut >= 0) (line proby1_poly dist_from_cut if dist_from_cut < 0) (line proby1_lin dist_from_cut if dist_from_cut >= 0 & dist_from_cut < .6) (line proby1_lin dist_from_cut if dist_from_cut < 0 & dist_from_cut > -.6)
+{res}{txt}
+{com}. twoway (scatter probever_mean bin) (line probever_poly dist_from_cut if dist_from_cut >= 0) (line probever_poly dist_from_cut if dist_from_cut < 0) (line probever_lin dist_from_cut if dist_from_cut >= 0 & dist_from_cut < .6) (line probever_lin dist_from_cut if dist_from_cut < 0 & dist_from_cut > -.6)
+{res}{txt}
+{com}. 
+. *\Q5
+. 
+. 
+. reg nextGPA cutoff_binary dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    11,258
+                                                {txt}F(3, 11254)       =  {res}   132.74
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0346
+                                                {txt}Root MSE          =    {res} .79259
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     nextGPA{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.2332869{col 26}{space 2} .0312198{col 37}{space 1}   -7.47{col 46}{space 3}0.000{col 54}{space 4}-.2944831{col 67}{space 3}-.1720907
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .7453481{col 26}{space 2} .0796681{col 37}{space 1}    9.36{col 46}{space 3}0.000{col 54}{space 4} .5891848{col 67}{space 3} .9015115
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2} -.046766{col 26}{space 2} .0954551{col 37}{space 1}   -0.49{col 46}{space 3}0.624{col 54}{space 4}-.2338747{col 67}{space 3} .1403426
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5449307{col 26}{space 2} .0245557{col 37}{space 1}   22.19{col 46}{space 3}0.000{col 54}{space 4} .4967973{col 67}{space 3} .5930642
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg left_school cutoff_binary dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}Linear regression                               Number of obs     = {res}    12,530
+                                                {txt}F(3, 12526)       =  {res}    17.00
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0050
+                                                {txt}Root MSE          =    {res} .21686
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} left_school{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.0177219{col 26}{space 2} .0083668{col 37}{space 1}   -2.12{col 46}{space 3}0.034{col 54}{space 4}-.0341221{col 67}{space 3}-.0013217
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0417353{col 26}{space 2} .0235188{col 37}{space 1}   -1.77{col 46}{space 3}0.076{col 54}{space 4}-.0878357{col 67}{space 3} .0043651
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2} .0353854{col 26}{space 2} .0265606{col 37}{space 1}    1.33{col 46}{space 3}0.183{col 54}{space 4}-.0166775{col 67}{space 3} .0874482
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0586395{col 26}{space 2} .0070622{col 37}{space 1}    8.30{col 46}{space 3}0.000{col 54}{space 4} .0447965{col 67}{space 3} .0724825
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. reg nextGPA cutoff_binary dist_from_cut cut2 cut3 cutb_dist cutb_cut2 cutb_cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    40,582
+                                                {txt}F(7, 40574)       =  {res}  6922.87
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.4439
+                                                {txt}Root MSE          =    {res} .68357
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     nextGPA{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.2201935{col 26}{space 2} .0366236{col 37}{space 1}   -6.01{col 46}{space 3}0.000{col 54}{space 4}-.2919765{col 67}{space 3}-.1484105
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .6555518{col 26}{space 2} .2156525{col 37}{space 1}    3.04{col 46}{space 3}0.002{col 54}{space 4} .2328681{col 67}{space 3} 1.078236
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.0065342{col 26}{space 2} .3674937{col 37}{space 1}   -0.02{col 46}{space 3}0.986{col 54}{space 4}-.7268301{col 67}{space 3} .7137617
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} .0861177{col 26}{space 2} .1684009{col 37}{space 1}    0.51{col 46}{space 3}0.609{col 54}{space 4}-.2439518{col 67}{space 3} .4161871
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2} .0884504{col 26}{space 2} .2221176{col 37}{space 1}    0.40{col 46}{space 3}0.690{col 54}{space 4} -.346905{col 67}{space 3} .5238059
+{txt}{space 3}cutb_cut2 {c |}{col 14}{res}{space 2} -.084437{col 26}{space 2} .3702207{col 37}{space 1}   -0.23{col 46}{space 3}0.820{col 54}{space 4}-.8100778{col 67}{space 3} .6412038
+{txt}{space 3}cutb_cut3 {c |}{col 14}{res}{space 2}-.0382609{col 26}{space 2} .1687544{col 37}{space 1}   -0.23{col 46}{space 3}0.821{col 54}{space 4}-.3690234{col 67}{space 3} .2925015
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5294432{col 26}{space 2} .0319991{col 37}{space 1}   16.55{col 46}{space 3}0.000{col 54}{space 4} .4667242{col 67}{space 3} .5921622
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. reg left_school cutoff_binary dist_from_cut cut2 cut3 cutb_dist cutb_cut2 cutb_cut3, r
+
+{txt}Linear regression                               Number of obs     = {res}    44,362
+                                                {txt}F(7, 44354)       =  {res}    68.72
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0367
+                                                {txt}Root MSE          =    {res} .21194
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1} left_school{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.0150269{col 26}{space 2} .0103839{col 37}{space 1}   -1.45{col 46}{space 3}0.148{col 54}{space 4}-.0353796{col 67}{space 3} .0053258
+{txt}dist_from_~t {c |}{col 14}{res}{space 2}-.0927014{col 26}{space 2}  .067539{col 37}{space 1}   -1.37{col 46}{space 3}0.170{col 54}{space 4} -.225079{col 67}{space 3} .0396761
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.1475205{col 26}{space 2} .1193255{col 37}{space 1}   -1.24{col 46}{space 3}0.216{col 54}{space 4}-.3814007{col 67}{space 3} .0863596
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2}-.1443551{col 26}{space 2} .0556874{col 37}{space 1}   -2.59{col 46}{space 3}0.010{col 54}{space 4}-.2535033{col 67}{space 3}-.0352068
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2} .0879213{col 26}{space 2} .0688643{col 37}{space 1}    1.28{col 46}{space 3}0.202{col 54}{space 4}-.0470539{col 67}{space 3} .2228965
+{txt}{space 3}cutb_cut2 {c |}{col 14}{res}{space 2}  .154427{col 26}{space 2} .1199137{col 37}{space 1}    1.29{col 46}{space 3}0.198{col 54}{space 4} -.080606{col 67}{space 3} .3894599
+{txt}{space 3}cutb_cut3 {c |}{col 14}{res}{space 2} .1415726{col 26}{space 2} .0557691{col 37}{space 1}    2.54{col 46}{space 3}0.011{col 54}{space 4} .0322641{col 67}{space 3} .2508811
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .0543094{col 26}{space 2} .0094665{col 37}{space 1}    5.74{col 46}{space 3}0.000{col 54}{space 4}  .035755{col 67}{space 3} .0728638
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\Q6
+. gen hsmean2 = 0
+{txt}
+{com}. replace hsmean2 = 1 if hsgrade_pct >= 50
+{txt}(22,590 real changes made)
+
+{com}. tab hsmean2
+
+    {txt}hsmean2 {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}     21,772       49.08       49.08
+{txt}          1 {c |}{res}     22,590       50.92      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}     44,362      100.00
+{txt}
+{com}. 
+. 
+. bysort hsmean2: reg gradin4 cutoff_binary dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}{hline}
+-> hsmean2 = 0
+
+Linear regression                               Number of obs     = {res}     6,736
+                                                {txt}F(3, 6732)        =  {res}   118.13
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0415
+                                                {txt}Root MSE          =    {res} .43777
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin4{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .0150575{col 26}{space 2} .0209923{col 37}{space 1}    0.72{col 46}{space 3}0.473{col 54}{space 4}-.0260941{col 67}{space 3}  .056209
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .2784859{col 26}{space 2} .0439574{col 37}{space 1}    6.34{col 46}{space 3}0.000{col 54}{space 4} .1923155{col 67}{space 3} .3646563
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.0352545{col 26}{space 2} .0607487{col 37}{space 1}   -0.58{col 46}{space 3}0.562{col 54}{space 4}-.1543413{col 67}{space 3} .0838322
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2495207{col 26}{space 2} .0153569{col 37}{space 1}   16.25{col 46}{space 3}0.000{col 54}{space 4} .2194162{col 67}{space 3} .2796251
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{hline}
+-> hsmean2 = 1
+
+Linear regression                               Number of obs     = {res}     2,085
+                                                {txt}F(3, 2081)        =  {res}    26.95
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0288
+                                                {txt}Root MSE          =    {res} .46048
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin4{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .0351676{col 26}{space 2} .0418189{col 37}{space 1}    0.84{col 46}{space 3}0.400{col 54}{space 4}-.0468437{col 67}{space 3} .1171789
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .2652673{col 26}{space 2} .0992958{col 37}{space 1}    2.67{col 46}{space 3}0.008{col 54}{space 4} .0705379{col 67}{space 3} .4599968
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2} -.076429{col 26}{space 2} .1222069{col 37}{space 1}   -0.63{col 46}{space 3}0.532{col 54}{space 4}-.3160895{col 67}{space 3} .1632315
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2624553{col 26}{space 2}  .032235{col 37}{space 1}    8.14{col 46}{space 3}0.000{col 54}{space 4}  .199239{col 67}{space 3} .3256716
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. bysort hsmean2: reg gradin5 cutoff_binary dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}{hline}
+-> hsmean2 = 0
+
+Linear regression                               Number of obs     = {res}     5,531
+                                                {txt}F(3, 5527)        =  {res}   109.71
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0537
+                                                {txt}Root MSE          =    {res} .48485
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}  .020232{col 26}{space 2} .0266056{col 37}{space 1}    0.76{col 46}{space 3}0.447{col 54}{space 4}-.0319255{col 67}{space 3} .0723895
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .4261533{col 26}{space 2} .0630624{col 37}{space 1}    6.76{col 46}{space 3}0.000{col 54}{space 4} .3025262{col 67}{space 3} .5497803
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2} -.181091{col 26}{space 2} .0790885{col 37}{space 1}   -2.29{col 46}{space 3}0.022{col 54}{space 4}-.3361355{col 67}{space 3}-.0260464
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5277465{col 26}{space 2} .0205079{col 37}{space 1}   25.73{col 46}{space 3}0.000{col 54}{space 4} .4875429{col 67}{space 3} .5679501
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{hline}
+-> hsmean2 = 1
+
+Linear regression                               Number of obs     = {res}     1,762
+                                                {txt}F(3, 1758)        =  {res}    33.36
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0538
+                                                {txt}Root MSE          =    {res} .47755
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .1253695{col 26}{space 2} .0496968{col 37}{space 1}    2.52{col 46}{space 3}0.012{col 54}{space 4} .0278984{col 67}{space 3} .2228406
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .3550477{col 26}{space 2} .1325049{col 37}{space 1}    2.68{col 46}{space 3}0.007{col 54}{space 4} .0951639{col 67}{space 3} .6149314
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.2463485{col 26}{space 2}   .15326{col 37}{space 1}   -1.61{col 46}{space 3}0.108{col 54}{space 4}-.5469395{col 67}{space 3} .0542426
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}  .499904{col 26}{space 2} .0400041{col 37}{space 1}   12.50{col 46}{space 3}0.000{col 54}{space 4} .4214433{col 67}{space 3} .5783646
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. bysort hsmean2: reg gradin6 cutoff_binary dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+
+{txt}{hline}
+-> hsmean2 = 0
+
+Linear regression                               Number of obs     = {res}     4,584
+                                                {txt}F(3, 4580)        =  {res}    86.06
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0544
+                                                {txt}Root MSE          =    {res} .46633
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2}-.0101628{col 26}{space 2}   .02831{col 37}{space 1}   -0.36{col 46}{space 3}0.720{col 54}{space 4} -.065664{col 67}{space 3} .0453384
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .5176507{col 26}{space 2} .0710635{col 37}{space 1}    7.28{col 46}{space 3}0.000{col 54}{space 4} .3783319{col 67}{space 3} .6569695
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.2998351{col 26}{space 2} .0859481{col 37}{space 1}   -3.49{col 46}{space 3}0.000{col 54}{space 4}-.4683347{col 67}{space 3}-.1313355
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6607455{col 26}{space 2} .0223253{col 37}{space 1}   29.60{col 46}{space 3}0.000{col 54}{space 4} .6169771{col 67}{space 3} .7045139
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{hline}
+-> hsmean2 = 1
+
+Linear regression                               Number of obs     = {res}     1,421
+                                                {txt}F(3, 1417)        =  {res}    22.37
+                                                {txt}Prob > F          = {res}    0.0000
+                                                {txt}R-squared         = {res}    0.0528
+                                                {txt}Root MSE          =    {res} .44348
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+cutoff_bin~y {c |}{col 14}{res}{space 2} .1509576{col 26}{space 2} .0528304{col 37}{space 1}    2.86{col 46}{space 3}0.004{col 54}{space 4} .0473234{col 67}{space 3} .2545917
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .3054376{col 26}{space 2} .1523044{col 37}{space 1}    2.01{col 46}{space 3}0.045{col 54}{space 4} .0066712{col 67}{space 3}  .604204
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.2829998{col 26}{space 2} .1706499{col 37}{space 1}   -1.66{col 46}{space 3}0.097{col 54}{space 4}-.6177534{col 67}{space 3} .0517538
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6085412{col 26}{space 2} .0439458{col 37}{space 1}   13.85{col 46}{space 3}0.000{col 54}{space 4} .5223353{col 67}{space 3}  .694747
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *\Q7
+. 
+. ivregress 2sls gradin4 (probation_ever = cutoff_binary) dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     8,821
+{txt}{col 1}{col 51}Wald chi2({res}3{txt}){col 67}= {res}    456.93
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0471
+{txt}{col 51}Root MSE{col 67}=    {res}  .4414
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin4{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+probation_~r {c |}{col 14}{res}{space 2}-.0308338{col 26}{space 2}  .029176{col 37}{space 1}   -1.06{col 46}{space 3}0.291{col 54}{space 4}-.0880178{col 67}{space 3} .0263501
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .2784684{col 26}{space 2} .0401706{col 37}{space 1}    6.93{col 46}{space 3}0.000{col 54}{space 4} .1997355{col 67}{space 3} .3572013
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.0635137{col 26}{space 2} .0546008{col 37}{space 1}   -1.16{col 46}{space 3}0.245{col 54}{space 4}-.1705293{col 67}{space 3}  .043502
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2829334{col 26}{space 2} .0209069{col 37}{space 1}   13.53{col 46}{space 3}0.000{col 54}{space 4} .2419566{col 67}{space 3} .3239102
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}probation_ever{p_end}
+{p 0 15 2}Instruments:{space 3}dist_from_cut cutb_dist cutoff_binary{p_end}
+
+{com}. ivregress 2sls gradin5 (probation_ever = cutoff_binary) dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     7,293
+{txt}{col 1}{col 51}Wald chi2({res}3{txt}){col 67}= {res}    446.21
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0744
+{txt}{col 51}Root MSE{col 67}=    {res} .47808
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+probation_~r {c |}{col 14}{res}{space 2}-.0688988{col 26}{space 2}  .036642{col 37}{space 1}   -1.88{col 46}{space 3}0.060{col 54}{space 4}-.1407159{col 67}{space 3} .0029183
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .4112009{col 26}{space 2}  .056848{col 37}{space 1}    7.23{col 46}{space 3}0.000{col 54}{space 4} .2997809{col 67}{space 3} .5226209
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.2341804{col 26}{space 2} .0676027{col 37}{space 1}   -3.46{col 46}{space 3}0.001{col 54}{space 4}-.3666793{col 67}{space 3}-.1016815
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .5904804{col 26}{space 2} .0248882{col 37}{space 1}   23.73{col 46}{space 3}0.000{col 54}{space 4} .5417005{col 67}{space 3} .6392604
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}probation_ever{p_end}
+{p 0 15 2}Instruments:{space 3}dist_from_cut cutb_dist cutoff_binary{p_end}
+
+{com}. ivregress 2sls gradin6 (probation_ever = cutoff_binary) dist_from_cut cutb_dist if dist_from_cut > -.6 & dist_from_cut < .6, r
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}     6,005
+{txt}{col 1}{col 51}Wald chi2({res}3{txt}){col 67}= {res}    335.84
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.0669
+{txt}{col 51}Root MSE{col 67}=    {res} .45835
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+probation_~r {c |}{col 14}{res}{space 2}-.0388473{col 26}{space 2} .0395939{col 37}{space 1}   -0.98{col 46}{space 3}0.327{col 54}{space 4}-.1164499{col 67}{space 3} .0387552
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .4781883{col 26}{space 2} .0643614{col 37}{space 1}    7.43{col 46}{space 3}0.000{col 54}{space 4} .3520422{col 67}{space 3} .6043343
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.3223156{col 26}{space 2} .0727774{col 37}{space 1}   -4.43{col 46}{space 3}0.000{col 54}{space 4}-.4649566{col 67}{space 3}-.1796746
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6887058{col 26}{space 2}  .026294{col 37}{space 1}   26.19{col 46}{space 3}0.000{col 54}{space 4} .6371706{col 67}{space 3}  .740241
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}probation_ever{p_end}
+{p 0 15 2}Instruments:{space 3}dist_from_cut cutb_dist cutoff_binary{p_end}
+
+{com}. 
+. ivregress 2sls gradin4 (probation_ever = cutoff_binary) dist_from_cut cutb_dist cut2 cut3 cutb_dist cutb_cut2 cutb_cut3, r
+{res}{txt}note: cutb_dist omitted because of collinearity
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}    30,017
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}  19138.82
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.1387
+{txt}{col 51}Root MSE{col 67}=    {res}  .4614
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin4{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+probation_~r {c |}{col 14}{res}{space 2} .0077509{col 26}{space 2} .0330737{col 37}{space 1}    0.23{col 46}{space 3}0.815{col 54}{space 4}-.0570724{col 67}{space 3} .0725742
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .3265764{col 26}{space 2}  .094464{col 37}{space 1}    3.46{col 46}{space 3}0.001{col 54}{space 4} .1414303{col 67}{space 3} .5117225
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2} .0435567{col 26}{space 2} .0933475{col 37}{space 1}    0.47{col 46}{space 3}0.641{col 54}{space 4} -.139401{col 67}{space 3} .2265144
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2} .0591737{col 26}{space 2} .1332939{col 37}{space 1}    0.44{col 46}{space 3}0.657{col 54}{space 4}-.2020775{col 67}{space 3}  .320425
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2} -.030125{col 26}{space 2} .0524201{col 37}{space 1}   -0.57{col 46}{space 3}0.566{col 54}{space 4}-.1328665{col 67}{space 3} .0726165
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 3}cutb_cut2 {c |}{col 14}{res}{space 2}-.2240444{col 26}{space 2} .1492906{col 37}{space 1}   -1.50{col 46}{space 3}0.133{col 54}{space 4}-.5166487{col 67}{space 3} .0685598
+{txt}{space 3}cutb_cut3 {c |}{col 14}{res}{space 2} .0696552{col 26}{space 2} .0516509{col 37}{space 1}    1.35{col 46}{space 3}0.177{col 54}{space 4}-.0315787{col 67}{space 3} .1708891
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .2498411{col 26}{space 2} .0210243{col 37}{space 1}   11.88{col 46}{space 3}0.000{col 54}{space 4} .2086343{col 67}{space 3}  .291048
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}probation_ever{p_end}
+{p 0 15 2}Instruments:{space 3}dist_from_cut cutb_dist cut2 cut3 cutb_cut2 cutb_cut3 cutoff_binary{p_end}
+
+{com}. ivregress 2sls gradin5 (probation_ever = cutoff_binary) dist_from_cut cutb_dist cut2 cut3 cutb_dist cutb_cut2 cutb_cut3, r
+{res}{txt}note: cutb_dist omitted because of collinearity
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}    24,581
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}  12686.80
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.1831
+{txt}{col 51}Root MSE{col 67}=    {res} .42331
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin5{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+probation_~r {c |}{col 14}{res}{space 2}-.0973542{col 26}{space 2} .0415289{col 37}{space 1}   -2.34{col 46}{space 3}0.019{col 54}{space 4}-.1787493{col 67}{space 3} -.015959
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .3013186{col 26}{space 2} .1318894{col 37}{space 1}    2.28{col 46}{space 3}0.022{col 54}{space 4}   .04282{col 67}{space 3} .5598171
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.1800948{col 26}{space 2} .1244696{col 37}{space 1}   -1.45{col 46}{space 3}0.148{col 54}{space 4}-.4240506{col 67}{space 3} .0638611
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.2952971{col 26}{space 2} .1939717{col 37}{space 1}   -1.52{col 46}{space 3}0.128{col 54}{space 4}-.6754747{col 67}{space 3} .0848806
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2}-.1842601{col 26}{space 2} .0783383{col 37}{space 1}   -2.35{col 46}{space 3}0.019{col 54}{space 4}-.3378003{col 67}{space 3}-.0307199
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 3}cutb_cut2 {c |}{col 14}{res}{space 2} .3564205{col 26}{space 2} .2113203{col 37}{space 1}    1.69{col 46}{space 3}0.092{col 54}{space 4}-.0577597{col 67}{space 3} .7706007
+{txt}{space 3}cutb_cut3 {c |}{col 14}{res}{space 2} .1510418{col 26}{space 2} .0769985{col 37}{space 1}    1.96{col 46}{space 3}0.050{col 54}{space 4} .0001276{col 67}{space 3}  .301956
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .6102061{col 26}{space 2} .0247926{col 37}{space 1}   24.61{col 46}{space 3}0.000{col 54}{space 4} .5616134{col 67}{space 3} .6587988
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}probation_ever{p_end}
+{p 0 15 2}Instruments:{space 3}dist_from_cut cutb_dist cut2 cut3 cutb_cut2 cutb_cut3 cutoff_binary{p_end}
+
+{com}. ivregress 2sls gradin6 (probation_ever = cutoff_binary) dist_from_cut cutb_dist cut2 cut3 cutb_dist cutb_cut2 cutb_cut3, r
+{res}{txt}note: cutb_dist omitted because of collinearity
+{res}
+{txt}{col 1}Instrumental variables (2SLS) regression{col 51}Number of obs{col 67}= {res}    19,757
+{txt}{col 1}{col 51}Wald chi2({res}7{txt}){col 67}= {res}   6049.95
+{txt}{col 1}{col 51}Prob > chi2{col 67}= {res}    0.0000
+{txt}{col 1}{col 51}R-squared{col 67}= {res}    0.1944
+{txt}{col 51}Root MSE{col 67}=    {res}   .387
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}     gradin6{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+probation_~r {c |}{col 14}{res}{space 2}-.0768429{col 26}{space 2} .0451589{col 37}{space 1}   -1.70{col 46}{space 3}0.089{col 54}{space 4}-.1653527{col 67}{space 3} .0116669
+{txt}dist_from_~t {c |}{col 14}{res}{space 2} .3337692{col 26}{space 2} .1511553{col 37}{space 1}    2.21{col 46}{space 3}0.027{col 54}{space 4} .0375102{col 67}{space 3} .6300282
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}-.2514377{col 26}{space 2} .1402844{col 37}{space 1}   -1.79{col 46}{space 3}0.073{col 54}{space 4}  -.52639{col 67}{space 3} .0235146
+{txt}{space 8}cut2 {c |}{col 14}{res}{space 2}-.2963327{col 26}{space 2} .2305639{col 37}{space 1}   -1.29{col 46}{space 3}0.199{col 54}{space 4}-.7482296{col 67}{space 3} .1555642
+{txt}{space 8}cut3 {c |}{col 14}{res}{space 2}-.1734081{col 26}{space 2} .0958921{col 37}{space 1}   -1.81{col 46}{space 3}0.071{col 54}{space 4}-.3613532{col 67}{space 3}  .014537
+{txt}{space 3}cutb_dist {c |}{col 14}{res}{space 2}        0{col 26}{txt}  (omitted)
+{space 3}cutb_cut2 {c |}{col 14}{res}{space 2} .3806754{col 26}{space 2} .2483884{col 37}{space 1}    1.53{col 46}{space 3}0.125{col 54}{space 4}-.1061569{col 67}{space 3} .8675078
+{txt}{space 3}cutb_cut3 {c |}{col 14}{res}{space 2}  .132788{col 26}{space 2} .0942588{col 37}{space 1}    1.41{col 46}{space 3}0.159{col 54}{space 4}-.0519559{col 67}{space 3} .3175318
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .7118663{col 26}{space 2} .0262779{col 37}{space 1}   27.09{col 46}{space 3}0.000{col 54}{space 4} .6603625{col 67}{space 3}   .76337
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{p 0 15 2}Instrumented:{space 2}probation_ever{p_end}
+{p 0 15 2}Instruments:{space 3}dist_from_cut cutb_dist cut2 cut3 cutb_cut2 cutb_cut3 cutoff_binary{p_end}
+
+{com}. 
+. 
+. 
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}\\tsclient\C\Users\tsblo\Google Drive\UT Spring 2019\Adv econimetrics\log_ps6.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}13 May 2019, 13:25:58
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
